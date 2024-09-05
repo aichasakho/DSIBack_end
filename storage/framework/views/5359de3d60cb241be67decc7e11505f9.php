@@ -5,7 +5,7 @@
         <span></span>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{  route('home.admin')}}">
+        <a class="nav-link" href="<?php echo e(route('home.admin')); ?>">
           <i class="mdi mdi-view-quilt menu-icon"></i>
           <span class="menu-title">Dashboard</span>
           <div class="badge badge-info badge-pill">2</div>
@@ -17,25 +17,25 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="{{route('proprio.index')}}">
+        <a class="nav-link" href="<?php echo e(route('proprio.index')); ?>">
           <i class="mdi mdi-view-headline menu-icon"></i>
           <span class="menu-title">Propriétaire</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('categorie.index')}}">
+        <a class="nav-link" href="<?php echo e(route('categorie.index')); ?>">
           <i class="mdi mdi-chart-pie menu-icon"></i>
           <span class="menu-title">Catégorie</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('bienImmobilier.index')}}">
+        <a class="nav-link" href="<?php echo e(route('bienImmobilier.index')); ?>">
           <i class="mdi mdi-grid-large menu-icon"></i>
           <span class="menu-title">Bien-immobilier</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('client.index')}}">
+        <a class="nav-link" href="<?php echo e(route('client.index')); ?>">
           <i class="mdi mdi-emoticon menu-icon"></i>
           <span class="menu-title">Client</span>
         </a>
@@ -43,7 +43,7 @@
 
 
       <li class="nav-item">
-        <a class="nav-link" href="{{route('demande.visite')}}">
+        <a class="nav-link" href="<?php echo e(route('demande.visite')); ?>">
           <i class="mdi mdi-emoticon menu-icon"></i>
           <span class="menu-title">Demande-visite</span>
         </a>
@@ -64,7 +64,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="{{route('listes.admin.users')}}">
+        <a class="nav-link" href="<?php echo e(route('listes.admin.users')); ?>">
           <i class="mdi mdi-emoticon menu-icon"></i>
           <span class="menu-title">Users</span>
         </a>
@@ -74,3 +74,4 @@
 
     </ul>
   </nav>
+<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/pages/sidebar.blade.php ENDPATH**/ ?>
