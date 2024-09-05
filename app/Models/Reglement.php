@@ -14,4 +14,8 @@ class Reglement extends Model
     public function contrat() :BelongsTo {
         return $this->belongsTo(Contrat::class);
     }
+
+    public function detailReglement():hasMany {
+        return $this->hasMany(DetailReglement::class);
+    }
 }
