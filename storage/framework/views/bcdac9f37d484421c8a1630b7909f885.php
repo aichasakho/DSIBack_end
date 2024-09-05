@@ -110,3 +110,4 @@
     </div>
 
   </nav>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/pages/navbar.blade.php ENDPATH**/ ?>

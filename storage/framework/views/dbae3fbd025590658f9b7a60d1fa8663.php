@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Spica Admin</title>
   <!-- base:css -->
-  <link rel="stylesheet" href="{{asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}">
-  <link rel="stylesheet" href="{{asset('admin/vendors/css/vendor.bundle.base.css')}}">
+  <link rel="stylesheet" href="<?php echo e(asset('admin/vendors/mdi/css/materialdesignicons.min.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('admin/vendors/css/vendor.bundle.base.css')); ?>">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="{{asset('/admin/css/style.css')}}">
+  <link rel="stylesheet" href="<?php echo e(asset('/admin/css/style.css')); ?>">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{asset('admin/images/favicon.png')}}" />
+  <link rel="shortcut icon" href="<?php echo e(asset('admin/images/favicon.png')); ?>" />
 </head>
 
 <body>
@@ -26,12 +26,12 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../../admin/images/logo.png" alt="logo" style="width: 150px;  height: auto;">
+                <img src="../../admin/images/logo.png" alt="logo" style="width: 150px; height: auto;">
               </div>
               <h4 class="text-center">CONNEXION</h4>
-{{--              <h6 class="font-weight-light">Page de connexion</h6>--}}
-              <form class="pt-3" action="{{route('doLogin.login')}}" method="POST">
-                @csrf
+
+              <form class="pt-3" action="<?php echo e(route('doLogin.login')); ?>" method="POST">
+                <?php echo csrf_field(); ?>
                 <div class="form-group">
                   <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
                 </div>
@@ -66,25 +66,26 @@
       <!-- content-wrapper ends -->
     </div>
 
-@if ($errors->any())
+<?php if($errors->any()): ?>
 <div class="alert alert-danger">
     <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <li><?php echo e($error); ?></li>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ul>
 </div>
-@endif
+<?php endif; ?>
   </div>
   <!-- container-scroller -->
   <!-- base:js -->
-  <script src="{{asset('/admin/vendors//admin/js/vendor.bundle.base.js')}}"></script>
+  <script src="<?php echo e(asset('/admin/vendors//admin/js/vendor.bundle.base.js')); ?>"></script>
   <!-- endinject -->
   <!-- inject:js -->
-  <script src="{{asset('/admin/js/off-canvas.js')}}"></script>
-  <script src="{{asset('/admin/js/hoverable-collapse.js')}}"></script>
-  <script src="{{asset('/admin/js/template.js')}}"></script>
+  <script src="<?php echo e(asset('/admin/js/off-canvas.js')); ?>"></script>
+  <script src="<?php echo e(asset('/admin/js/hoverable-collapse.js')); ?>"></script>
+  <script src="<?php echo e(asset('/admin/js/template.js')); ?>"></script>
   <!-- endinject -->
 </body>
 
 </html>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/account/login.blade.php ENDPATH**/ ?>
