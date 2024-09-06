@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([
-            'name' => 'Admin',
+            'nom' => 'ADMIN',
+            'prenom' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin'),
-            'tel' => '783001750',
-            'profile' => 'admin/pIKA1ztnq4ghxnLcwcLN39i13qX4dQt6PZKcrI2D.png',
+            'role' => 'admin',
         ]);
     }
 }

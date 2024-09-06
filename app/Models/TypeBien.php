@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Maison extends Model
+class TypeBien extends Model
 {
     use HasFactory;
+
+    public function bien_immobiliers(){
+        return $this->hasMany(BienImmobilier::class);
+    }
 }

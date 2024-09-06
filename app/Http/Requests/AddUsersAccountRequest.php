@@ -22,7 +22,8 @@ class AddUsersAccountRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required',
+            'nom'=>'required',
+            'prenom'=>'required',
             'email'=>'required|email|unique:users,email',
             'tel'=>'required|unique:users,tel',
             'password'=>'required',

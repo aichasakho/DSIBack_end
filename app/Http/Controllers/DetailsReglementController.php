@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appartement;
+use App\Models\DetailsReglement;
 use Illuminate\Http\Request;
 
-class AppartementController extends Controller
+class DetailsReglementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class AppartementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Appartement $appartement)
+    public function show(DetailsReglement $detailsReglement)
     {
         //
     }
@@ -42,7 +42,7 @@ class AppartementController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Appartement $appartement)
+    public function edit(DetailsReglement $detailsReglement)
     {
         //
     }
@@ -50,7 +50,7 @@ class AppartementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Appartement $appartement)
+    public function update(Request $request, DetailsReglement $detailsReglement)
     {
         //
     }
@@ -58,7 +58,7 @@ class AppartementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Appartement $appartement)
+    public function destroy(DetailsReglement $detailsReglement)
     {
         //
     }

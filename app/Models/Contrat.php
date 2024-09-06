@@ -4,18 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Contrat extends Model
 {
     use HasFactory;
 
-    public function client() :BelongsTo {
-        return $this->belongsTo(Client::class);
+    public function bien_immobilier(){
+        return $this->belongsTo(BienImmobilier::class);
     }
 
+    public function client(){
+        return $this->belongsTo(User::class, 'client_id', 'id');
+    }
 
-    public function prorietaire() :BelongsTo {
-        return $this->belongsTo(Proprietaire::class);
+    public function agent(){
+        return $this->belongsTo(User::class, 'agent_id', 'id');
+    }
+
+    public function proprietaire(){
+        return $this->belongsTo(User::class, 'proprietaire_id', 'id');
+    }
+
+    public function reglements(){
+        return $this->hasMany(Reglement::class);
     }
 }

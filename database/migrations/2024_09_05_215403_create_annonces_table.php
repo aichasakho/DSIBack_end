@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
-            $table->enum('statut',['disponible', 'indisponible']);
-            $table->string('typeAnnonce');
-            $table->string('description');
-            $table->string('prix');
+            $table->enum('type_annonce', ['location', 'vente'])
+                    ->default('location');
+            $table->text('description');
+            $table->enum('statut', ['disponible', 'indisponible'])
+            ->default('disponible');
+            $table->float('prix');
+            $table->foreignId('bien_immobilier_id')->constrained();
             $table->timestamps();
         });
     }

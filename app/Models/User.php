@@ -18,9 +18,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nom',
+        'prenom',
+        'tel',
         'email',
         'password',
+        'role',
+        'cni',
+        'adresse',
+        'ninea',
+        'registreDeCommerce'
     ];
 
     /**
@@ -42,4 +49,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function contrats(){
+        return $this->hasMany(Contrat::class);
+    }
+    
+    public function reglements(){
+        return $this->hasMany(Reglement::class);
+    }
+
+    public function bien_immobiliers(){
+        return $this->hasMany(BienImmobilier::class);
+    }
+
+
 }

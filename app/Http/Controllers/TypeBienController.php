@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DetailReglement;
+use App\Models\TypeBien;
 use Illuminate\Http\Request;
 
-class DetailReglementController extends Controller
+class TypeBienController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class DetailReglementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DetailReglement $detailReglement)
+    public function show(TypeBien $typeBien)
     {
         //
     }
@@ -42,7 +42,7 @@ class DetailReglementController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DetailReglement $detailReglement)
+    public function edit(TypeBien $typeBien)
     {
         //
     }
@@ -50,7 +50,7 @@ class DetailReglementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DetailReglement $detailReglement)
+    public function update(Request $request, TypeBien $typeBien)
     {
         //
     }
@@ -58,7 +58,7 @@ class DetailReglementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DetailReglement $detailReglement)
+    public function destroy(TypeBien $typeBien)
     {
         //
     }

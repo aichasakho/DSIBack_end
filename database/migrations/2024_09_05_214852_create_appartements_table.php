@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('immeubles', function (Blueprint $table) {
+        Schema::create('appartements', function (Blueprint $table) {
             $table->id();
-            $table->string('nomImmeuble');
-            $table->string('nbrEtage');
-            $table->date('dateConstruction');
+            $table->string('type_de_bail');
+            $table->string('nbr_piece');
+            $table->float('montant_caution');
+            $table->foreignId('bien_immobilier_id')->constrained();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('immeubles');
+        Schema::dropIfExists('appartements');
     }
 };

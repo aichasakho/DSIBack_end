@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('parcelles', function (Blueprint $table) {
             $table->id();
-            $table->string('categorie');
-            $table->string('status')->nullable();
+            $table->string('numero_parcelle');
+            $table->string('superficie');
+            $table->foreignId('bien_immobilier_id')->constrained();
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('parcelles');
     }
 };

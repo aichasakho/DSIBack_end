@@ -26,7 +26,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../../admin/images/other/Logo.png" alt="logo" style="width: 350px; height: auto;">
+                <img src="../../admin/images/logo.png" alt="logo" style="width: 150px;  height: auto;">
               </div>
               <h4 class="text-center">CONNEXION</h4>
 

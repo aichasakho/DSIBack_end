@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class DetailReglement extends Model
+class DetailsReglement extends Model
 {
     use HasFactory;
 
-    public function reglement() :BelongsTo {
+    public function reglement()
+    {
         return $this->belongsTo(Reglement::class);
     }
 }

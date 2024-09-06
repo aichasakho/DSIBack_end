@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-
 class AdminController extends Controller
 {
 
@@ -47,7 +46,7 @@ class AdminController extends Controller
                       toastr()->error('Information introuvable');
                       return back();
         }
-        toastr()->info('Bienvenue !'.Auth::user()->name);
+        toastr()->info('Bienvenue !'.Auth::user()->nom);
 
         return redirect()->route('home.admin');
 
@@ -61,17 +60,14 @@ class AdminController extends Controller
         if($request->password != $request->password_confirmation){
             return back()->with("error","Les mots de passes sont différents");
         }
-        $image="";
+       
         $user = new User();
-        $user->name = $request->name;
+        $user->nom = $request->nom;
+        $user->prenom = $request->prenom;
         $user->email = $request->email;
         $user->tel = $request->tel;
         $user->password = bcrypt($request->password);
-        if($request->hasFile("image")){
-         $image = $request->file("image")->store('admin','public');
-        }
-        $user->profile = $image;
-
+        
         $user->save();
         return redirect()->back()->with("success","Compte ajouté avec succes !");
     }
@@ -81,6 +77,5 @@ class AdminController extends Controller
      */
     public function home(){
         return view('admin.index');
-
     }
 }

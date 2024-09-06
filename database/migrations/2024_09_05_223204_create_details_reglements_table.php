@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_appartements', function (Blueprint $table) {
+        Schema::create('details_reglements', function (Blueprint $table) {
             $table->id();
-            $table->string('montantCaution');
-            $table->string('typeDeBail');
-            $table->string('nbrPiece');
+            $table->foreignId('reglement_id')->constrained();
+            $table->string('mois');
+            $table->string('annee');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_appartements');
+        Schema::dropIfExists('details_reglements');
     }
 };

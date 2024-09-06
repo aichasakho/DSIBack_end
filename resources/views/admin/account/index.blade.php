@@ -59,14 +59,9 @@
                       <tbody>
                          @foreach($usersAll as $user)
                         <tr>
+                        
                           <td class="py-1">
-                            <img src="{{asset('storage/'.$user->profile)}}" alt="image"/><br>
-                            {{$user->titre}}
-
-                          </td>
-
-                          <td>
-                            {{$user->name}}
+                            {{$user->nom}} {{ $user->prenom }} 
 
                           </td>
                           <td>
@@ -132,7 +127,12 @@
                 @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Nom</label>
-                  <input type="text" name="name" value="{{old('name')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="text" name="nom" value="{{old('nom')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-3">
+                    <label for="prenom" class="form-label">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" value="{{old('prenom')}}" class="form-control" aria-describedby="emailHelp">
                 </div>
 
 
