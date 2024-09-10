@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Spica Admin</title>
+  <title>Djibril Sakho Immobilier</title>
   <!-- base:css -->
   <link rel="stylesheet" href="<?php echo e(asset('admin/vendors/mdi/css/materialdesignicons.min.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('admin/vendors/css/vendor.bundle.base.css')); ?>">
@@ -28,18 +28,29 @@
               <div class="brand-logo" style="text-align: center;">
                 <img src="../../admin/images/logo.png" alt="logo" style="width: 100px;  height: auto; display: inline-block">
               </div>
-              <h4 class="text-center">CONNEXION</h4>
+              <h4 class="text-center">INSCRIPTION</h4>
 
-              <form class="pt-3" action="<?php echo e(route('doLogin.login')); ?>" method="POST">
+              <form class="pt-3" action="<?php echo e(route('doRegister.register')); ?>" method="POST">
                 <?php echo csrf_field(); ?>
-                <div class="form-group">
+                  <div class="form-group">
+                      <input type="text" name="prenom" class="form-control form-control-lg" id="exampleInputPrenom1" placeholder="Prenom">
+                  </div>
+                  <div class="form-group">
+                      <input type="text" name="nom" class="form-control form-control-lg" id="exampleInputNom1" placeholder="Nom">
+                  </div>
+
+                  <div class="form-group">
                   <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
                 </div>
                 <div class="form-group">
                   <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
                 </div>
+
+                  <div class="form-group">
+                      <input type="password" name="confirmePassword" class="form-control form-control-lg" id="exampleInputConfirmePassword1" placeholder="ConfirmePassword">
+                  </div>
                 <div class="mt-3">
-                  <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >Se connecter</button>
+                  <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >S'inscrire</button>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
@@ -48,10 +59,9 @@
                       Keep me signed in
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Mot de passe oublié?</a>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Pas de compte? <a href="register.html" class="text-primary">S'inscrire</a>
+                  Vous avez un compte? <a href="register.html" class="text-primary">Se connecter</a>
                 </div>
               </form>
             </div>
@@ -83,4 +93,4 @@
 </body>
 
 </html>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/account/login.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/account/register.blade.php ENDPATH**/ ?>
