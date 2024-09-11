@@ -16,17 +16,17 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            
-            
+
+
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                   
+
                   <h4 class="card-title">Liste des Bien-immobilier</h4>
-                 
+
 
                   <p class="card-description">
-                    <a href=" <?php echo e(route('bienImmobilier.create')); ?> ">
+                    <a href="<?php echo e(route('bienImmobilier.create')); ?>">
                     <button type="button" class="btn btn-primary">
                         Ajouter-un-Bien
                       </button>
@@ -60,59 +60,44 @@
                         </tr>
                       </thead>
                       <tbody>
-                         <?php $__currentLoopData = $bienImmobillier; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                         
                         <tr>
                           <td class="py-1">
-                            <img src="<?php echo e(asset('storage/'.$bien->image)); ?>" alt="image"/><br>
-                            <?php echo e($bien->titre); ?>
-
+                            <img src="" alt="image"/><br>
 
                           </td>
-                          
+
                           <td>
-                            <?php echo e($bien->proprietaire->nom); ?>
-
-
                           </td>
                           <td>
-                            <?php echo e($bien->superficie); ?>
-
-
                           </td>
                           <td>
-                            <?php echo e($bien->categorie->categorie); ?>
-
-
                           </td>
-                          
+
                           <td>
-                          <?php echo e($bien->status ? 'Disponible':'Non-Disponible'); ?>
-
-
                           </td>
                           <td>
-                            <a href="<?php echo e(route('bienImmobilier.show',$bien->id)); ?>">
+                            <a href="">
                                 <button class="btn btn-info">Show</button>
                             </a>
                           </td>
                           <td>
-                            <a href="<?php echo e(route('bienImmobilier.edit',$bien->id)); ?>">
+                            <a href="">
                                 <button class="btn btn-info">Edit</button>
                             </a>
                           </td>
                         </tr>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
                       </tbody>
                     </table>
                   </div>
                 </div>
-                <?php echo e($bienImmobillier->links()); ?>
 
               </div>
             </div>
-           
-            
-            
+
+
+
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -135,7 +120,7 @@
     <!-- Button trigger modal -->
 
 
-   
+
 <?php if($errors->any()): ?>
 <div class="alert alert-danger">
     <ul>

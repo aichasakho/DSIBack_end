@@ -27,7 +27,7 @@ Route::middleware(['auth.admin'])->group(function(){
     Route::resource('client',ClientController::class);
 
     Route::resource('categorie',CategorieController::class);
-    Route::resource('bienImmobilier',BienImmobilierController::class);
+
 
 
     Route::post('update-proprio/',[ProprioController::class,'update'])->name('update.proprio');
@@ -36,7 +36,7 @@ Route::middleware(['auth.admin'])->group(function(){
     */
 
     // ADMIN CONTROLLER
-
+    Route::resource('bienImmobilier',BienImmobilierController::class);
     Route::get('homeAdmin',[AdminController::class,'home'])->name('home.admin');
     Route::get('admin-liste-users/',[AdminController::class,'index'])->name('listes.admin.users');
     Route::post('admin-add-users/',[AdminController::class,'store'])->name('add.admin.users');

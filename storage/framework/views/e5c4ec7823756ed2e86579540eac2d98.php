@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <?php echo $__env->make('admin.pages.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
@@ -16,14 +16,12 @@
             <span class="mdi mdi-menu"></span>
           </button>
           <div class="navbar-brand-wrapper">
-            <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" style="text-align: center;" href="index.html"><img src="../../admin/images/logo.png" alt="logo" style="width: 150px;  height: auto; display: inline-block"></a>
             <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
           </div>
-          <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back, Brandon Haynes</h4>
+          <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Bienvenue!!!</h4>
           <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item">
-              <h4 class="mb-0 font-weight-bold d-none d-xl-block">Mar 12, 2019 - Apr 10, 2019</h4>
-            </li>
+
             <li class="nav-item dropdown mr-1">
               <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
                 <i class="mdi mdi-calendar mx-0"></i>
@@ -122,48 +120,7 @@
             <span class="mdi mdi-menu"></span>
           </button>
         </div>
-        <div class="navbar-menu-wrapper navbar-search-wrapper d-none d-lg-flex align-items-center">
-          <ul class="navbar-nav mr-lg-2">
-            <li class="nav-item nav-search d-none d-lg-block">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search Here..." aria-label="search" aria-describedby="search">
-              </div>
-            </li>
-          </ul>
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="images/faces/face5.jpg" alt="profile"/>
-                <span class="nav-profile-name">Eleanor Richardson</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item">
-                  <i class="mdi mdi-settings text-primary"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item">
-                  <i class="mdi mdi-logout text-primary"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
-                <i class="mdi mdi-plus-circle-outline"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
-                <i class="mdi mdi-web"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
-                <i class="mdi mdi-clock-outline"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+
       </nav>
       <!-- partial -->
       <div class="main-panel">
@@ -565,4 +522,5 @@
        <?php echo $__env->make('admin.pages.js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/index.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/index.blade.php ENDPATH**/ ?>

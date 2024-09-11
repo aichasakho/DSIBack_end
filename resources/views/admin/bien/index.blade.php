@@ -16,17 +16,17 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            
-            
+
+
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                   
+
                   <h4 class="card-title">Liste des Bien-immobilier</h4>
-                 
+
 
                   <p class="card-description">
-                    <a href=" {{route('bienImmobilier.create')}} ">
+                    <a href="{{ route('bienImmobilier.create') }}">
                     <button type="button" class="btn btn-primary">
                         Ajouter-un-Bien
                       </button>
@@ -60,53 +60,44 @@
                         </tr>
                       </thead>
                       <tbody>
-                         @foreach($bienImmobillier as $bien)
+                         {{--  @foreach($bienImmobillier as $bien) --}}
                         <tr>
                           <td class="py-1">
-                            <img src="{{asset('storage/'.$bien->image)}}" alt="image"/><br>
-                            {{$bien->titre}}
+                            <img src="" alt="image"/><br>
 
                           </td>
-                          
-                          <td>
-                            {{$bien->proprietaire->nom}}
 
+                          <td>
                           </td>
                           <td>
-                            {{$bien->superficie}}
-
                           </td>
                           <td>
-                            {{$bien->categorie->categorie}}
-
                           </td>
-                          
-                          <td>
-                          {{$bien->status ? 'Disponible':'Non-Disponible'}}
 
+                          <td>
                           </td>
                           <td>
-                            <a href="{{route('bienImmobilier.show',$bien->id)}}">
+                            <a href="">
                                 <button class="btn btn-info">Show</button>
                             </a>
                           </td>
                           <td>
-                            <a href="{{route('bienImmobilier.edit',$bien->id)}}">
+                            <a href="">
                                 <button class="btn btn-info">Edit</button>
                             </a>
                           </td>
                         </tr>
-                        @endforeach
+                        {{--  --}}
                       </tbody>
                     </table>
                   </div>
                 </div>
-                {{$bienImmobillier->links()}}
+
               </div>
             </div>
-           
-            
-            
+
+
+
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -129,7 +120,7 @@
     <!-- Button trigger modal -->
 
 
-   
+
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>

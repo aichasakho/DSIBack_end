@@ -12,7 +12,9 @@ class BienImmobilierController extends Controller
      */
     public function index()
     {
-        //
+        $biens = BienImmobilier::with('type_bien', 'localite', 'proprietaire')
+            ->paginate(10);
+        return view('admin.bien.index', compact('biens'));
     }
 
     /**
@@ -20,7 +22,7 @@ class BienImmobilierController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.bien.store');
     }
 
     /**
