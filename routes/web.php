@@ -28,24 +28,26 @@ Route::middleware(['auth.admin'])->group(function(){
 
     Route::resource('categorie',CategorieController::class);
     Route::resource('bienImmobilier',BienImmobilierController::class);
-    
-    
+
+
     Route::post('update-proprio/',[ProprioController::class,'update'])->name('update.proprio');
     Route::post('update-categorie/',[CategorieController::class,'update'])->name('update.categorie');
     Route::post('update-bienImmobilier/',[BienImmobilierController::class,'update'])->name('update.bienImmobielier');
     */
-    
+
     // ADMIN CONTROLLER
-    
+
     Route::get('homeAdmin',[AdminController::class,'home'])->name('home.admin');
     Route::get('admin-liste-users/',[AdminController::class,'index'])->name('listes.admin.users');
     Route::post('admin-add-users/',[AdminController::class,'store'])->name('add.admin.users');
-    
+
 });
 
 Route::get('',[AdminController::class,'login'])->name('admin.login');
+Route::get('/register',[AdminController::class,'register'])->name('admin.register');
 
 Route::post('Authentification-admin/',[AdminController::class,'doLogin'])->name('doLogin.login');
+Route::post('Authentification-admin/register',[AdminController::class,'doRegister'])->name('doRegister.register');
 /*
 Route::get('listesBienImmoblier',[ApiController::class,'index']);
 
