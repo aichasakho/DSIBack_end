@@ -21,5 +21,26 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),
             'role' => 'admin',
         ]);
+
+        \App\Models\User::factory()->create([
+            'nom' => 'FIRST',
+            'prenom' => 'Propriétaire',
+            'email' => 'first@gmail.com',
+            'password' => bcrypt('first'),
+            'role' => 'proprietaire',
+            'ninea' => '123456789',
+            'adresse' => 'Adresse 1',
+            'tel' => '123456789',
+            'registreDeCommerce' => '00002313113',
+        ]);
+
+        \App\Models\User::factory(10)->create();
+
+        $this->call([
+            TypeBienSeeder::class,
+            LocaliteSeeder::class,
+            BienImmobilierSeeder::class,
+            AppartementSeeder::class,
+        ]);
     }
 }

@@ -6,7 +6,7 @@
 
 <body>
   <div class="container-scroller d-flex">
-     @include("admin.pages.sidebar")
+    @include("admin.pages.sidebar")
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
@@ -22,31 +22,49 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h4 class="card-title">Liste des Bien-immobilier</h4>
+                  <div class="d-flex flex-row gap-2">
+                    <p class="card-description">
+                      <a href="{{ route('appartement.create') }}">
+                        <button type="button" class="btn btn-primary">
+                          Ajouter Un Appartement
+                        </button>
+                      </a>
+                    </p>
 
+                    <p class="card-description">
+                      <a href="">
+                        <button type="button" class="btn btn-primary">
+                          Ajouter Une Maison
+                        </button>
+                      </a>
+                    </p>
 
-                  <p class="card-description">
-                    <a href="{{ route('bienImmobilier.create') }}">
-                    <button type="button" class="btn btn-primary">
-                        Ajouter-un-Bien
-                      </button>
-                    </a>
-                  </p>
+                    <p class="card-description">
+                      <a href="">
+                        <button type="button" class="btn btn-primary">
+                          Ajouter Une Parcelle
+                        </button>
+                      </a>
+                    </p>
+
+                  </div>
+
+                  <h4 class="card-title">Liste des Biens Immobilier</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
                           <th>
-                        Bien/titre
+                            Bien - titre
                           </th>
                           <th>
                             Proprietaire
                           </th>
                           <th>
-                           Superficie
+                            Superficie / Nombre d'etages
                           </th>
                           <th>
-                            Catégorie
+                            Type de bien
                           </th>
                           <th>
                             Status
@@ -60,39 +78,34 @@
                         </tr>
                       </thead>
                       <tbody>
-                         {{--  @foreach($bienImmobillier as $bien) --}}
+                        @foreach($biens as $bien)
                         <tr>
                           <td class="py-1">
-                            <img src="" alt="image"/><br>
+                            <img src="{{ $bien->image }}" alt="image" /><br>
+                          </td>
+                          <td> {{ $bien->proprietaire->nom }} {{ $bien->proprietaire->prenom }}</td>
+                          <td> {{ $bien->superficie ?? $bien->nbr_etage }}</td>
+                          <td> {{ $bien->type_bien->type_bien }} </td>
 
-                          </td>
-
-                          <td>
-                          </td>
-                          <td>
-                          </td>
-                          <td>
-                          </td>
-
-                          <td>
-                          </td>
+                          <td> {{ $bien->etat ? 'Actif' : 'Inactif' }}</td>
                           <td>
                             <a href="">
-                                <button class="btn btn-info">Show</button>
+                              <button class="btn btn-info">Show</button>
                             </a>
                           </td>
                           <td>
                             <a href="">
-                                <button class="btn btn-info">Edit</button>
+                              <button class="btn btn-info">Edit</button>
                             </a>
+                            <a><button class="btn btn-danger">Supprimer</button></a>
                           </td>
                         </tr>
-                        {{--  --}}
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
                 </div>
-
+                {{ $biens->links() }}
               </div>
             </div>
 
@@ -106,8 +119,11 @@
           <div class="card">
             <div class="card-body">
               <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                  bootstrapdash.com 2020</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
+                    href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard
+                    templates</a> from Bootstrapdash.com</span>
               </div>
             </div>
           </div>
@@ -121,19 +137,19 @@
 
 
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
         @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
-    </ul>
-</div>
-@endif
+      </ul>
+    </div>
+    @endif
 
     <!-- page-body-wrapper ends -->
   </div>
-   @include("admin.pages.js")
+  @include("admin.pages.js")
 </body>
 
 </html>

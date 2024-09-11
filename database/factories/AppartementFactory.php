@@ -17,7 +17,10 @@ class AppartementFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'type_de_bail' => $this->faker->randomElement(['Villa', 'Appartement', 'Maison', 'Bureau', 'Studio']),
+            'nbr_piece' => $this->faker->numberBetween(1, 10),
+            'montant_caution' => $this->faker->numberBetween(100000, 5000000),
+            'bien_immobilier_id' => $this->faker->numberBetween(1, 10),       
         ];
     }
 }

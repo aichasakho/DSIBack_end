@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ApiController;
-use App\Http\Controllers\BienImmobilierController;
-use App\Http\Controllers\CategorieController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\ProprioController;
-use App\Http\Controllers\VisiteController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\VisiteController;
+use App\Http\Controllers\ProprioController;
+use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\AppartementController;
+use App\Http\Controllers\BienImmobilierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::middleware(['auth.admin'])->group(function(){
 
     // ADMIN CONTROLLER
     Route::resource('bienImmobilier',BienImmobilierController::class);
+    Route::resource('appartement', AppartementController::class);
     Route::get('homeAdmin',[AdminController::class,'home'])->name('home.admin');
     Route::get('admin-liste-users/',[AdminController::class,'index'])->name('listes.admin.users');
     Route::post('admin-add-users/',[AdminController::class,'store'])->name('add.admin.users');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appartement;
 use Illuminate\Http\Request;
+use App\Models\BienImmobilier;
 
 class AppartementController extends Controller
 {
@@ -20,7 +21,9 @@ class AppartementController extends Controller
      */
     public function create()
     {
-        //
+        $immeubles = BienImmobilier::where('type_bien_id', 1)
+            ->pluck('nom_immeuble', 'id');
+        return view('admin.bien.store', compact('immeubles'));
     }
 
     /**

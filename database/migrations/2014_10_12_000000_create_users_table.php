@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('email')->unique();
             $table->string('tel')->unique();
-            $table->string('role');
+            $table->enum('role', ['admin', 'proprietaire', 'client'])->default('client');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('cni')->nullable();

@@ -39,7 +39,7 @@ return new class extends Migration
             // type immeuble
             $table->string('nom_immeuble')->nullable();
             $table->integer('nbr_etage')->nullable();
-            $table->float('date_construction')->nullable();
+            $table->date('date_construction')->nullable();
 
             $table->boolean('etat')->default(true);
             $table->timestamps();
