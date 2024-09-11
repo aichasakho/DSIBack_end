@@ -23,6 +23,7 @@ class AppartementController extends Controller
     {
         $immeubles = BienImmobilier::where('type_bien_id', 1)
             ->pluck('nom_immeuble', 'id');
+
         return view('admin.bien.store', compact('immeubles'));
     }
 
