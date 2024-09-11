@@ -37,71 +37,43 @@
           </ul>
         </div>
       </li>
-      
-      
+
+
       <li class="nav-item">
         <a class="nav-link" href="">
-          <i class="mdi mdi-chart-pie menu-icon"></i>
+          <i class="mdi mdi-calendar-check menu-icon"></i>
           <span class="menu-title">Reservation</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">
-          <i class="mdi mdi-grid-large menu-icon"></i>
+          <i class="mdi mdi-map-marker menu-icon"></i>
           <span class="menu-title">Localite</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="mdi mdi-emoticon menu-icon"></i>
-          <span class="menu-title">Maison</span>
-        </a>
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="mdi mdi-emoticon menu-icon"></i>
-          <span class="menu-title">Immeuble</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="pages/icons/mdi.html">
-          <i class="mdi mdi-emoticon menu-icon"></i>
-          <span class="menu-title">Appartement</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="pages/icons/mdi.html">
-          <i class="mdi mdi-emoticon menu-icon"></i>
-          <span class="menu-title">Terrain</span>
         </a>
       </li>
 
         <li class="nav-item">
             <a class="nav-link" href="pages/icons/mdi.html">
-                <i class="mdi mdi-emoticon menu-icon"></i>
-                <span class="menu-title">Parcelle</span>
+                <i class="mdi mdi-cube menu-icon"></i>
+                <span class="menu-title">Type de Bien</span>
             </a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="pages/icons/mdi.html">
-                <i class="mdi mdi-emoticon menu-icon"></i>
+                <i class="mdi mdi-file-check menu-icon"></i>
                 <span class="menu-title">Contrat</span>
             </a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="pages/icons/mdi.html">
-                <i class="mdi mdi-emoticon menu-icon"></i>
+                <i class="mdi mdi-file-document menu-icon"></i>
                 <span class="menu-title">Reglement</span>
             </a>
         </li>
 
-        
+
         <li class="nav-item">
         <button class="nav-link btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#user-collapse" aria-expanded="true">
             <i class="mdi mdi-account menu-icon"></i>

@@ -25,27 +25,35 @@
                   <div class="d-flex flex-row gap-2">
                     <p class="card-description">
                       <a href="{{ route('appartement.create') }}">
-                        <button type="button" class="btn btn-primary">
-                          Ajouter Un Appartement
+                        <button type="button" class="btn btn-info">
+                          Ajouter un Appartement
                         </button>
                       </a>
                     </p>
 
                     <p class="card-description">
                       <a href="">
-                        <button type="button" class="btn btn-primary">
-                          Ajouter Une Maison
+                        <button type="button" class="btn btn-info">
+                          Ajouter une Maison
                         </button>
                       </a>
                     </p>
 
                     <p class="card-description">
                       <a href="">
-                        <button type="button" class="btn btn-primary">
-                          Ajouter Une Parcelle
+                        <button type="button" class="btn btn-info">
+                          Ajouter une Parcelle
                         </button>
                       </a>
                     </p>
+
+                      <p class="card-description">
+                          <a href="">
+                              <button type="button" class="btn btn-info">
+                                  Ajouter un Terrain
+                              </button>
+                          </a>
+                      </p>
 
                   </div>
 
@@ -90,15 +98,26 @@
                           <td> {{ $bien->etat ? 'Actif' : 'Inactif' }}</td>
                           <td>
                             <a href="">
-                              <button class="btn btn-info">Show</button>
+                                <button class="btn btn-inverse-info">
+                                    <i class="mdi mdi-eye"></i>
+                                </button>
                             </a>
                           </td>
                           <td>
                             <a href="">
-                              <button class="btn btn-info">Edit</button>
+                                <button class="btn btn-inverse-success">
+                                    <i class="mdi mdi-pencil"></i>
+                                </button>
                             </a>
-                            <a><button class="btn btn-danger">Supprimer</button></a>
                           </td>
+
+                            <td>
+                                <a href="">
+                                    <button class="btn btn-inverse-danger">
+                                        <i class="mdi mdi-delete"></i>
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
                       </tbody>

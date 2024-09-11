@@ -34,6 +34,32 @@ class DatabaseSeeder extends Seeder
             'registreDeCommerce' => '00002313113',
         ]);
 
+        \App\Models\User::factory()->create([
+            'nom' => 'Deuxième',
+            'prenom' => 'Propriétaire',
+            'email' => 'first@gmail.com',
+            'password' => bcrypt('first'),
+            'role' => 'proprietaire',
+            'ninea' => '123456789',
+            'adresse' => 'Adresse 1',
+            'tel' => '123456789',
+            'registreDeCommerce' => '00002313113',
+        ]);
+
+        \App\Models\User::factory()->create([
+            'nom' => 'Troisième',
+            'prenom' => 'Propriétaire',
+            'email' => 'first@gmail.com',
+            'password' => bcrypt('first'),
+            'role' => 'proprietaire',
+            'ninea' => '123456789',
+            'adresse' => 'Adresse 1',
+            'tel' => '123456789',
+            'registreDeCommerce' => '00002313113',
+        ]);
+
+
+
         \App\Models\User::factory(10)->create();
 
         $this->call([

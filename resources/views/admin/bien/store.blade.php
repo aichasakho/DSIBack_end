@@ -16,14 +16,14 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            
-            
+
+
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                   
+
                   <h4 class="card-title">Ajouter Un Appartement</h4>
-      
+
                   <div class="table-responsive">
                   <form action="" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -69,16 +69,16 @@
                     <input type="file" name="image" class="form-control" id="exampleInputPassword1">
                   </div>
 
-               
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+                <button type="submit" class="btn btn-info">Enregistrer</button>
               </form>
                   </div>
                 </div>
               </div>
             </div>
-           
-            
-            
+
+
+
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -100,10 +100,10 @@
 
     <!-- Button trigger modal -->
 
-  
 
 
-   
+
+
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>
