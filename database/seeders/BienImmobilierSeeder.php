@@ -29,9 +29,9 @@ class BienImmobilierSeeder extends Seeder
 
         BienImmobilier::factory()->create(
             [
-                'type_bien_id' => 1,
-                'localite_id' => 1,
-                'proprietaire_id' => 2,
+                'type_bien_id' => 2,
+                'localite_id' => 2,
+                'proprietaire_id' => 3,
                 'agent_id' => 1,
                 'prix' => 100000,
                 'nom_immeuble' => 'Immeuble 2',
@@ -41,18 +41,51 @@ class BienImmobilierSeeder extends Seeder
             ],
         );
 
+
         BienImmobilier::factory()->create(
             [
-                'type_bien_id' => 1,
-                'localite_id' => 1,
+                'superficie' => 1500,
+                'nbr_piece' => 7,
+                'type_bien_id' => 4,
+                'prix' => 100000,
                 'proprietaire_id' => 2,
+                'localite_id' => 1,
                 'agent_id' => 1,
-                'prix' => 500000,
-                'nom_immeuble' => 'Immeuble 3',
-                'nbr_etage' => 3,
-                'date_construction' => '2023-01-01',
                 'etat' => true,
+
+
+
             ],
         );
+
+        BienImmobilier::factory()->create(
+            [
+
+                'type_bien_id' => 4,
+                'localite_id' => 2,
+                'proprietaire_id' => 5,
+                'agent_id' => 1,
+                'prix' => 150000,
+                'prix_achat' => 100000,
+                'etat' => true,
+
+            ],
+        );
+
+        BienImmobilier::factory()->create(
+            [
+
+                'type_bien_id' => 5,
+                'localite_id' => 2,
+                'proprietaire_id' => 2,
+                'agent_id' => 1,
+                'prix' => 150000,
+                'prix_achat' => 100000,
+                'etat' => true,
+
+            ],
+        );
+
+
     }
 }

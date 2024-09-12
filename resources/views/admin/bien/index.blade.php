@@ -56,8 +56,10 @@
                       </p>
 
                   </div>
-
+                    <hr>
                   <h4 class="card-title">Liste des Biens Immobilier</h4>
+
+                    <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>

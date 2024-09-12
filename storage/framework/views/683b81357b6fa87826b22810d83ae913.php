@@ -2,7 +2,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Spica Admin</title>
+    <title>Djibril Sakho Immobilier</title>
     <!-- base:css -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -20,4 +20,5 @@
     <link rel="stylesheet" href="<?php echo e(asset('/admin/css/style.css')); ?>">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
-</head><?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/pages/head.blade.php ENDPATH**/ ?>
+</head>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/pages/head.blade.php ENDPATH**/ ?>
