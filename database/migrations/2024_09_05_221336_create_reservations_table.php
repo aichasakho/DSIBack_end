@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('date_fin');
 
             // relation avec le client
+            $table->string('client_nom');
             $table->bigInteger('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('users')
                     ->onDelete('cascade');

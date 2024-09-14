@@ -42,6 +42,8 @@ return new class extends Migration
             $table->date('date_construction')->nullable();
 
             $table->boolean('etat')->default(true);
+            $table->boolean('is_archived')->default(0);
+
             $table->timestamps();
         });
     }

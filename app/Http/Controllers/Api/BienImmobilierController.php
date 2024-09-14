@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\BienImmobilier;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class BienImmobilierController extends Controller
 {
@@ -20,6 +22,112 @@ class BienImmobilierController extends Controller
         $bienImmobilier = BienImmobilier::findOrFail($id)
             ->load('type_bien', 'localite', 'proprietaire');
         return response()->json($bienImmobilier);
+    }
+    /**
+     * Enregistrer un bien dans la base de donnée
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|string|max:255',
+            'prix' => 'required|numeric',
+            'superficie' => 'required|float',
+            'nbr_piece' => 'required|float',
+        ]);
+
+        $imagePath = $request->file('image')->store('images', 'public');
+
+        $bienImmobilier = new BienImmobilier([
+            'prix' => $request->get('prix'),
+            'superficie' => $request->get('superficie'),
+            'nbr_piece' => $request->get('nbr_piece'),
+            'image' => $imagePath,
+        ]);
+        $bienImmobilier->save();
+
+        return response()->json($bienImmobilier, 201);
+    }
+
+    /**
+     * Modifier un bien
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'image' => 'required|string|max:255',
+            'prix' => 'required|numeric',
+            'superficie' => 'required|float',
+            'nbr_piece' => 'required|float',
+        ]);
+
+        $bienImmobilier = BienImmobilier::find($id);
+
+        if ($bienImmobilier) {
+            $bienImmobilier->superficie = $request->superficie ?? $bienImmobilier->superficie;
+            $bienImmobilier->prix = $request->prix ?? $bienImmobilier->prix;
+            $bienImmobilier->nbr_piece = $request->nbr_piece ?? $bienImmobilier->nbr_piece;
+
+            if ($request->hasFile('image')) {
+                Storage::disk('public')->delete($bienImmobilier->image);
+                $bienImmobilier->image = $request->file('image')->store('images', 'public');
+            }
+
+            $bienImmobilier->save();
+
+            return response()->json($bienImmobilier, 200);
+        }
+
+        return response()->json(['error' => 'BienImmobilier not found'], 404);
+    }
+
+    /**
+     * Supprimer un bien
+     */
+    public function destroy($id)
+    {
+        $bienImmobilier = BienImmobilier::find($id);
+
+        if ($bienImmobilier) {
+            if ($bienImmobilier->image) {
+                Storage::disk('public')->delete($bienImmobilier->image);
+            }
+            $bienImmobilier->delete();
+            return response()->json(['message' => 'Bien supprimé'], 200);
+        }
+
+        return response()->json(['error' => 'Bien introuvable'], 404);
+    }
+
+    /**
+     * Archiver un bien
+     */
+    public function archive(BienImmobilier $bienImmobilier) : JsonResponse
+    {
+        try {
+            // Update the 'is_archived' attribute of the burger to true
+            $bienImmobilier->update(['is_archived' => true]);
+
+            // Return a JSON response with a status code of 204 (No Content)
+            return response()->json(null, 204);
+        } catch (\Exception $exception) {
+            // Return a JSON response with the exception message and a status code of 500 (Internal Server Error)
+            return response()->json($exception->getMessage(), 500);
+        }
+    }
+    /**
+    * Restaurer un bien
+    */
+    public function restore(BienImmobilier $bienImmobilier) : JsonResponse
+    {
+        try {
+            // Update the Burger to set is_archived to false
+            $bienImmobilier->update(['is_archived' => false]);
+            // Return a success response with no content
+            return response()->json(null, 204);
+        } catch (\Exception $exception) {
+            // Return an error response with the exception message
+            return response()->json($exception->getMessage(), 500);
+        }
     }
 
 }
