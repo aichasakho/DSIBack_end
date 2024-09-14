@@ -33,6 +33,12 @@ class BienImmobilierController extends Controller
             'prix' => 'required|numeric',
             'superficie' => 'required|float',
             'nbr_piece' => 'required|float',
+            'prix_achat' => 'required|float',
+            'nom_immeuble' => 'required|string',
+            'nbr_etage' => 'required|integer',
+            'date_construction' => 'required|date',
+            'etat' => 'required|boolean',
+
         ]);
 
         $imagePath = $request->file('image')->store('images', 'public');
@@ -41,6 +47,13 @@ class BienImmobilierController extends Controller
             'prix' => $request->get('prix'),
             'superficie' => $request->get('superficie'),
             'nbr_piece' => $request->get('nbr_piece'),
+            'prix_achat' => $request->get('prix_achat'),
+            'nom_immeuble' => $request->get('nom_immeuble'),
+            'nbr_etage' => $request->get('nbr_etage'),
+            'date_construction' => $request->get('date_construction'),
+            'etat' => $request->get('etat'),
+
+
             'image' => $imagePath,
         ]);
         $bienImmobilier->save();
@@ -58,6 +71,12 @@ class BienImmobilierController extends Controller
             'prix' => 'required|numeric',
             'superficie' => 'required|float',
             'nbr_piece' => 'required|float',
+            'prix_achat' => 'required|float',
+            'nom_immeuble' => 'required|string',
+            'nbr_etage' => 'required|integer',
+            'date_construction' => 'required|date',
+            'etat' => 'required|boolean',
+
         ]);
 
         $bienImmobilier = BienImmobilier::find($id);
