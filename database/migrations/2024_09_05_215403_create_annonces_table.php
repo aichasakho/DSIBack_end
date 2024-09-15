@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('statut', ['disponible', 'indisponible'])
             ->default('disponible');
             $table->float('prix');
+            $table->string('image');
             $table->foreignId('bien_immobilier_id')->constrained();
             $table->timestamps();
         });

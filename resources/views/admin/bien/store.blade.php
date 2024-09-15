@@ -20,10 +20,11 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter Un Appartement</h1>
+
+                  <h1 class="card-title mb-5">Ajouter un Appartement</h1>
 
                   <h4>
-                    <button class="btn btn-primary"> Ajouter un nouvel immeuble </button>
+                    <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
                   </h4>
 
                   <div class="table-responsive">
@@ -58,12 +59,16 @@
                         <input type="number" name="montant_caution" class="form-control" id="montant" placeholder="100000">
                       </div>
 
-                      <button type="submit" class="btn btn-primary">Enregistrer</button>
+                <button type="submit" class="btn btn-info">Enregistrer</button>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
+
+
+
+
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -92,6 +97,7 @@
 
 
 
+
     @if ($errors->any())
     <div class="alert alert-danger">
       <ul>
@@ -103,7 +109,6 @@
     @endif
 
     <!-- page-body-wrapper ends -->
-  </div>
   @include("admin.pages.js")
 </body>
 

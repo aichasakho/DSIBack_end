@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory()->create([
-            'nom' => 'FIRST',
-            'prenom' => 'Propriétaire',
+            'nom' => 'Sakho',
+            'prenom' => 'Mouhamed',
             'email' => 'first@gmail.com',
             'password' => bcrypt('first'),
             'role' => 'proprietaire',
@@ -33,6 +33,32 @@ class DatabaseSeeder extends Seeder
             'tel' => '123456789',
             'registreDeCommerce' => '00002313113',
         ]);
+
+        \App\Models\User::factory()->create([
+            'nom' => 'Soukouna',
+            'prenom' => 'Djibril',
+            'email' => 'deux@gmail.com',
+            'password' => bcrypt('first'),
+            'role' => 'proprietaire',
+            'ninea' => '123456709',
+            'adresse' => 'Adresse 1',
+            'tel' => '123456759',
+            'registreDeCommerce' => '00002313113',
+        ]);
+
+        \App\Models\User::factory()->create([
+            'nom' => 'Samassa',
+            'prenom' => 'Boubou',
+            'email' => 'trois@gmail.com',
+            'password' => bcrypt('first'),
+            'role' => 'proprietaire',
+            'ninea' => '123453789',
+            'adresse' => 'Adresse 1',
+            'tel' => '123450789',
+            'registreDeCommerce' => '00002313113',
+        ]);
+
+
 
         \App\Models\User::factory(10)->create();
 

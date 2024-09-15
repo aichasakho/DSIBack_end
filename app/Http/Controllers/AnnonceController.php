@@ -12,7 +12,9 @@ class AnnonceController extends Controller
      */
     public function index()
     {
-        //
+        $annonce= Annonce::with('bien_immobilier')-> paginate(10);
+        return view('',[
+            'annonce'=>$annonce]);
     }
 
     /**
