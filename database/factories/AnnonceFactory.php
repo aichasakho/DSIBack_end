@@ -17,7 +17,11 @@ class AnnonceFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'type_annonce' => fake()->randomElement(['location', 'vente']),
+            'description' => fake()->realText(300),
+            'statut' => 'disponible',
+            'prix' => fake()->numberBetween(100000, 500000),
+            'bien_immobilier_id' => fake()->numberBetween(1, 10),
         ];
     }
 }
