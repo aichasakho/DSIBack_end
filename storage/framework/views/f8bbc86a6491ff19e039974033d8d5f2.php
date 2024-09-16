@@ -16,16 +16,16 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-
-
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter Un Appartement</h1>
+                  <h1 class="card-title mb-5">Ajouter un Appartement</h1>
 
                   <h4>
-                    <button class="btn btn-primary"> Ajouter un nouvel immeuble </button>
+                    <a href="<?php echo e(route('add.immeuble')); ?>">
+                      <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
+                    </a>
                   </h4>
 
                   <div class="table-responsive">
@@ -60,12 +60,16 @@
                         <input type="number" name="montant_caution" class="form-control" id="montant" placeholder="100000">
                       </div>
 
-                      <button type="submit" class="btn btn-primary">Enregistrer</button>
+                <button type="submit" class="btn btn-info">Enregistrer</button>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
+
+
+
+
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -94,6 +98,7 @@
 
 
 
+
     <?php if($errors->any()): ?>
     <div class="alert alert-danger">
       <ul>
@@ -105,8 +110,8 @@
     <?php endif; ?>
 
     <!-- page-body-wrapper ends -->
-  </div>
   <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/store.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/store.blade.php ENDPATH**/ ?>

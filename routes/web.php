@@ -43,6 +43,11 @@ Route::middleware(['auth.admin'])->group(function(){
     Route::get('admin-liste-users/',[AdminController::class,'index'])->name('listes.admin.users');
     Route::post('admin-add-users/',[AdminController::class,'store'])->name('add.admin.users');
 
+    // Route for immeuble
+    Route::get('admin-add-immeuble/',[BienImmobilierController::class,'addImmeuble'])
+      ->name('add.immeuble');
+    Route::post('admin-store-immeuble/',[BienImmobilierController::class,'storeImmeuble'])
+      ->name('store.immeuble');
 });
 
 Route::get('',[AdminController::class,'login'])->name('admin.login');

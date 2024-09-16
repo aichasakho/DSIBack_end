@@ -9,6 +9,11 @@ class Parcelle extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'bien_immobilier_id',
+        'numero_parcelle',
+        'superficie',
+    ];
     public function bien_immobilier(){
         return $this->belongsTo(BienImmobilier::class);
     }

@@ -9,6 +9,12 @@ class Appartement extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'type_de_bail',
+        'nbre_piece',
+        'bien_immobilier_id',
+        'montant_caution',
+    ];
     public function bienImmobilier(){
         return $this->belongsTo(BienImmobilier::class);
     }
