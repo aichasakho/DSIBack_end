@@ -20,15 +20,16 @@
               <div class="card">
                 <div class="card-body">
 
-
                   <h1 class="card-title mb-5">Ajouter un Appartement</h1>
 
                   <h4>
-                    <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
+                    <a href="<?php echo e(route('add.immeuble')); ?>">
+                      <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
+                    </a>
                   </h4>
 
                   <div class="table-responsive">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="<?php echo e(route('store.immeuble')); ?>" method="POST" enctype="multipart/form-data">
                       <?php echo csrf_field(); ?>
 
                       <div class="my-3">

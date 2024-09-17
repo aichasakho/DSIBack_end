@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddBienImmobilierRequest;
 use App\Http\Requests\AddImmeubleRequest;
+use App\Models\Appartement;
 use App\Models\BienImmobilier;
 use App\Models\Localite;
 use App\Models\TypeBien;
@@ -26,6 +27,7 @@ class BienImmobilierController extends Controller
         return view('admin.bien.index', compact('biens'));
     }
 
+// Immeuble
     public function addImmeuble(){
       $proprietaires = User::where('role', 'proprietaire')->get();
       $localites = Localite::all();
@@ -56,6 +58,41 @@ class BienImmobilierController extends Controller
       return redirect()->route('bienImmobilier.index')
         ->with('success', 'Immeuble ajoute avec succes');
   }
+
+
+  //Appartement
+
+  public function addAppartement(){
+    $appartement = Appartement::all();
+
+    return view('admin.immeuble.add', compact( 'appartement'));
+  }
+
+  /**
+   * Show the form for creating a new resource.
+   */
+  public function createAppartement(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+  {
+    return view('admin.bien.store');
+  }
+
+  public function storeAppartement(AddImmeubleRequest $request): RedirectResponse
+  {
+    $data = $request->validated();
+
+    if ($request->hasFile('image')) {
+      $image = $request->file('image')->store('bien', 'public');
+
+      $data['image'] = $image;
+      $data['image'] = asset('storage/'. $data['image']);
+    }
+
+    BienImmobilier::create($data);
+    return redirect()->route('bienImmobilier.index')
+      ->with('success', 'Immeuble ajoute avec succes');
+  }
+
+
 
     /**
      * Store a newly created resource in storage.

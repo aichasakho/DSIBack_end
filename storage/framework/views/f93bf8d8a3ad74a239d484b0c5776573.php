@@ -21,8 +21,14 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-
                   <div class="d-flex flex-row gap-2">
+                    <p class="card-description">
+                      <a href="<?php echo e(route('add.immeuble')); ?>">
+                        <button type="button" class="btn btn-info">
+                          Ajouter un Immeuble
+                        </button>
+                      </a>
+                    </p>
                     <p class="card-description">
                       <a href="<?php echo e(route('appartement.create')); ?>">
                         <button type="button" class="btn btn-info">

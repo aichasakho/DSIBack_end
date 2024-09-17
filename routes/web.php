@@ -48,6 +48,9 @@ Route::middleware(['auth.admin'])->group(function(){
       ->name('add.immeuble');
     Route::post('admin-store-immeuble/',[BienImmobilierController::class,'storeImmeuble'])
       ->name('store.immeuble');
+
+  Route::post('admin-edit-immeuble/',[BienImmobilierController::class,'storeImmeuble'])
+    ->name('store.immeuble');
 });
 
 Route::get('',[AdminController::class,'login'])->name('admin.login');
