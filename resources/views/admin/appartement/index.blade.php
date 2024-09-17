@@ -53,94 +53,70 @@
                       </a>
                     </p>
 
-                    <p class="card-description">
-                      <a href="">
-                        <button type="button" class="btn btn-info">
-                          Ajouter un Terrain
-                        </button>
-                      </a>
-                    </p>
+                      <p class="card-description">
+                          <a href="">
+                              <button type="button" class="btn btn-info">
+                                  Ajouter un Terrain
+                              </button>
+                          </a>
+                      </p>
 
                   </div>
-                  <hr>
-                  <h4 class="card-title">Liste des Biens Immobiliers</h4>
+                    <hr>
+                  <h4 class="card-title">Liste des Appartements</h4>
 
-                  <hr>
+                    <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>
-                            Bien - titre
-                          </th>
-                          <th>
-                            Proprietaire
-                          </th>
-                          <th>
-                            Superficie / Nombre d'etages
-                          </th>
-                          <th>
-                            Type de bien
-                          </th>
-                          <th>
-                            Status
-                          </th>
-                          <th>
-                            Details
-                          </th>
-                          <th>
-                            Modifier
-                          </th>
+                          <th> Image </th>
+                          <th> Immeuble </th>
+                          <th> Proprietaire </th>
+                          <th> Nombre de piece </th>
+                          <th> Montant caution</th>
+                          <th> Details </th>
+                          <th> Modifier </th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($biens as $bien)
+                        @foreach($appartements as $appart)
                         <tr>
                           <td class="py-1">
-                            <img src="{{ $bien->image }}" alt="image" /><br>
+                            <img src="{{ $appart?->bienImmobilier?->image }}" alt="image" /><br>
                           </td>
-                          <td> {{ $bien->proprietaire->nom }} {{ $bien->proprietaire->prenom }}</td>
-                          <td> {{ $bien->superficie ?? $bien->nbr_etage }}</td>
-                          <td> {{ $bien->type_bien->type_bien }} </td>
-
-                          <td> {{ $bien->etat ? 'Actif' : 'Inactif' }}</td>
+                          <td> {{ $appart?->bienImmobilier?->nom_immeuble }} </td>
+                          <td> {{ $appart?->bienImmobilier->proprietaire?->nom }} {{ $appart?->bienImmobilier->proprietaire?->prenom }}</td>
+                          <td> {{ $appart?->nbr_piece }} </td>
+                          <td> {{ $appart?->montant_caution }} </td>
                           <td>
                             <a href="">
-                              <button class="btn btn-inverse-info">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
+                                <button class="btn btn-inverse-info">
+                                    <i class="mdi mdi-eye"></i>
+                                </button>
                             </a>
                           </td>
                           <td>
-                            @if ($bien->type_bien_id == 1)
-                            <a href="{{ route('edit.immeuble', $bien->id) }}">
-                              <button class="btn btn-inverse-success">
-                                <i class="mdi mdi-pencil"></i>
-                              </button>
-                            </a>
-                            @else
-                            <a href="">
-                              <button class="btn btn-inverse-success">
-                                <i class="mdi mdi-pencil"></i>
-                              </button>
-                            </a>
-                            @endif
-                          </td>
-
-                          <td>
-                            <a href="">
-                              <button class="btn btn-inverse-danger">
-                                <i class="mdi mdi-delete"></i>
-                              </button>
+                            <a href="{{ route('appartement.edit', $appart) }}">
+                                <button class="btn btn-inverse-success">
+                                    <i class="mdi mdi-pencil"></i>
+                                </button>
                             </a>
                           </td>
+                            <td>
+                              <a href="">
+                                  <button class="btn btn-inverse-danger">
+                                      <i class="mdi mdi-delete"></i>
+                                  </button>
+                              </a>
+                            </td>
                         </tr>
                         @endforeach
                       </tbody>
                     </table>
                   </div>
                 </div>
-                {{ $biens->links() }}
+                {{ $appartements->links() }}
               </div>
             </div>
 

@@ -30,7 +30,7 @@
         <div class="collapse show" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled pb-1">
             <li><a href="<?php echo e(route('bienImmobilier.index')); ?>" class="nav-link">Immeubles</a></li>
-            <li><a href="#" class="nav-link">Appartements</a></li>
+            <li><a href="<?php echo e(route('appartement.index')); ?>" class="nav-link">Appartements</a></li>
             <li><a href="#" class="nav-link">Maisons</a></li>
             <li><a href="#" class="nav-link">Terrains</a></li>
             <li><a href="#" class="nav-link">Parcelles</a></li>

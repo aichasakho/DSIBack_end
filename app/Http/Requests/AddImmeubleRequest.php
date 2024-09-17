@@ -29,6 +29,7 @@ class AddImmeubleRequest extends FormRequest
             'type_bien_id' => 'required',
             'agent_id' => 'required',
             'nbr_etage' => 'required',
+            'nom_immeuble' => 'required',
             'date_construction' => 'required',
         ];
     }

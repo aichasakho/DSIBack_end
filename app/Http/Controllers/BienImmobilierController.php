@@ -55,82 +55,58 @@ class BienImmobilierController extends Controller
       }
 
       BienImmobilier::create($data);
-      return redirect()->route('bienImmobilier.index')
+      return redirect()->back()
         ->with('success', 'Immeuble ajoute avec succes');
+    }
+
+    public function editImmeuble(BienImmobilier $immeuble): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    {
+      $proprietaires = User::where('role', 'proprietaire')->get();
+      $localites = Localite::all();
+
+      return view('admin.immeuble.edit',
+       compact('immeuble', 'proprietaires', 'localites'));
+    }
+
+    public function updateImmeuble(AddImmeubleRequest $request, BienImmobilier $immeuble): RedirectResponse
+    {
+
+      $data = $request->validated();
+
+      if ($request->hasFile('image')) {
+        $image = $request->file('image')->store('bien', 'public');
+
+        $data['image'] = $image;
+        $data['image'] = asset('storage/'. $data['image']);
+      }
+
+      if ($immeuble->image){
+        if (file_exists(public_path($immeuble->image))){
+          unlink(public_path($immeuble->image));
+        }
+      }
+
+      if ($immeuble->update($data)) {
+        return redirect()->route('bienImmobilier.index');
+      }
+
+      return redirect()->back()->with('error', 'Une erreur est survenue');
+    }
+
+    public function archived(BienImmobilier $bien): RedirectResponse{
+
+      if ($bien->update(['is_archived' => 1])){
+        return redirect()->back()->with('success', 'Bien Immobilier archive avec succes');
+      }
+      return redirect()->back()->with('error', 'Une erreur est survenue');
+    }
+
+    public function restore(BienImmobilier $bien): RedirectResponse
+    {
+      if ($bien->update(['is_archived' => 0])){
+        return redirect()->back()->with('success', 'Bien Immobilier restaure avec succes');
+      }
+      return redirect()->back()->with('error', 'Une erreur est survenue');
+    }
+
   }
-
-
-  //Appartement
-
-  public function addAppartement(){
-    $appartement = Appartement::all();
-
-    return view('admin.immeuble.add', compact( 'appartement'));
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   */
-  public function createAppartement(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
-  {
-    return view('admin.bien.store');
-  }
-
-  public function storeAppartement(AddImmeubleRequest $request): RedirectResponse
-  {
-    $data = $request->validated();
-
-    if ($request->hasFile('image')) {
-      $image = $request->file('image')->store('bien', 'public');
-
-      $data['image'] = $image;
-      $data['image'] = asset('storage/'. $data['image']);
-    }
-
-    BienImmobilier::create($data);
-    return redirect()->route('bienImmobilier.index')
-      ->with('success', 'Immeuble ajoute avec succes');
-  }
-
-
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(AddBienImmobilierRequest $request)
-    {
-
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(BienImmobilier $bienImmobilier)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(BienImmobilier $bienImmobilier)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, BienImmobilier $bienImmobilier)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(BienImmobilier $bienImmobilier)
-    {
-        //
-    }
-}
