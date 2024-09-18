@@ -2,15 +2,15 @@
 <html lang="en">
 
 
-<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+@include("admin.pages.head")
 
 <body>
   <div class="container-scroller d-flex">
-    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    @include("admin.pages.sidebar")
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      @include('admin.pages.navbar')
 
       <!-- partial -->
       <div class="main-panel">
@@ -23,14 +23,14 @@
                 <div class="card-body">
                   <div class="d-flex flex-row gap-2">
                     <p class="card-description">
-                      <a href="<?php echo e(route('add.immeuble')); ?>">
+                      <a href="{{ route('add.immeuble') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter un Immeuble
                         </button>
                       </a>
                     </p>
                     <p class="card-description">
-                      <a href="<?php echo e(route('appartement.create')); ?>">
+                      <a href="{{ route('appartement.create') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter un Appartement
                         </button>
@@ -63,47 +63,33 @@
 
                   </div>
                   <hr>
-                  <h4 class="card-title">Liste des Biens Immobiliers</h4>
+                  <h4 class="card-title">Liste des Appartements</h4>
 
                   <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>
-                            Bien - titre
-                          </th>
-                          <th>
-                            Proprietaire
-                          </th>
-                          <th>
-                            Superficie / Nombre d'etages
-                          </th>
-                          <th>
-                            Type de bien
-                          </th>
-                          <th>
-                            Status
-                          </th>
-                          <th>
-                            Details
-                          </th>
-                          <th>
-                            Modifier
-                          </th>
+                          <th> Image </th>
+                          <th> Immeuble </th>
+                          <th> Proprietaire </th>
+                          <th> Nombre de piece </th>
+                          <th> Montant caution</th>
+                          <th> Details </th>
+                          <th> Modifier </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php $__currentLoopData = $biens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        @foreach($appartements as $appart)
                         <tr>
                           <td class="py-1">
-                            <img src="<?php echo e($bien->image); ?>" alt="image" /><br>
+                            <img src="{{ $appart?->bienImmobilier?->image }}" alt="image" /><br>
                           </td>
-                          <td> <?php echo e($bien->proprietaire->nom); ?> <?php echo e($bien->proprietaire->prenom); ?></td>
-                          <td> <?php echo e($bien->superficie ?? $bien->nbr_etage); ?></td>
-                          <td> <?php echo e($bien->type_bien->type_bien); ?> </td>
-
-                          <td> <?php echo e($bien->etat ? 'Actif' : 'Inactif'); ?></td>
+                          <td> {{ $appart?->bienImmobilier?->nom_immeuble }} </td>
+                          <td> {{ $appart?->bienImmobilier->proprietaire?->nom }} {{
+                            $appart?->bienImmobilier->proprietaire?->prenom }}</td>
+                          <td> {{ $appart?->nbr_piece }} </td>
+                          <td> {{ $appart?->montant_caution }} </td>
                           <td>
                             <a href="">
                               <button class="btn btn-inverse-info">
@@ -112,36 +98,26 @@
                             </a>
                           </td>
                           <td>
-                            <?php if($bien->type_bien_id == 1): ?>
-                            <a href="<?php echo e(route('edit.immeuble', $bien->id)); ?>">
+                            <a href="{{ route('appartement.edit', $appart) }}">
                               <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
-                            <?php else: ?>
-                            <a href="">
-                              <button class="btn btn-inverse-success">
-                                <i class="mdi mdi-pencil"></i>
-                              </button>
-                            </a>
-                            <?php endif; ?>
                           </td>
-
                           <td>
-                            <a href="">
+                            <a href="{{ route('appartement.destroy', $appart) }}">
                               <button class="btn btn-inverse-danger">
                                 <i class="mdi mdi-delete"></i>
                               </button>
                             </a>
                           </td>
                         </tr>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
                 </div>
-                <?php echo e($biens->links()); ?>
-
+                {{ $appartements->links() }}
               </div>
             </div>
 
@@ -173,19 +149,19 @@
 
 
 
-    <?php if($errors->any()): ?>
+    @if ($errors->any())
     <div class="alert alert-danger">
       <ul>
-        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <li><?php echo e($error); ?></li>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
       </ul>
     </div>
-    <?php endif; ?>
+    @endif
 
     <!-- page-body-wrapper ends -->
   </div>
-  <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+  @include("admin.pages.js")
 </body>
 
-</html><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
+</html>
