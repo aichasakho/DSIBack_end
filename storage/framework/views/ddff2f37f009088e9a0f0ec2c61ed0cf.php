@@ -40,7 +40,7 @@
                   <div class="table-responsive">
                     <form action="<?php echo e(route('appartement.update', $appartement)); ?>" method="POST">
                       <?php echo csrf_field(); ?>
-
+                      <?php echo method_field('put'); ?>
                       <div class="my-3">
                         <label for="immeuble" class="form-label">Selectionner un Immeuble existant</label>
                         <select class="form-select" name="bien_immobilier_id" id="immeuble"

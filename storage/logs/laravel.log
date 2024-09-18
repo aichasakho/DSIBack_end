@@ -25025,3 +25025,156 @@ Did you mean this?
 #61 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #62 {main}
 "} 
+[2024-09-18 20:55:02] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 20:55:04] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 20:55:10] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 20:55:12] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 20:58:20] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 20:58:21] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 20:58:24] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 20:58:25] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 20:58:28] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 20:58:30] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 21:30:04] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 21:30:04] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 21:30:05] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 21:30:36] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 21:30:43] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 21:38:09] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-09-18 21:38:14] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 

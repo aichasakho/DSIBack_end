@@ -53,19 +53,19 @@
                       </a>
                     </p>
 
-                      <p class="card-description">
-                          <a href="">
-                              <button type="button" class="btn btn-info">
-                                  Ajouter un Terrain
-                              </button>
-                          </a>
-                      </p>
+                    <p class="card-description">
+                      <a href="">
+                        <button type="button" class="btn btn-info">
+                          Ajouter un Terrain
+                        </button>
+                      </a>
+                    </p>
 
                   </div>
-                    <hr>
+                  <hr>
                   <h4 class="card-title">Liste des Appartements</h4>
 
-                    <hr>
+                  <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
@@ -91,25 +91,25 @@
                           <td> <?php echo e($appart?->montant_caution); ?> </td>
                           <td>
                             <a href="">
-                                <button class="btn btn-inverse-info">
-                                    <i class="mdi mdi-eye"></i>
-                                </button>
+                              <button class="btn btn-inverse-info">
+                                <i class="mdi mdi-eye"></i>
+                              </button>
                             </a>
                           </td>
                           <td>
                             <a href="<?php echo e(route('appartement.edit', $appart)); ?>">
-                                <button class="btn btn-inverse-success">
-                                    <i class="mdi mdi-pencil"></i>
-                                </button>
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
                             </a>
                           </td>
-                            <td>
-                              <a href="">
-                                  <button class="btn btn-inverse-danger">
-                                      <i class="mdi mdi-delete"></i>
-                                  </button>
-                              </a>
-                            </td>
+                          <td>
+                            <a href="<?php echo e(route('appartement.destroy', $appart)); ?>">
+                              <button class="btn btn-inverse-danger">
+                                <i class="mdi mdi-delete"></i>
+                              </button>
+                            </a>
+                          </td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
@@ -164,5 +164,4 @@
   <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html>
-<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/appartement/index.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/appartement/index.blade.php ENDPATH**/ ?>

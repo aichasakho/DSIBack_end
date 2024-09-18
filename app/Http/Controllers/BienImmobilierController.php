@@ -60,7 +60,7 @@ class BienImmobilierController extends Controller
     }
 
     BienImmobilier::create($data);
-    return redirect()->back()
+    return redirect()->route('bienImmobilier.index')
       ->with('success', 'Immeuble ajoute avec succes');
   }
 
@@ -121,7 +121,7 @@ class BienImmobilierController extends Controller
     return view('admin.bien.store');
   }
 
-  public function storeMaison(AddMaisonRequest $request): RedirectResponse
+  public function storeMaison(addMaisonRequest $request): RedirectResponse
   {
     $data = $request->validated();
 
