@@ -117,7 +117,7 @@ class BienImmobilierController extends Controller
     /**
      * Archiver un bien
      */
-    public function archive(BienImmobilier $bienImmobilier) : JsonResponse
+    public function bloquer(BienImmobilier $bienImmobilier) : JsonResponse
     {
         try {
             // Update the 'is_archived' attribute of the burger to true
@@ -133,7 +133,7 @@ class BienImmobilierController extends Controller
     /**
     * Restaurer un bien
     */
-    public function restore(BienImmobilier $bienImmobilier) : JsonResponse
+    public function debloquer(BienImmobilier $bienImmobilier) : JsonResponse
     {
         try {
             // Update the Burger to set is_archived to false

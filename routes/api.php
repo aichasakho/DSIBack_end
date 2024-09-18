@@ -21,6 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('annonces', [\App\Http\Controllers\Api\AnnonceController::class, 'index']);
 
 
+Route::get('annonces/{id}', [\App\Http\Controllers\Api\AnnonceController::class, 'show']);
 
-//bien immoblilier
-Route::apiResource('immobilier', BienImmobilierController::class);

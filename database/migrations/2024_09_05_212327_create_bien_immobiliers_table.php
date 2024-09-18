@@ -27,7 +27,6 @@ return new class extends Migration
             $table->foreign('agent_id')->references('id')->on('users');
 
 
-
             // type maison
             $table->float('superficie')->nullable();
             $table->float('nbr_piece')->nullable();

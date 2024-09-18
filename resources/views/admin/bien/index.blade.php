@@ -38,7 +38,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="">
+                      <a href="{{ route('add.maison') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter une Maison
                         </button>
@@ -46,26 +46,26 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="">
+                      <a href="{{ route('parcelle.create') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter une Parcelle
                         </button>
                       </a>
                     </p>
 
-                      <p class="card-description">
-                          <a href="">
-                              <button type="button" class="btn btn-info">
-                                  Ajouter un Terrain
-                              </button>
-                          </a>
-                      </p>
+                    <p class="card-description">
+                      <a href="{{ route('add.terrain') }}">
+                        <button type="button" class="btn btn-info">
+                          Ajouter un Terrain
+                        </button>
+                      </a>
+                    </p>
 
                   </div>
-                    <hr>
+                  <hr>
                   <h4 class="card-title">Liste des Biens Immobiliers</h4>
 
-                    <hr>
+                  <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
@@ -81,6 +81,9 @@
                           </th>
                           <th>
                             Type de bien
+                          </th>
+                          <th>
+                            Localité
                           </th>
                           <th>
                             Status
@@ -102,30 +105,40 @@
                           <td> {{ $bien->proprietaire->nom }} {{ $bien->proprietaire->prenom }}</td>
                           <td> {{ $bien->superficie ?? $bien->nbr_etage }}</td>
                           <td> {{ $bien->type_bien->type_bien }} </td>
+                          <td> {{ $bien->localite->localite }} </td>
+
 
                           <td> {{ $bien->etat ? 'Actif' : 'Inactif' }}</td>
                           <td>
                             <a href="">
-                                <button class="btn btn-inverse-info">
-                                    <i class="mdi mdi-eye"></i>
-                                </button>
+                              <button class="btn btn-inverse-info">
+                                <i class="mdi mdi-eye"></i>
+                              </button>
                             </a>
                           </td>
                           <td>
-                            <a href="">
-                                <button class="btn btn-inverse-success">
-                                    <i class="mdi mdi-pencil"></i>
-                                </button>
+                            @if ($bien->type_bien_id == 1)
+                            <a href="{{ route('edit.immeuble', $bien->id) }}">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
                             </a>
+                            @else
+                            <a href="">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                            @endif
                           </td>
 
-                            <td>
-                                <a href="">
-                                    <button class="btn btn-inverse-danger">
-                                        <i class="mdi mdi-delete"></i>
-                                    </button>
-                                </a>
-                            </td>
+                          <td>
+                            <a href="">
+                              <button class="btn btn-inverse-danger">
+                                <i class="mdi mdi-delete"></i>
+                              </button>
+                            </a>
+                          </td>
                         </tr>
                         @endforeach
                       </tbody>
