@@ -188,4 +188,9 @@
   <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
+<<<<<<< HEAD:storage/framework/views/3c7e2926494b577a91ede06c68952dd0.php
+</html>
+<?php /**PATH C:\xampp\htdocs\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
+=======
 </html><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
+>>>>>>> c523b5fc9c67517015107e0161191b6b9d64e88b:storage/framework/views/bdbbf1d1c398d9368957f1cfc28eb9a2.php

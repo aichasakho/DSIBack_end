@@ -72,3 +72,4 @@ Route::get('',[AdminController::class,'login'])->name('admin.login');
 Route::get('/register',[AdminController::class,'register'])->name('admin.register');
 Route::post('Authentification-admin/',[AdminController::class,'doLogin'])->name('doLogin.login');
 Route::post('Authentification-admin/register',[AdminController::class,'doRegister'])->name('doRegister.register');
+

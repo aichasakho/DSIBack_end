@@ -92,4 +92,4 @@
     </ul>
   </nav>
 
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/pages/sidebar.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\DSIBack_end\resources\views/admin/pages/sidebar.blade.php ENDPATH**/ ?>
