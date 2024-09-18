@@ -110,4 +110,4 @@
     </div>
 
   </nav>
-<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/pages/navbar.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\DSIBack_end\resources\views/admin/pages/navbar.blade.php ENDPATH**/ ?>

@@ -523,4 +523,4 @@
 </body>
 
 </html>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\DSIBack_end\resources\views/admin/index.blade.php ENDPATH**/ ?>

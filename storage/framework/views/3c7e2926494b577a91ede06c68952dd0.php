@@ -181,4 +181,4 @@
 </body>
 
 </html>
-<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>

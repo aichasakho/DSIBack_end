@@ -66,3 +66,8 @@ Route::get('listes-demande-visites',[VisiteController::class,'index'])->name('de
 Route::get('listes-details-ventes/{id}',[VisiteController::class,'edit'])->name('details.visite');
 Route::post('valide-demande-visites',[VisiteController::class,'valideVisite'])->name('valideVisite.demande');
 */
+
+
+
+
+Route::get('immoblilier', [BienImmobilierController::class, 'index']);

@@ -4,4 +4,4 @@
   <script src="<?php echo e(asset('/admin/js/hoverable-collapse.js')); ?>"></script>
   <script src="<?php echo e(asset('/admin/js/template.js')); ?>"></script>
   <script src="<?php echo e(asset('/admin/js/dashboard.js')); ?>"></script>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/pages/js.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\DSIBack_end\resources\views/admin/pages/js.blade.php ENDPATH**/ ?>

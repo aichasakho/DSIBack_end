@@ -21,4 +21,4 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
 </head>
-<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/pages/head.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\DSIBack_end\resources\views/admin/pages/head.blade.php ENDPATH**/ ?>
