@@ -60,38 +60,6 @@ class BienImmobilierController extends Controller
   }
 
 
-  //Appartement
-
-  public function addAppartement(){
-    $appartement = Appartement::all();
-
-    return view('admin.immeuble.add', compact( 'appartement'));
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   */
-  public function createAppartement(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
-  {
-    return view('admin.bien.store');
-  }
-
-  public function storeAppartement(AddImmeubleRequest $request): RedirectResponse
-  {
-    $data = $request->validated();
-
-    if ($request->hasFile('image')) {
-      $image = $request->file('image')->store('bien', 'public');
-
-      $data['image'] = $image;
-      $data['image'] = asset('storage/'. $data['image']);
-    }
-
-    BienImmobilier::create($data);
-    return redirect()->route('bienImmobilier.index')
-      ->with('success', 'Immeuble ajoute avec succes');
-  }
-
 
 
     /**
