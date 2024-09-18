@@ -67,6 +67,7 @@ class DatabaseSeeder extends Seeder
             LocaliteSeeder::class,
             BienImmobilierSeeder::class,
             AppartementSeeder::class,
+            AnnonceSeeder::class,
         ]);
     }
 }

@@ -25025,3 +25025,11 @@ Did you mean this?
 #61 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #62 {main}
 "} 
+[2024-09-18 20:28:13] local.ERROR: Command "artisan" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"artisan\" is not defined. at C:\\Users\\sakho\\DSIBack_end\\vendor\\symfony\\console\\Application.php:737)
+[stacktrace]
+#0 C:\\Users\\sakho\\DSIBack_end\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find('artisan')
+#1 C:\\Users\\sakho\\DSIBack_end\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\sakho\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 {main}
+"} 
