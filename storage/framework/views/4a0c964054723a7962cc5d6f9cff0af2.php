@@ -63,77 +63,46 @@
 
                   </div>
                   <hr>
-                  <h4 class="card-title">Liste des Biens Immobiliers</h4>
+                  <h4 class="card-title">Liste des parcelles</h4>
 
                   <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>
-                            Bien - titre
-                          </th>
-                          <th>
-                            Proprietaire
-                          </th>
-                          <th>
-                            Superficie / Nombre d'etages
-                          </th>
-                          <th>
-                            Type de bien
-                          </th>
-                          <th>
-                            Localité
-                          </th>
-                          <th>
-                            Status
-                          </th>
-                          <th>
-                            Details
-                          </th>
-                          <th>
-                            Modifier
-                          </th>
+                          <th> Image </th>
+                          <th> Numéro de parcelle</th>
+                          <th> Propriétaire </th>
+                          <th> Superficie </th>
+                          <th> Details </th>
+                          <th> Modifier </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php $__currentLoopData = $biens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $parcelles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $parcelle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                           <td class="py-1">
-                            <img src="<?php echo e($bien->image); ?>" alt="image" /><br>
+                            <img src="<?php echo e($parcelle?->bienImmobilier?->image); ?>" alt="image" /><br>
                           </td>
-                          <td> <?php echo e($bien->proprietaire->nom); ?> <?php echo e($bien->proprietaire->prenom); ?></td>
-                          <td> <?php echo e($bien->superficie ?? $bien->nbr_etage); ?></td>
-                          <td> <?php echo e($bien->type_bien->type_bien); ?> </td>
-                          <td> <?php echo e($bien->localite->localite); ?> </td>
-
-
-                          <td> <?php echo e($bien->etat ? 'Actif' : 'Inactif'); ?></td>
+                          <td> <?php echo e($parcelle?->numero_parcelle); ?> </td>
+                          <td> <?php echo e($parcelle?->bienImmobilier->proprietaire?->nom); ?> <?php echo e($parcelle?->bienImmobilier->proprietaire?->prenom); ?></td>
+                          <td> <?php echo e($parcelle?->superficie); ?> </td>
                           <td>
-                            <a href="">
+                            <a href="<?php echo e(route('parcelle.update', $parcelle)); ?>">
                               <button class="btn btn-inverse-info">
                                 <i class="mdi mdi-eye"></i>
                               </button>
                             </a>
                           </td>
                           <td>
-                            <?php if($bien->type_bien_id == 1): ?>
-                            <a href="<?php echo e(route('edit.immeuble', $bien->id)); ?>">
+                            <a href="<?php echo e(route('parcelle.edit', $parcelle)); ?>">
                               <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
-                            <?php else: ?>
-                            <a href="">
-                              <button class="btn btn-inverse-success">
-                                <i class="mdi mdi-pencil"></i>
-                              </button>
-                            </a>
-                            <?php endif; ?>
                           </td>
-
                           <td>
-                            <a href="">
+                            <a href="<?php echo e(route('parcelle.destroy', $parcelle)); ?>">
                               <button class="btn btn-inverse-danger">
                                 <i class="mdi mdi-delete"></i>
                               </button>
@@ -145,7 +114,7 @@
                     </table>
                   </div>
                 </div>
-                <?php echo e($biens->links()); ?>
+                <?php echo e($parcelles->links()); ?>
 
               </div>
             </div>
@@ -194,4 +163,4 @@
 </body>
 
 </html>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/parcelle/index.blade.php ENDPATH**/ ?>

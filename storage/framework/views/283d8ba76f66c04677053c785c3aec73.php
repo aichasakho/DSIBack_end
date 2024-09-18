@@ -20,10 +20,10 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter un nouvel immeuble</h1>
+                  <h1 class="card-title mb-5">Ajouter un nouveau terrain</h1>
 
                   <div class="table-responsive">
-                    <form action="<?php echo e(route('store.immeuble')); ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?php echo e(route('store.terrain')); ?>" method="POST" enctype="multipart/form-data">
                       <?php echo csrf_field(); ?>
                       <input type="hidden" name="agent_id" value="<?php echo e(Auth::user()->id); ?>">
                       <div class="my-3">
@@ -32,10 +32,10 @@
                           placeholder="image">
                       </div>
 
-                      <div class="my-3">
-                        <label for="nom" class="form-label">Nom Immeuble</label>
-                        <input type="text" name="nom_immeuble" class="form-control" id="nom"
-                          value="<?php echo e(old('nom_immeuble')); ?>" placeholder="Nom de l'immeuble">
+                      <div class="mb-3">
+                        <label for="superficie" class="form-label">Superficie</label>
+                        <input type="number" max="1000" name="superficie" class="form-control" id="superficie"
+                               placeholder="3">
                       </div>
 
                       <div class="my-3">
@@ -74,20 +74,6 @@
                           </option>
                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="nbr_etage" class="form-label">Nombre d'étage</label>
-                        <input type="number" max="10" name="nbr_etage" class="form-control" id="nbr_etage"
-                          placeholder="3">
-                      </div>
-
-                      
-                      <div class="mb-3">
-                        <label for="date_construction" class="form-label">
-                          Date de construction
-                        </label>
-                        <input type="date" name="date_construction" class="form-control" id="date_construction">
                       </div>
 
                       <button type="submit" class="btn btn-info">Enregistrer</button>
@@ -134,4 +120,4 @@
 </body>
 
 </html>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/immeuble/add.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/terrain/add.blade.php ENDPATH**/ ?>

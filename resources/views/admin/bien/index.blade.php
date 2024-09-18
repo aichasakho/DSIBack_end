@@ -38,7 +38,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="">
+                      <a href="{{ route('add.maison') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter une Maison
                         </button>
@@ -46,7 +46,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="">
+                      <a href="{{ route('parcelle.create') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter une Parcelle
                         </button>
@@ -54,7 +54,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="">
+                      <a href="{{ route('add.terrain') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter un Terrain
                         </button>
@@ -83,6 +83,9 @@
                             Type de bien
                           </th>
                           <th>
+                            Localité
+                          </th>
+                          <th>
                             Status
                           </th>
                           <th>
@@ -102,6 +105,8 @@
                           <td> {{ $bien->proprietaire->nom }} {{ $bien->proprietaire->prenom }}</td>
                           <td> {{ $bien->superficie ?? $bien->nbr_etage }}</td>
                           <td> {{ $bien->type_bien->type_bien }} </td>
+                          <td> {{ $bien->localite->localite }} </td>
+
 
                           <td> {{ $bien->etat ? 'Actif' : 'Inactif' }}</td>
                           <td>

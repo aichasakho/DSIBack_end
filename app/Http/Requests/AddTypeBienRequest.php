@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddCategorieRequest extends FormRequest
+class AddTypeBienRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,7 @@ class AddCategorieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'categorie'=>'required|unique:categories,categorie',
-            'status'=>'required',
+            'type_bien'=>'required|unique:type_biens,type_bien',
         ];
     }
 
@@ -34,8 +33,8 @@ class AddCategorieRequest extends FormRequest
         return [
             'categorie.required'=>'La catégorie ',
             'status.required'=>'Une erreur c est produite au niveau du statut',
-            'categorie.unique'=>'La catégorie existes déjà dans la base !',        
-        
+            'categorie.unique'=>'La catégorie existes déjà dans la base !',
+
         ];
     }
 }

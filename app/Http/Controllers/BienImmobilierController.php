@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddBienImmobilierRequest;
 use App\Http\Requests\AddImmeubleRequest;
+use App\Http\Requests\addMaisonRequest;
+use App\Http\Requests\addTerrainRequest;
 use App\Models\Appartement;
 use App\Models\BienImmobilier;
 use App\Models\Localite;
@@ -103,10 +105,148 @@ class BienImmobilierController extends Controller
 
   /* Debut CRUD maison */
 
+  public function addMaison()
+  {
+    $proprietaires = User::where('role', 'proprietaire')->get();
+    $localites = Localite::all();
+
+    return view('admin.maison.add', compact('proprietaires', 'localites'));
+  }
+
+  /**
+   * Show the form for creating a new resource.
+   */
+  public function createMaison(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+  {
+    return view('admin.bien.store');
+  }
+
+  public function storeMaison(AddMaisonRequest $request): RedirectResponse
+  {
+    $data = $request->validated();
+
+    if ($request->hasFile('image')) {
+      $image = $request->file('image')->store('bien', 'public');
+
+      $data['image'] = $image;
+      $data['image'] = asset('storage/' . $data['image']);
+    }
+
+    BienImmobilier::create($data);
+    return redirect()->back()
+      ->with('success', 'Maison ajouté avec succes');
+  }
+
+  public function editMaison(BienImmobilier $maison): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+  {
+    $proprietaires = User::where('role', 'proprietaire')->get();
+    $localites = Localite::all();
+
+
+    return view(
+      'admin.maison.edit',
+      compact('maison', 'proprietaires', 'localites')
+    );
+  }
+
+  public function updateMaison(AddMaisonRequest $request, BienImmobilier $maison): RedirectResponse
+  {
+
+    $data = $request->validated();
+
+    if ($request->hasFile('image')) {
+      $image = $request->file('image')->store('bien', 'public');
+
+      $data['image'] = $image;
+      $data['image'] = asset('storage/' . $data['image']);
+    }
+
+    if ($maison->image) {
+      if (file_exists(public_path($maison->image))) {
+        unlink(public_path($maison->image));
+      }
+    }
+
+    if ($maison->update($data)) {
+      return redirect()->route('bienImmobilier.index');
+    }
+
+    return redirect()->back()->with('error', 'Une erreur est survenue');
+  }
 
   /* Fin CRUD maison */
 
   /* Debut CRUD terrain */
+
+  public function addTerrain()
+  {
+    $proprietaires = User::where('role', 'proprietaire')->get();
+    $localites = Localite::all();
+
+    return view('admin.terrain.add', compact('proprietaires', 'localites'));
+  }
+
+  /**
+   * Show the form for creating a new resource.
+   */
+  public function createTerrain(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+  {
+    return view('admin.bien.store');
+  }
+
+  public function storeTerrain(AddTerrainRequest $request): RedirectResponse
+  {
+    $data = $request->validated();
+
+    if ($request->hasFile('image')) {
+      $image = $request->file('image')->store('bien', 'public');
+
+      $data['image'] = $image;
+      $data['image'] = asset('storage/' . $data['image']);
+    }
+
+    BienImmobilier::create($data);
+    return redirect()->back()
+      ->with('success', 'Terrain ajouté avec succes');
+  }
+
+  public function editTerrain(BienImmobilier $terrain): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+  {
+    $proprietaires = User::where('role', 'proprietaire')->get();
+    $localites = Localite::all();
+
+
+    return view(
+      'admin.terrain.edit',
+      compact('terrain', 'proprietaires', 'localites')
+    );
+  }
+
+  public function updateTerrain(AddTerrainRequest $request, BienImmobilier $terrain): RedirectResponse
+  {
+
+    $data = $request->validated();
+
+    if ($request->hasFile('image')) {
+      $image = $request->file('image')->store('bien', 'public');
+
+      $data['image'] = $image;
+      $data['image'] = asset('storage/' . $data['image']);
+    }
+
+    if ($terrain->image) {
+      if (file_exists(public_path($terrain->image))) {
+        unlink(public_path($terrain->image));
+      }
+    }
+
+    if ($terrain->update($data)) {
+      return redirect()->route('bienImmobilier.index');
+    }
+
+    return redirect()->back()->with('error', 'Une erreur est survenue');
+  }
+
   /* Fin CRUD terrain */
 
 

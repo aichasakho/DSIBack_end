@@ -38,7 +38,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="<?php echo e(route('add.maison')); ?>">
+                      <a href="">
                         <button type="button" class="btn btn-info">
                           Ajouter une Maison
                         </button>
@@ -46,7 +46,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="<?php echo e(route('parcelle.create')); ?>">
+                      <a href="">
                         <button type="button" class="btn btn-info">
                           Ajouter une Parcelle
                         </button>
@@ -54,7 +54,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="<?php echo e(route('add.terrain')); ?>">
+                      <a href="">
                         <button type="button" class="btn btn-info">
                           Ajouter un Terrain
                         </button>
@@ -63,52 +63,32 @@
 
                   </div>
                   <hr>
-                  <h4 class="card-title">Liste des Biens Immobiliers</h4>
+                  <h4 class="card-title">Liste des Appartements</h4>
 
                   <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>
-                            Bien - titre
-                          </th>
-                          <th>
-                            Proprietaire
-                          </th>
-                          <th>
-                            Superficie / Nombre d'etages
-                          </th>
-                          <th>
-                            Type de bien
-                          </th>
-                          <th>
-                            Localité
-                          </th>
-                          <th>
-                            Status
-                          </th>
-                          <th>
-                            Details
-                          </th>
-                          <th>
-                            Modifier
-                          </th>
+                          <th> Image </th>
+                          <th> Immeuble </th>
+                          <th> Proprietaire </th>
+                          <th> Nombre de piece </th>
+                          <th> Montant caution</th>
+                          <th> Details </th>
+                          <th> Modifier </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php $__currentLoopData = $biens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $appartements; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $appart): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                           <td class="py-1">
-                            <img src="<?php echo e($bien->image); ?>" alt="image" /><br>
+                            <img src="<?php echo e($appart?->bienImmobilier?->image); ?>" alt="image" /><br>
                           </td>
-                          <td> <?php echo e($bien->proprietaire->nom); ?> <?php echo e($bien->proprietaire->prenom); ?></td>
-                          <td> <?php echo e($bien->superficie ?? $bien->nbr_etage); ?></td>
-                          <td> <?php echo e($bien->type_bien->type_bien); ?> </td>
-                          <td> <?php echo e($bien->localite->localite); ?> </td>
-
-
-                          <td> <?php echo e($bien->etat ? 'Actif' : 'Inactif'); ?></td>
+                          <td> <?php echo e($appart?->bienImmobilier?->nom_immeuble); ?> </td>
+                          <td> <?php echo e($appart?->bienImmobilier->proprietaire?->nom); ?> <?php echo e($appart?->bienImmobilier->proprietaire?->prenom); ?></td>
+                          <td> <?php echo e($appart?->nbr_piece); ?> </td>
+                          <td> <?php echo e($appart?->montant_caution); ?> </td>
                           <td>
                             <a href="">
                               <button class="btn btn-inverse-info">
@@ -117,23 +97,14 @@
                             </a>
                           </td>
                           <td>
-                            <?php if($bien->type_bien_id == 1): ?>
-                            <a href="<?php echo e(route('edit.immeuble', $bien->id)); ?>">
+                            <a href="<?php echo e(route('appartement.edit', $appart)); ?>">
                               <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
-                            <?php else: ?>
-                            <a href="">
-                              <button class="btn btn-inverse-success">
-                                <i class="mdi mdi-pencil"></i>
-                              </button>
-                            </a>
-                            <?php endif; ?>
                           </td>
-
                           <td>
-                            <a href="">
+                            <a href="<?php echo e(route('appartement.destroy', $appart)); ?>">
                               <button class="btn btn-inverse-danger">
                                 <i class="mdi mdi-delete"></i>
                               </button>
@@ -145,7 +116,7 @@
                     </table>
                   </div>
                 </div>
-                <?php echo e($biens->links()); ?>
+                <?php echo e($appartements->links()); ?>
 
               </div>
             </div>
@@ -193,5 +164,4 @@
   <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/appartement/index.blade.php ENDPATH**/ ?>
