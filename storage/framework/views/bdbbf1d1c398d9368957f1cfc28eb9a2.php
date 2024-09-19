@@ -15,9 +15,18 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+
+          <?php if($errors->any()): ?>
+          <div class="alert alert-danger">
+            <ul>
+              <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li><?php echo e($error); ?></li>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </ul>
+          </div>
+          <?php endif; ?>
+
           <div class="row">
-
-
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -110,11 +119,11 @@
 
                           <td> <?php echo e($bien->etat ? 'Actif' : 'Inactif'); ?></td>
                           <td>
-                            <a href="">
-                              <button class="btn btn-inverse-info">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
-                            </a>
+
+                            <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="<?php echo e($bien); ?>">
+                              <i class="mdi mdi-eye"></i>
+                            </button>
+
                           </td>
                           <td>
                             <?php if($bien->type_bien_id == 1): ?>
@@ -176,17 +185,20 @@
 
     <!-- Button trigger modal -->
 
-
-
-    <?php if($errors->any()): ?>
-    <div class="alert alert-danger">
-      <ul>
-        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <li><?php echo e($error); ?></li>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-      </ul>
+    <div class="modal fade" id="bienModal" tabindex="-1" aria-labelledby="bienModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="bienModalLabel">Date-visite</h1>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          </div>
+          <div class="modal-body">
+            <p id="bienImage"></p>
+            <p>ID du bien : <span id="bienId"></span></p>
+          </div>
+        </div>
+      </div>
     </div>
-    <?php endif; ?>
 
     <!-- page-body-wrapper ends -->
   </div>
@@ -194,4 +206,20 @@
 </body>
 
 </html>
+
+<script>
+  function showModal(event) {
+    // Récupère l'attribut 'data-bien' et parse-le en objet JSON
+    var bien = JSON.parse(event.currentTarget.getAttribute('data-bien'));
+    console.log(bien);
+
+    // Utilise les propriétés de l'objet 'bien'
+    document.getElementById("bienImage").innerHTML = `<img src="${bien.image}" alt="image" class="img-fluid" />`;
+    document.getElementById("bienId").innerHTML = bien.id;
+
+    // Affiche le modal
+    $('#bienModal').modal('show');
+}
+
+</script>
 <?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
