@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->date('date_debut');
             $table->date('date_fin');
+            $table->string('profession');
+            $table->string('situation_matrimonial');
 
             // relation avec le client
             $table->string('client_nom');

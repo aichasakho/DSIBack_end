@@ -24,6 +24,8 @@ class AddReservationRequest extends FormRequest
     return [
       'date_debut'=>'required',
       'date_fin'=>'required',
+      'profession'=>'required',
+      'situation_matrimoniale'=>'required',
       'client_nom'=>'required',
       'client_id'=>'required|exists:users,id,role,client',
       'bien_immobilier_id' => 'required|exists:bien_immobiliers,id,type_bien_id,1',
@@ -38,6 +40,8 @@ class AddReservationRequest extends FormRequest
       'bien_immobilier_id.exists' => 'Le bien immobilier n\'existe pas',
       'date_debut.required'=>'La date de début est requis dans le formulaire',
       'date_fin.required'=>'La date de fin est requis dans le formulaire',
+      'profession.required'=>'La profession est requis dans le formulaire',
+      'situation_matrimonial.required'=>'La situation matrimonial est requis dans le formulaire',
       'client_nom.required'=>'Le nom du client est obligatoire',
       'client_id.required'=>'Le client est obligatoire',
       'client_id.exists' => 'Le client n\'existe pas',
