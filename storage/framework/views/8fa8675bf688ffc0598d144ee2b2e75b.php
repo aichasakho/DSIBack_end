@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/appartement/show.blade.php ENDPATH**/ ?>
