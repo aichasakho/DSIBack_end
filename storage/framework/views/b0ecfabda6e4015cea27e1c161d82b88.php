@@ -45,23 +45,26 @@
                         <label for="terrain" class="form-label">Selectionner un Terrain existant</label>
                         <select class="form-select" name="bien_immobilier_id" id="terrain"
                           aria-label="Selectionner un terrain">
-                          <?php $__currentLoopData = $terrains; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                          <option value="<?php echo e($key); ?>"><?php echo e($val); ?></option>
+                          <?php $__currentLoopData = $terrains; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $terrain): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <option value="<?php echo e($terrain->id); ?>">
+                            Terrain <?php echo e($terrain->proprietaire->nom); ?> <?php echo e($terrain->proprietaire->prenom); ?>
+
+                            - <?php echo e($terrain->superficie); ?> - <?php echo e($terrain->id); ?>
+
+                          </option>
                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                       </div>
-
-
-
                       <div class="mb-3">
                         <label for="superficie" class="form-label">Superficie</label>
-                        <input type="number" max="1000" name="superficie" class="form-control" id="superficie" placeholder="3">
-
+                        <input type="number" max="1000" name="superficie" class="form-control" id="superficie"
+                          placeholder="3">
                       </div>
 
                       <div class="mb-3">
                         <label for="numero_parcelle" class="form-label">Numero de parcelle</label>
-                        <input type="number" max="1000" name="numero_parcelle" class="form-control" id="numero_parcelle" placeholder="3">
+                        <input type="number" max="1000" name="numero_parcelle" class="form-control" id="numero_parcelle"
+                          placeholder="3">
                       </div>
 
 
@@ -99,7 +102,7 @@
 
 
     <!-- page-body-wrapper ends -->
-  <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>

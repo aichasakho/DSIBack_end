@@ -22,7 +22,7 @@ class AddTypeBienRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type_bien'=>'required|unique:type_biens,type_bien',
+            'type_bien'=>'required',
         ];
     }
 
@@ -31,9 +31,7 @@ class AddTypeBienRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'categorie.required'=>'La catégorie ',
-            'status.required'=>'Une erreur c est produite au niveau du statut',
-            'categorie.unique'=>'La catégorie existes déjà dans la base !',
+            'type_bien.required'=>'Le type de bien est obligatoire ',
 
         ];
     }

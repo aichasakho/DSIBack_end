@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/parcelle/show.blade.php ENDPATH**/ ?>
