@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BienImmobilierController;
+use App\Http\Controllers\Api\ReservationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +24,5 @@ Route::get('annonces', [\App\Http\Controllers\Api\AnnonceController::class, 'ind
 
 Route::get('annonces/{id}', [\App\Http\Controllers\Api\AnnonceController::class, 'show']);
 
+
+Route::apiResource('reservations', ReservationController::class);
