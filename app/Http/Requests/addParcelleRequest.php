@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Parcelle;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class addParcelleRequest extends FormRequest
@@ -11,7 +13,7 @@ class addParcelleRequest extends FormRequest
    */
   public function authorize(): bool
   {
-    return false;
+    return true;
   }
 
   /**
@@ -22,7 +24,8 @@ class addParcelleRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'numero_parcelle' => 'required|unique:parcelles,numero_parcelle',
+      'numero_parcelle' => ['required', Rule::unique(Parcelle::class, 'numero_parcelle')
+        ->ignore($this->parcelle)],
       'superficie' => 'required|numeric',
       'bien_immobilier_id' => 'required|exists:bien_immobiliers,id',
     ];

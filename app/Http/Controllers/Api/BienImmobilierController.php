@@ -38,7 +38,6 @@ class BienImmobilierController extends Controller
             'nbr_etage' => 'required|integer',
             'date_construction' => 'required|date',
             'etat' => 'required|boolean',
-
         ]);
 
         $imagePath = $request->file('image')->store('images', 'public');
@@ -52,8 +51,6 @@ class BienImmobilierController extends Controller
             'nbr_etage' => $request->get('nbr_etage'),
             'date_construction' => $request->get('date_construction'),
             'etat' => $request->get('etat'),
-
-
             'image' => $imagePath,
         ]);
         $bienImmobilier->save();

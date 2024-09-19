@@ -61,7 +61,7 @@ class AppartementController extends Controller
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, Appartement $appartement)
+  public function update(addAppartementRequest $request, Appartement $appartement)
   {
     $appartement->update($request->validated());
     return redirect()->route('appartement.index');

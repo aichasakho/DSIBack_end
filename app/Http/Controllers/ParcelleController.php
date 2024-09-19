@@ -24,8 +24,7 @@ class ParcelleController extends Controller
    */
   public function create()
   {
-    $terrains = BienImmobilier::where('type_bien_id', 1)
-      ->pluck('superficie', 'id');
+    $terrains = BienImmobilier::where('type_bien_id', 4)->get();
 
     return view('admin.parcelle.store', compact('terrains'));
   }
@@ -53,15 +52,15 @@ class ParcelleController extends Controller
    */
   public function edit(Parcelle $parcelle)
   {
-    $terrains = BienImmobilier::where('type_bien_id', 1)
-      ->pluck('superficie', 'id');
+    $terrains = BienImmobilier::with('proprietaire')
+      ->where('type_bien_id', 4)->get();
     return view('admin.parcelle.edit', compact('parcelle', 'terrains'));
   }
 
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, Parcelle $parcelle)
+  public function update(addParcelleRequest $request, Parcelle $parcelle)
   {
     $parcelle->update($request->validated());
     return redirect()->route('parcelle.index');

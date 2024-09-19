@@ -59,7 +59,14 @@
                         </select>
                       </div>
 
-                      <input type="hidden" name="type_bien_id" value="1">
+                      <div class="mb-3">
+                        <label for="prix_achat" class="form-label">Prix d'achat</label>
+                        <input type="number" name="prix_achat" class="form-control" id="prix_achat"
+                               placeholder="100000">
+                      </div>
+
+
+                      <input type="hidden" name="type_bien_id" value="4">
 
                       {{-- choisir localite --}}
                       <div class="mb-3">

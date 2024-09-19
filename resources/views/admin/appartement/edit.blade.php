@@ -40,7 +40,7 @@
                   <div class="table-responsive">
                     <form action="{{ route('appartement.update', $appartement) }}" method="POST">
                       @csrf
-
+                      @method('put')
                       <div class="my-3">
                         <label for="immeuble" class="form-label">Selectionner un Immeuble existant</label>
                         <select class="form-select" name="bien_immobilier_id" id="immeuble"
