@@ -45,23 +45,24 @@
                         <label for="terrain" class="form-label">Selectionner un Terrain existant</label>
                         <select class="form-select" name="bien_immobilier_id" id="terrain"
                           aria-label="Selectionner un terrain">
-                          @foreach ($terrains as $key => $val)
-                          <option value="{{ $key }}">{{ $val }}</option>
+                          @foreach ($terrains as $terrain)
+                          <option value="{{ $terrain->id }}">
+                            Terrain {{ $terrain->proprietaire->nom }} {{ $terrain->proprietaire->prenom }}
+                            - {{ $terrain->superficie }} - {{ $terrain->id }}
+                          </option>
                           @endforeach
                         </select>
                       </div>
-
-
-
                       <div class="mb-3">
                         <label for="superficie" class="form-label">Superficie</label>
-                        <input type="number" max="1000" name="superficie" class="form-control" id="superficie" placeholder="3">
-
+                        <input type="number" max="1000" name="superficie" class="form-control" id="superficie"
+                          placeholder="3">
                       </div>
 
                       <div class="mb-3">
                         <label for="numero_parcelle" class="form-label">Numero de parcelle</label>
-                        <input type="number" max="1000" name="numero_parcelle" class="form-control" id="numero_parcelle" placeholder="3">
+                        <input type="number" max="1000" name="numero_parcelle" class="form-control" id="numero_parcelle"
+                          placeholder="3">
                       </div>
 
 
@@ -99,7 +100,7 @@
 
 
     <!-- page-body-wrapper ends -->
-  @include("admin.pages.js")
+    @include("admin.pages.js")
 </body>
 
 </html>

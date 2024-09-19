@@ -133,7 +133,7 @@ class BienImmobilierController extends Controller
     }
 
     BienImmobilier::create($data);
-    return redirect()->back()
+    return redirect()->route('bienImmobilier.index')
       ->with('success', 'Maison ajouté avec succes');
   }
 
@@ -141,7 +141,6 @@ class BienImmobilierController extends Controller
   {
     $proprietaires = User::where('role', 'proprietaire')->get();
     $localites = Localite::all();
-
 
     return view(
       'admin.maison.edit',
@@ -206,7 +205,7 @@ class BienImmobilierController extends Controller
     }
 
     BienImmobilier::create($data);
-    return redirect()->back()
+    return redirect()->route('bienImmobilier.index')
       ->with('success', 'Terrain ajouté avec succes');
   }
 
@@ -244,7 +243,9 @@ class BienImmobilierController extends Controller
       return redirect()->route('bienImmobilier.index');
     }
 
-    return redirect()->back()->with('error', 'Une erreur est survenue');
+    return redirect()->route(
+      'bienImmobilier.index'
+    )->with('error', 'Une erreur est survenue');
   }
 
   /* Fin CRUD terrain */

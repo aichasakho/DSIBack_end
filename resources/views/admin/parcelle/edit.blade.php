@@ -40,16 +40,21 @@
                   <div class="table-responsive">
                     <form action="{{ route('parcelle.update', $parcelle) }}" method="POST">
                       @csrf
-
+                      @method('PUT')
                       <div class="my-3">
                         <label for="terrain" class="form-label">Selectionner un Terrain existant</label>
                         <select class="form-select" name="bien_immobilier_id" id="terrain"
                           aria-label="Selectionner un terrain">
-                          <option value="{{ $parcelle->bien_immobilier_id }}">
-                            {{$parcelle?->bien_immobilier?->nom_immeuble }}
+                          <option value="{{ $parcelle?->bienImmobilier?->id }}" selected>
+                            {{$parcelle?->bienImmobilier?->proprietaire->nom}}
+                            {{$parcelle?->bienImmobilier?->proprietaire->prenom}} -
+                            {{$parcelle?->bienImmobilier?->superficie}} - {{$parcelle?->bienImmobilier?->id}}
                           </option>
-                          @foreach ($parcelles as $key => $val)
-                          <option value="{{ $key }}">{{ $val }}</option>
+                          @foreach ($terrains as $terrain)
+                          <option value="{{ $terrain->id }}">
+                            Terrain {{ $terrain->proprietaire->nom }} {{ $terrain->proprietaire->prenom }}
+                            - {{ $terrain->superficie }} - {{ $terrain->id }}
+                          </option>
                           @endforeach
                         </select>
                       </div>
@@ -57,13 +62,14 @@
                       <div class="mb-3">
                         <label for="superficie" class="form-label">Superficie</label>
                         <input type="number" max="1000" name="superficie" class="form-control"
-                               value="{{ old('superficie', $parcelle->superficie) }}" id="superficie" placeholder="3">
+                          value="{{ old('superficie', $parcelle->superficie) }}" id="superficie" placeholder="3">
                       </div>
 
                       <div class="mb-3">
                         <label for="numero_parcelle" class="form-label">Numero de parcelle</label>
                         <input type="number" max="1000" name="numero_parcelle" class="form-control"
-                          value="{{ old('numero_parcelle', $parcelle->numero_parcelle) }}" id="numero_parcelle" placeholder="3">
+                          value="{{ old('numero_parcelle', $parcelle->numero_parcelle) }}" id="numero_parcelle"
+                          placeholder="3">
                       </div>
 
                       <button type="submit" class="btn btn-info">Modifier</button>
