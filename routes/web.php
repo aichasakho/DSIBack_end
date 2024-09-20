@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProprioController;
 use App\Http\Controllers\AppartementController;
 use App\Http\Controllers\BienImmobilierController;
+use App\Http\Controllers\AnnonceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,5 @@ Route::get('/register',[AdminController::class,'register'])->name('admin.registe
 Route::post('Authentification-admin/',[AdminController::class,'doLogin'])->name('doLogin.login');
 Route::post('Authentification-admin/register',[AdminController::class,'doRegister'])->name('doRegister.register');
 
+//annonce
+Route::resource('annonce', AnnonceController::class);

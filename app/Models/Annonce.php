@@ -17,6 +17,7 @@ class Annonce extends Model
         'prix',
         'image',
     ];
+    
     public function bienImmobilier() {
         return $this->belongsTo(BienImmobilier::class);
     }

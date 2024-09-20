@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Models\Reservation;
 
 class ReservationController extends Controller
 {
       /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index():JsonResponse
     {
         $reservations = Reservation::all();
         return response()->json($reservations);
@@ -29,18 +31,20 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        $valiate = $request->validate([
+        $validated = $request->validate([
             'date_debut' => 'required|date',
             'date_fin' => 'required|date',
-            'profession' => 'nullable|string|max:255',
-            'situation_matriminiale' => 'required|in:marie,celibataire',
-            'client_nom' => 'required|float',
-            'bien_immobilier_id' => 'required|integer|exist:bien_immobilier,id',
+            'profession' => 'required|string|max:255',
+            'situation_matrimonial' => 'required|in:Marié,Célibataire',
+            'client_nom' => 'required|string|max:255',
+            'bien_immobiliers_id' => 'required|integer|exists:bien_immobiliers,id',
         ]);
-
+        
+        
+        
         $reservation = Reservation::create($validated);
-
         return response()->json($reservation, 201);
+        
     }
 
     /**
