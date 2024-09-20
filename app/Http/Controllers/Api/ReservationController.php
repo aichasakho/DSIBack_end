@@ -34,10 +34,10 @@ class ReservationController extends Controller
         $validated = $request->validate([
             'date_debut' => 'required|date',
             'date_fin' => 'required|date',
-            'profession' => 'nullable|string|max:255',
+            'profession' => 'required|string|max:255',
             'situation_matrimonial' => 'required|in:Marié,Célibataire',
             'client_nom' => 'required|string|max:255',
-            // 'bien_immobilier_id' => 'required|integer|exists:bien_immobilier,id',
+            'bien_immobilier_id' => 'required|integer|exists:bien_immobilier,id',
         ]);
         
         
