@@ -37,7 +37,7 @@ class ReservationController extends Controller
             'profession' => 'required|string|max:255',
             'situation_matrimonial' => 'required|in:Marié,Célibataire',
             'client_nom' => 'required|string|max:255',
-            'bien_immobilier_id' => 'required|integer|exists:bien_immobilier,id',
+            'bien_immobiliers_id' => 'required|integer|exists:bien_immobiliers,id',
         ]);
         
         
