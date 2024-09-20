@@ -4,10 +4,7 @@ use App\Http\Controllers\ParcelleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\VisiteController;
 use App\Http\Controllers\ProprioController;
-use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\AppartementController;
 use App\Http\Controllers\BienImmobilierController;
 
