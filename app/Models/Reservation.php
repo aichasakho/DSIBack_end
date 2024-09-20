@@ -10,11 +10,8 @@ class Reservation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'date_debut',
-        'date_fin',
-        'client_id',
-        'client_nom',
-        'bien_immobilier_id',
+        'date_debut', 'date_fin', 'profession', 
+        'situation_matriminiale', 'client_nom'
     ];
 
     public function client(){

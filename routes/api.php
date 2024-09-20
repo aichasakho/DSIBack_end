@@ -25,4 +25,7 @@ Route::get('annonces', [\App\Http\Controllers\Api\AnnonceController::class, 'ind
 Route::get('annonces/{id}', [\App\Http\Controllers\Api\AnnonceController::class, 'show']);
 
 
-Route::apiResource('reservations', ReservationController::class);
+Route::get('reservation', [\App\Http\Controllers\Api\ReservationController::class, 'index']);
+Route::post('reservation', [\App\Http\Controllers\Api\ReservationController::class, 'store']);
+Route::put('reservation', [\App\Http\Controllers\Api\ReservationController::class, 'show']);
+Route::delete('reservation', [\App\Http\Controllers\Api\ReservationController::class, 'destroy']);
