@@ -7,18 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = [
-        'date_debut', 'date_fin', 'profession', 
-        'situation_matriminiale', 'client_nom'
-    ];
+  protected $fillable = [
+    'date_debut',
+    'date_fin',
+    'profession',
+    'situation_matriminiale',
+    'client_nom',
+    'client_id',
+    'bien_immobilier_id'
+  ];
 
-    public function client(){
-        return $this->belongsTo(User::class, 'client_id', 'id');
-    }
+  public function client()
+  {
+    return $this->belongsTo(User::class, 'client_id', 'id');
+  }
 
-    public function bien_immobilier(){
-        return $this->belongsTo(BienImmobilier::class);
-    }
+  public function bien_immobilier()
+  {
+    return $this->belongsTo(BienImmobilier::class);
+  }
 }
