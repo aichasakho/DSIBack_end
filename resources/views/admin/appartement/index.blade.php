@@ -38,7 +38,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="">
+                      <a href="{{ route('add.maison') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter une Maison
                         </button>
@@ -46,7 +46,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="">
+                      <a href="{{ route('parcelle.create') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter une Parcelle
                         </button>
@@ -54,7 +54,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="">
+                      <a href="{{ route('add.terrain') }}">
                         <button type="button" class="btn btn-info">
                           Ajouter un Terrain
                         </button>
@@ -91,11 +91,9 @@
                           <td> {{ $appart?->nbr_piece }} </td>
                           <td> {{ $appart?->montant_caution }} </td>
                           <td>
-                            <a href="">
-                              <button class="btn btn-inverse-info">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
-                            </a>
+                            <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="{{ json_encode($appart) }}">
+                              <i class="mdi mdi-eye"></i>
+                            </button>
                           </td>
                           <td>
                             <a href="{{ route('appartement.edit', $appart) }}">
@@ -120,9 +118,6 @@
                 {{ $appartements->links() }}
               </div>
             </div>
-
-
-
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -148,8 +143,27 @@
     <!-- Button trigger modal -->
 
 
+    <div class="modal fade" id="bienModal" tabindex="-1" aria-labelledby="bienModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="bienModalLabel">Détail de l'appartement</h1>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          </div>
+          <div class="modal-body">
+            <p id="bienImage"></p>
+            <p>Nombre de pièce : <span id="NombrePiece"></span></p>
+            <p>Nom de l'immeuble: <span id="nomImmeuble"></span></p>
+            <p>Proprietaire: <span id="proprietaire"></span></p>
+            <p>Montant caution : <span id="caution"></span></p>
 
-    @if ($errors->any())
+            {{-- TODO: Ajouter les autres informations du bien --}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  @if ($errors->any())
     <div class="alert alert-danger">
       <ul>
         @foreach ($errors->all() as $error)
@@ -163,5 +177,22 @@
   </div>
   @include("admin.pages.js")
 </body>
-
 </html>
+
+<script>
+  function showModal(event) {
+    // Récupère l'attribut 'data-bien' et parse-le en objet JSON
+    var appart = JSON.parse(event.currentTarget.getAttribute('data-bien'));
+    console.log(appart); // Pour vérifier la structure de l'objet
+
+    // Utiliser les propriétés de l'objet 'appart'
+    document.getElementById("bienImage").innerHTML = `<img src="${appart.bienImmobilier ? appart.bienImmobilier.image : 'Non spécifié'}" alt="image" class="img-fluid" />`;
+    document.getElementById("NombrePiece").innerHTML = appart.nbr_piece || 'Non spécifié';
+    document.getElementById("nomImmeuble").innerHTML = appart.bienImmobilier ? appart.bienImmobilier.nom_immeuble : 'Non spécifié';
+    document.getElementById("proprietaire").innerHTML = appart.bienImmobilier?.proprietaire ? `${appart.bienImmobilier.proprietaire.nom} ${appart.bienImmobilier.proprietaire.prenom}` : 'Non spécifié';
+    document.getElementById("caution").innerHTML = appart.montant_caution || 'Non spécifié';
+
+    // Affiche le modal
+    $('#bienModal').modal('show');
+  }
+</script>
