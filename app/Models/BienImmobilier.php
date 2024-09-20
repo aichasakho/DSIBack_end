@@ -9,6 +9,8 @@ class BienImmobilier extends Model
 {
     use HasFactory;
 
+    protected $table = 'bien_immobiliers';
+
     protected $fillable = [
         'type_bien_id',
         'localite_id',

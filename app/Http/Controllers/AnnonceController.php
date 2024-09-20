@@ -14,10 +14,10 @@ class AnnonceController extends Controller
      */
     public function index()
     {
-        $annonce= Annonce::with('bien_immobilier')-> paginate(10);
-        return view('admin.annonce.index',[
-            'annonce'=>$annonce]);
+        $annonce = Annonce::with('bienImmobilier')->paginate(10);
+        return view('admin.annonce.index', ['annonce' => $annonce]);
     }
+    
 
 
   /**
@@ -36,10 +36,13 @@ class AnnonceController extends Controller
    */
   public function store(addAnnonceRequest $request)
   {
-    Annonce::create($request->validated());
-    return redirect()->route('annonce.index');
+      $validated = $request->validated();
+  
+      Annonce::create($validated);
+  
+      return redirect()->route('annonce.index')->with('success', 'Annonce créée avec succès');
   }
-
+  
   /**
    * Display the specified resource.
    */
@@ -63,11 +66,21 @@ class AnnonceController extends Controller
    * Update the specified resource in storage.
    */
   public function update(Request $request, Annonce $annonce)
-  {
-    $annonce->update($request->validated());
-    return redirect()->route('annonce.index');
-  }
+{
+    $validated = $request->validate([
+        'type_annonce' => 'required|in:location,vente',
+        'description' => 'required|string',
+        'statut' => 'required|in:disponible,indisponible',
+        'prix' => 'required|numeric',
+        'bien_immobilier_id' => 'required|exists:bien_immobiliers,id', 
+    ]);
 
+    $annonce->update($validated);
+    return redirect()->route('annonce.index')->with('success', 'Annonce mise à jour avec succès');
+}
+
+  
+  
   /**
    * Remove the specified resource from storage.
    */
