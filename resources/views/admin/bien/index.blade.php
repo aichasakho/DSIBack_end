@@ -194,6 +194,10 @@
           <div class="modal-body">
             <p id="bienImage"></p>
             <p>ID du bien : <span id="bienId"></span></p>
+            <p>type de bien: <span id="bienTypeBien"></span></p>
+            <p>Proprietaire: <span id="proprietaire"></span></p>
+            <p>Localité : <span id="localiteBien"></span></p>
+
             {{-- TODO: Ajouter les autres informations du bien --}}
           </div>
         </div>
@@ -216,6 +220,9 @@
     // Utilise les propriétés de l'objet 'bien'
     document.getElementById("bienImage").innerHTML = `<img src="${bien.image}" alt="image" class="img-fluid" />`;
     document.getElementById("bienId").innerHTML = bien.id;
+    document.getElementById("bienTypeBien").innerHTML = bien.type_bien ? bien.type_bien.type_bien : 'Non spécifié';
+    document.getElementById("proprietaire").innerHTML = bien.proprietaire ? bien.proprietaire.prenom  : 'Non spécifié';
+    document.getElementById("localiteBien").innerHTML = bien.localite ? bien.localite.localite : 'Non spécifié';
     // TODO: Ajouter les autres informations du bien
 
     // Affiche le modal
