@@ -9,15 +9,15 @@ use Illuminate\Http\Request;
 
 class AnnonceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $annonce = Annonce::with('bienImmobilier')->paginate(10);
-        return view('admin.annonce.index', ['annonce' => $annonce]);
-    }
-    
+  /**
+   * Display a listing of the resource.
+   */
+  public function index()
+  {
+    $annonce = Annonce::with('bienImmobilier')->paginate(10);
+    return view('admin.annonce.index', ['annonce' => $annonce]);
+  }
+
 
 
   /**
@@ -25,8 +25,7 @@ class AnnonceController extends Controller
    */
   public function create()
   {
-    $annonces = BienImmobilier::where('type_bien_id', 1)
-      ->pluck('nom_immeuble', 'id');
+    $annonces = BienImmobilier::all();
 
     return view('admin.annonce.store', compact('annonces'));
   }
@@ -36,13 +35,13 @@ class AnnonceController extends Controller
    */
   public function store(addAnnonceRequest $request)
   {
-      $validated = $request->validated();
-  
-      Annonce::create($validated);
-  
-      return redirect()->route('annonce.index')->with('success', 'Annonce créée avec succès');
+    $validated = $request->validated();
+
+    Annonce::create($validated);
+
+    return redirect()->route('annonce.index')->with('success', 'Annonce créée avec succès');
   }
-  
+
   /**
    * Display the specified resource.
    */
@@ -66,21 +65,21 @@ class AnnonceController extends Controller
    * Update the specified resource in storage.
    */
   public function update(Request $request, Annonce $annonce)
-{
+  {
     $validated = $request->validate([
-        'type_annonce' => 'required|in:location,vente',
-        'description' => 'required|string',
-        'statut' => 'required|in:disponible,indisponible',
-        'prix' => 'required|numeric',
-        'bien_immobilier_id' => 'required|exists:bien_immobiliers,id', 
+      'type_annonce' => 'required|string|max:255',
+      'description' => 'required|string',
+      'statut' => 'required|string',
+      'prix' => 'required|numeric',
+      'bien_immobilier_id' => 'required|integer|exists:bien_immobiliers,id',
     ]);
 
     $annonce->update($validated);
     return redirect()->route('annonce.index')->with('success', 'Annonce mise à jour avec succès');
-}
+  }
 
-  
-  
+
+
   /**
    * Remove the specified resource from storage.
    */
@@ -89,5 +88,4 @@ class AnnonceController extends Controller
     $annonce->delete();
     return redirect()->route('annonce.index');
   }
-
 }
