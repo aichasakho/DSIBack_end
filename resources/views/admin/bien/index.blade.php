@@ -222,7 +222,7 @@
     document.getElementById("bienId").innerHTML = bien.id;
     document.getElementById("bienTypeBien").innerHTML = bien.type_bien ? bien.type_bien.type_bien : 'Non spécifié';
     document.getElementById("proprietaire").innerHTML = bien.proprietaire ? bien.proprietaire.prenom  : 'Non spécifié';
-    document.getElementById("localiteBien").innerHTML = bien.localite ? bien.localite.localite : 'Non spécifié';
+    document.getElementById("localiteBien").innerHTML = bien.localite ?  `${bien.localite.ville} ${bien.localite.quartier}` : 'Non spécifié';
     // TODO: Ajouter les autres informations du bien
 
     // Affiche le modal
