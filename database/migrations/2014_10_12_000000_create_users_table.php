@@ -6,34 +6,35 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('email')->unique();
-            $table->string('tel')->unique();
-            $table->enum('role', ['admin', 'proprietaire', 'client'])->default('client');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('cni')->nullable();
-            $table->string('adresse')->nullable();
-            $table->string('ninea')->nullable();
-            $table->string('registreDeCommerce')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
-        });
-    }
+  /**
+   * Run the migrations.
+   */
+  public function up(): void
+  {
+    Schema::create('users', function (Blueprint $table) {
+      $table->id();
+      $table->string('nom');
+      $table->string('prenom');
+      $table->string('email')->unique();
+      $table->string('tel')->unique();
+      $table->enum('role', ['admin', 'proprietaire', 'client'])->default('client');
+      $table->timestamp('email_verified_at')->nullable();
+      $table->string('password');
+      $table->string('cni')->nullable();
+      $table->string('adresse')->nullable();
+      $table->string('ninea')->nullable();
+      $table->string('registreDeCommerce')->nullable();
+      $table->boolean('statut')->default(0);
+      $table->rememberToken();
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('users');
-    }
+  /**
+   * Reverse the migrations.
+   */
+  public function down(): void
+  {
+    Schema::dropIfExists('users');
+  }
 };
