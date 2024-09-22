@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AddReglementRequest;
+use App\Models\Contrat;
 use App\Models\Reglement;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddReglementRequest;
 
 class ReglementController extends Controller
 {
@@ -15,7 +16,7 @@ class ReglementController extends Controller
    */
   public function index()
   {
-    $reglement = Reglement::with('reservation')->get();
+    $reglement = Reglement::with('contrat')->get();
     return view('admin.reglement.index', compact('reglement'));
   }
 
@@ -24,6 +25,8 @@ class ReglementController extends Controller
    */
   public function create()
   {
+    $contrat = Contrat::all();
+    return view('admin.reglement.store', compact('contrat'));
   }
 
   /**
@@ -32,6 +35,9 @@ class ReglementController extends Controller
   public function store(AddReglementRequest $request)
   {
 
+    Reglement::create($request->validated());
+    return redirect()->route('reglement.index')
+      ->with('success', 'Reglement ajouté avec succès');
   }
 
   /**
@@ -39,9 +45,11 @@ class ReglementController extends Controller
    */
   public function show(Reglement $reglement)
   {
+    $reglement->load('contrat');
     return view('admin.reglement.show', compact('reglement'));
   }
 
+  /*
 
   public function downloadFacture($id)
   {
@@ -55,6 +63,7 @@ class ReglementController extends Controller
     // Téléchargez le fichier PDF
     return $pdf->download('facture.pdf');
   }
+    */
 
   /**
    * Show the form for editing the specified resource.
@@ -70,10 +79,9 @@ class ReglementController extends Controller
   /**
    * Update the specified resource in storage.
    */
-  public function update(AddReglementRequest $request, Reglement $chauffeur)
+  public function update(AddReglementRequest $request, Reglement $reglement)
   {
-    $chauffeur->update($request->validated());
-
+    $reglement->update($request->validated());
     return to_route('admin.reglement.index')
       ->with('success', 'Reglement modifié avec succès');
   }

@@ -2,63 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+  public function index()
+  {
+    $users = User::all();
+    return view('user.index', compact('users'));
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+  public function show(User $user)
+  {
+    return view('user.show', compact('user'));
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  public function allClients()
+  {
+    $users = User::where('role', 'client')->get();
+    return view('user.allClients', compact('users'));
+  }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+  public function allAdmins()
+  {
+    $users = User::where('role', 'admin')->get();
+    return view('user.allAdmins', compact('users'));
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+  public function allProrietaires()
+  {
+    $users = User::with('bien_immobiliers')
+      ->where('role', 'proprietaire')->get();
+    return view('user.allProrietaires', compact('users'));
+  }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+  public function edit(User $user)
+  {
+    return view('user.edit', compact('user'));
+  }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+  public function update(Request $request, User $user)
+  {
+    $user->update($request->all());
+    return redirect()->route('admin.user.index');
+  }
+
+  public function destroy(User $user)
+  {
+    $user->delete();
+    return redirect()->route('admin.user.index');
+  }
 }

@@ -29,7 +29,7 @@
                 <img src="../../admin/images/logo.png" alt="logo" style="width: 100px;  height: auto; display: inline-block">
               </div>
               <h4 class="text-center">INSCRIPTION</h4>
-{{--              <h6 class="font-weight-light">Page de connexion</h6>--}}
+{{--    <h6 class="font-weight-light">Page de connexion</h6>--}}
               <form class="pt-3" action="{{route('doRegister.register')}}" method="POST">
                 @csrf
                   <div class="form-group">
