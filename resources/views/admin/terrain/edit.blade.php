@@ -74,7 +74,7 @@
                         </select>
                       </div>
 
-                      <input type="hidden" name="type_bien_id" value="1">
+                      <input type="hidden" name="type_bien_id" value="4">
 
                       {{-- choisir localite --}}
                       <div class="mb-3">

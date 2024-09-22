@@ -114,9 +114,7 @@
                           <td> <?php echo e($bien->proprietaire->nom); ?> <?php echo e($bien->proprietaire->prenom); ?></td>
                           <td> <?php echo e($bien->superficie ?? $bien->nbr_etage); ?></td>
                           <td> <?php echo e($bien->type_bien->type_bien); ?> </td>
-                          <td> <?php echo e($bien->localite->localite); ?> </td>
-
-
+                          <td> <?php echo e($bien->localite->ville); ?> <?php echo e($bien->localite->quartier); ?> </td>
                           <td> <?php echo e($bien->etat ? 'Actif' : 'Inactif'); ?></td>
                           <td>
 
@@ -128,6 +126,30 @@
                           <td>
                             <?php if($bien->type_bien_id == 1): ?>
                             <a href="<?php echo e(route('edit.immeuble', $bien->id)); ?>">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                            <?php elseif($bien->type_bien_id == 2): ?>
+                            <a href="<?php echo e(route('appartement.edit', $bien->id)); ?>">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                            <?php elseif($bien->type_bien_id == 3): ?>
+                            <a href="<?php echo e(route('edit.maison', $bien->id)); ?>">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                            <?php elseif($bien->type_bien_id == 4): ?>
+                            <a href="<?php echo e(route('edit.terrain', $bien->id)); ?>">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                            <?php elseif($bien->type_bien_id == 5): ?>
+                            <a href="<?php echo e(route('parcelle.edit', $bien->id)); ?>">
                               <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
@@ -230,5 +252,4 @@
     $('#bienModal').modal('show');
 }
 
-</script>
-<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
+</script><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>

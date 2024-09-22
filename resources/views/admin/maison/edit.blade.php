@@ -32,7 +32,7 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter une nouvelle maison</h1>
+                  <h1 class="card-title mb-5">Modifier une nouvelle maison</h1>
 
                   <div class="table-responsive">
                     <form action="{{ route('update.maison', $maison) }}" method="POST" enctype="multipart/form-data">
@@ -54,8 +54,8 @@
                       <div class="mb-3">
                         <label for="superficie" class="form-label">Superficie</label>
                         <input type="number" max="10" name="superficie"
-                               value="{{ old('superficie', $maison->supeficie) }}" class="form-control" id="superficie"
-                               placeholder="3">
+                          value="{{ old('superficie', $maison->superficie) }}" class="form-control" id="superficie"
+                          placeholder="3">
                       </div>
 
 
@@ -77,7 +77,7 @@
                         </select>
                       </div>
 
-                      <input type="hidden" name="type_bien_id" value="1">
+                      <input type="hidden" name="type_bien_id" value="3">
 
                       {{-- choisir localite --}}
                       <div class="mb-3">

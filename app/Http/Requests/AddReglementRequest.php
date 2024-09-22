@@ -26,7 +26,7 @@ class AddReglementRequest extends FormRequest
       'numero_reglement'=>'required',
       'nom'=>'required',
       'contrat_id'=>'required|exists:contrats,id',
-      'agent_id' => 'required|exists:users,id,role,agent',
+      'agent_id' => 'required|exists:users,id,role,admin',
 
     ];
   }

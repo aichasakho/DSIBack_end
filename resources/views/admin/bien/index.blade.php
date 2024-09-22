@@ -114,9 +114,7 @@
                           <td> {{ $bien->proprietaire->nom }} {{ $bien->proprietaire->prenom }}</td>
                           <td> {{ $bien->superficie ?? $bien->nbr_etage }}</td>
                           <td> {{ $bien->type_bien->type_bien }} </td>
-                          <td> {{ $bien->localite->localite }} </td>
-
-
+                          <td> {{ $bien->localite->ville }} {{ $bien->localite->quartier }} </td>
                           <td> {{ $bien->etat ? 'Actif' : 'Inactif' }}</td>
                           <td>
 
@@ -128,6 +126,30 @@
                           <td>
                             @if ($bien->type_bien_id == 1)
                             <a href="{{ route('edit.immeuble', $bien->id) }}">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                            @elseif($bien->type_bien_id == 2)
+                            <a href="{{ route('appartement.edit', $bien->id) }}">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                            @elseif ($bien->type_bien_id == 3)
+                            <a href="{{ route('edit.maison', $bien->id) }}">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                            @elseif($bien->type_bien_id == 4)
+                            <a href="{{ route('edit.terrain', $bien->id) }}">
+                              <button class="btn btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                            @elseif($bien->type_bien_id == 5)
+                            <a href="{{ route('parcelle.edit', $bien->id) }}">
                               <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>

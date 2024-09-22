@@ -41,7 +41,7 @@
                       <div class="mb-3">
                         <label for="superficie" class="form-label">Superficie</label>
                         <input type="number" max="1000" name="superficie" class="form-control" id="superficie"
-                               placeholder="3">
+                          placeholder="3">
                       </div>
 
                       {{-- choisir proprietaire --}}
@@ -59,7 +59,7 @@
                         </select>
                       </div>
 
-                      <input type="hidden" name="type_bien_id" value="1">
+                      <input type="hidden" name="type_bien_id" value="3">
 
                       {{-- choisir localite --}}
                       <div class="mb-3">
@@ -77,7 +77,7 @@
                       <div class="mb-3">
                         <label for="nbr_piece" class="form-label">Nombre de pièce</label>
                         <input type="number" max="10" name="nbr_piece" class="form-control" id="nbr_piece"
-                               placeholder="3">
+                          placeholder="3">
                       </div>
 
 
