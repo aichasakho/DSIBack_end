@@ -61,7 +61,7 @@
                   </div>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Vous avez un compte? <a href="register.html" class="text-primary">Se connecter</a>
+                  Vous avez un compte? <a href="{{route('admin.login')}}" class="text-primary">Se connecter</a>
                 </div>
               </form>
             </div>

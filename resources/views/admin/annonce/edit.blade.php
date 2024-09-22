@@ -30,16 +30,10 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter un Appartement</h1>
-
-                  <h4>
-                    <a href="{{ route('add.immeuble') }}">
-                      <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
-                    </a>
-                  </h4>
+                  <h1 class="card-title mb-5">Modifier une annonce</h1>
 
                   <div class="table-responsive">
-                    <form action="{{ route('appartement.update', $appartement) }}" method="POST">
+                    <form action="{{ route('annonce.update', $annonce) }}" method="POST">
                       @csrf
                       @method('put')
                       <div class="my-3">

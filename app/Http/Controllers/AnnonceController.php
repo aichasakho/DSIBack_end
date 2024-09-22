@@ -14,8 +14,8 @@ class AnnonceController extends Controller
    */
   public function index()
   {
-    $annonce = Annonce::with('bienImmobilier')->paginate(10);
-    return view('admin.annonce.index', ['annonce' => $annonce]);
+    $annonces = Annonce::with('bienImmobilier')->paginate(10);
+    return view('admin.annonce.index', ['annonce' => $annonces]);
   }
 
 
@@ -56,9 +56,9 @@ class AnnonceController extends Controller
    */
   public function edit(Annonce $annonce)
   {
-    $immeubles = BienImmobilier::where('type_bien_id', 1)
+    $annonces = BienImmobilier::where('type_bien_id', 1)
       ->pluck('nom_immeuble', 'id');
-    return view('admin.annonce.edit', compact('annonce', 'immeubles'));
+    return view('admin.annonce.edit', compact('annonce', 'annonces'));
   }
 
   /**

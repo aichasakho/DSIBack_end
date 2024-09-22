@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\ContratController;
+use App\Http\Controllers\DetailReglementController;
+use App\Http\Controllers\LocaliteController;
 use App\Http\Controllers\ParcelleController;
+use App\Http\Controllers\ReglementController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\TypeBienController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AdminController;
@@ -73,3 +79,21 @@ Route::post('Authentification-admin/register',[AdminController::class,'doRegiste
 
 //annonce
 Route::resource('annonce', AnnonceController::class);
+
+//contrat
+Route::resource('contrat', ContratController::class);
+
+//DetailReglement
+Route::resource('detailReglement', DetailReglementController::class);
+
+//localite
+Route::resource('localite', LocaliteController::class);
+
+//reglement
+Route::resource('reglement', ReglementController::class);
+
+//reservation
+Route::resource('reservation', ReservationController::class);
+
+//typebien
+Route::resource('typebien', TypeBienController::class);

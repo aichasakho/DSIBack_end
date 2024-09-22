@@ -29,7 +29,7 @@ class addTerrainRequest extends FormRequest
       'proprietaire_id' => 'required|exists:users,id,role,proprietaire',
       'agent_id' => 'required|exists:users,id,role,admin',
       'superficie' => 'required|numeric',
-      'prix_achat' => 'required|numeric',
+      'prix_achat' => 'nullable',
     ];
   }
 
@@ -51,8 +51,7 @@ class addTerrainRequest extends FormRequest
       'agent_id.exists' => 'L agent n existe pas !',
       'superficie.required' => 'La superficie est requise !',
       'superficie.numeric' => 'La superficie doit etre numerique !',
-      'prix_achat.required' => 'Le prix d achat est requis !',
-      'prix_achat.numeric' => 'Le prix d achat doit etre numerique !',
+
     ];
   }
 }

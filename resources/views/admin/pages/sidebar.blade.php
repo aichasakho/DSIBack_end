@@ -16,7 +16,7 @@
 
       {{-- Menus Biens Immobilier --}}
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('annonce.index') }}">
           <i class="mdi mdi-view-headline menu-icon"></i>
           <span class="menu-title">Annonce</span>
         </a>
@@ -40,34 +40,34 @@
 
 
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('reservation.index') }}">
           <i class="mdi mdi-calendar-check menu-icon"></i>
           <span class="menu-title">Reservation</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('localite.index') }}">
           <i class="mdi mdi-map-marker menu-icon"></i>
           <span class="menu-title">Localite</span>
         </a>
       </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="{{ route('typebien.index') }}">
                 <i class="mdi mdi-cube menu-icon"></i>
                 <span class="menu-title">Type de Bien</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="{{ route('contrat.index') }}">
                 <i class="mdi mdi-file-check menu-icon"></i>
                 <span class="menu-title">Contrat</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="{{ route('reglement.index') }}">
                 <i class="mdi mdi-file-document menu-icon"></i>
                 <span class="menu-title">Reglement</span>
             </a>

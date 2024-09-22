@@ -51,7 +51,7 @@
                   <a href="#" class="auth-link text-black">Mot de passe oublié?</a>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Pas de compte? <a href="register.html" class="text-primary">S'inscrire</a>
+                  Pas de compte? <a href="{{route('admin.register')}}" class="text-primary">S'inscrire</a>
                 </div>
               </form>
             </div>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\addAnnonceRequest;
+use App\Http\Requests\AddLocaliteRequest;
+use App\Models\Annonce;
 use App\Models\Localite;
 use Illuminate\Http\Request;
 
@@ -12,7 +15,8 @@ class LocaliteController extends Controller
      */
     public function index()
     {
-        //
+      $localite = Localite::all()->paginate(10);
+      return view('admin.localite.index', ['localite' => $localite]);
     }
 
     /**
@@ -20,15 +24,21 @@ class LocaliteController extends Controller
      */
     public function create()
     {
-        //
+      $localites = Localite::all();
+
+      return view('admin.localite.store', compact('localites'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(addLocaliteRequest $request)
     {
-        //
+      $validated = $request->validated();
+
+      Localite::create($validated);
+
+      return redirect()->route('localite.index')->with('success', 'Localité créée avec succès');
     }
 
     /**
@@ -36,7 +46,8 @@ class LocaliteController extends Controller
      */
     public function show(Localite $localite)
     {
-        //
+      $localite->load('localite');
+      return view('admin.localite.show', compact('localite'));
     }
 
     /**
@@ -44,7 +55,9 @@ class LocaliteController extends Controller
      */
     public function edit(Localite $localite)
     {
-        //
+      $localites = Localite::all();
+      return view('admin.localite.edit', compact('localite', 'localites'));
+
     }
 
     /**
@@ -52,7 +65,16 @@ class LocaliteController extends Controller
      */
     public function update(Request $request, Localite $localite)
     {
-        //
+      $validated = $request->validate([
+        'region' => 'required|string|max:255',
+        'ville' => 'required|string',
+        'quartier' => 'required|string',
+
+      ]);
+
+      $localite->update($validated);
+      return redirect()->route('localite.index')->with('success', 'Localite mise à jour avec succès');
+
     }
 
     /**
@@ -60,6 +82,7 @@ class LocaliteController extends Controller
      */
     public function destroy(Localite $localite)
     {
-        //
+      $localite->delete();
+      return redirect()->route('localite.index');
     }
 }

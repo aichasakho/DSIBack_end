@@ -29,7 +29,7 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter un Appartement</h1>
+                  <h1 class="card-title mb-5">Modifier un Appartement</h1>
 
                   <h4>
                     <a href="{{ route('add.immeuble') }}">

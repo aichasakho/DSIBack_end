@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
 
 @include("admin.pages.head")
@@ -24,47 +23,16 @@
                 <div class="card-body">
                   <div class="d-flex flex-row gap-2">
                     <p class="card-description">
-                      <a href="{{ route('add.immeuble') }}">
+                      <a href="{{ route('annonce.create') }}">
                         <button type="button" class="btn btn-info">
-                          Ajouter un Immeuble
-                        </button>
-                      </a>
-                    </p>
-                    <p class="card-description">
-                      <a href="{{ route('appartement.create') }}">
-                        <button type="button" class="btn btn-info">
-                          Ajouter un Appartement
-                        </button>
-                      </a>
-                    </p>
-
-                    <p class="card-description">
-                      <a href="{{ route('add.maison') }}">
-                        <button type="button" class="btn btn-info">
-                          Ajouter une Maison
-                        </button>
-                      </a>
-                    </p>
-
-                    <p class="card-description">
-                      <a href="{{ route('parcelle.create') }}">
-                        <button type="button" class="btn btn-info">
-                          Ajouter une Parcelle
-                        </button>
-                      </a>
-                    </p>
-
-                    <p class="card-description">
-                      <a href="{{ route('add.terrain') }}">
-                        <button type="button" class="btn btn-info">
-                          Ajouter un Terrain
+                          Ajouter une annonce
                         </button>
                       </a>
                     </p>
 
                   </div>
                   <hr>
-                  <h4 class="card-title">Liste des Appartements</h4>
+                  <h4 class="card-title">Liste des Annonces</h4>
 
                   <hr>
                   <div class="table-responsive">
@@ -72,51 +40,51 @@
                       <thead>
                         <tr>
                           <th> Image </th>
-                          <th> Immeuble </th>
-                          <th> Proprietaire </th>
-                          <th> Nombre de piece </th>
-                          <th> Montant caution</th>
+                          <th> Type d'annonce </th>
+                          <th> Description </th>
+                          <th> Prix </th>
+                          <th> statut </th>
                           <th> Details </th>
                           <th> Modifier </th>
                         </tr>
                       </thead>
+
                       <tbody>
-                        @foreach($appartements as $appart)
-                        <tr>
-                          <td class="py-1">
-                            <img src="{{ $appart?->bienImmobilier?->image }}" alt="image" /><br>
-                          </td>
-                          <td> {{ $appart?->bienImmobilier?->nom_immeuble }} </td>
-                          <td> {{ $appart?->bienImmobilier->proprietaire?->nom }} {{
-                            $appart?->bienImmobilier->proprietaire?->prenom }}</td>
-                          <td> {{ $appart?->nbr_piece }} </td>
-                          <td> {{ $appart?->montant_caution }} </td>
-                          <td>
-                            <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="{{ json_encode($appart) }}">
-                              <i class="mdi mdi-eye"></i>
-                            </button>
-                          </td>
-                          <td>
-                            <a href="{{ route('appartement.edit', $appart) }}">
-                              <button class="btn btn-inverse-success">
-                                <i class="mdi mdi-pencil"></i>
-                              </button>
-                            </a>
-                          </td>
-                          <td>
-                            <a href="{{ route('appartement.destroy', $appart) }}">
-                              <button class="btn btn-inverse-danger">
-                                <i class="mdi mdi-delete"></i>
-                              </button>
-                            </a>
-                          </td>
-                        </tr>
-                        @endforeach
+{{--                        @foreach($annonce as $a)--}}
+{{--                        <tr>--}}
+{{--                          <td class="py-1">--}}
+{{--                            <img src="{{ $a?->bienImmobilier?->image }}" alt="image" /><br>--}}
+{{--                          </td>--}}
+{{--                          <td> {{ $a?->type_annonce }} </td>--}}
+{{--                          <td> {{ $a?->description }} </td>--}}
+{{--                          <td> {{ $a?->prix}} </td>--}}
+{{--                          <td> {{ $a?->statut }} </td>--}}
+{{--                          <td>--}}
+{{--                            <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="{{ json_encode($a) }}">--}}
+{{--                              <i class="mdi mdi-eye"></i>--}}
+{{--                            </button>--}}
+{{--                          </td>--}}
+{{--                          <td>--}}
+{{--                            <a href="{{ route('annonce.edit', $a) }}">--}}
+{{--                              <button class="btn btn-inverse-success">--}}
+{{--                                <i class="mdi mdi-pencil"></i>--}}
+{{--                              </button>--}}
+{{--                            </a>--}}
+{{--                          </td>--}}
+{{--                          <td>--}}
+{{--                            <a href="{{ route('annonce.destroy', $a) }}">--}}
+{{--                              <button class="btn btn-inverse-danger">--}}
+{{--                                <i class="mdi mdi-delete"></i>--}}
+{{--                              </button>--}}
+{{--                            </a>--}}
+{{--                          </td>--}}
+{{--                        </tr>--}}
+{{--                        @endforeach--}}
                       </tbody>
                     </table>
                   </div>
                 </div>
-                {{ $appartements->links() }}
+                {{ $annonce->links() }}
               </div>
             </div>
           </div>
@@ -148,15 +116,15 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="bienModalLabel">Détail de l'appartement</h1>
+            <h1 class="modal-title fs-5" id="bienModalLabel">Détail de l'annonce</h1>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
           </div>
           <div class="modal-body">
             <p id="bienImage"></p>
-            <p>Nombre de pièce : <span id="NombrePiece"></span></p>
-            <p>Nom de l'immeuble: <span id="nomImmeuble"></span></p>
-            <p>Proprietaire: <span id="proprietaire"></span></p>
-            <p>Montant caution : <span id="caution"></span></p>
+            <p>Type de l'annonce : <span id="typeAnnonce"></span></p>
+            <p>Description: <span id="description"></span></p>
+            <p>Prix: <span id="prix"></span></p>
+            <p>Statut : <span id="statut"></span></p>
 
             {{-- TODO: Ajouter les autres informations du bien --}}
           </div>
@@ -184,14 +152,14 @@
   function showModal(event) {
     // Récupère l'attribut 'data-bien' et parse-le en objet JSON
     var appart = JSON.parse(event.currentTarget.getAttribute('data-bien'));
-    console.log(appart); // Pour vérifier la structure de l'objet
+    console.log(annonce); // Pour vérifier la structure de l'objet
 
     // Utiliser les propriétés de l'objet 'appart'
-    document.getElementById("bienImage").innerHTML = `<img src="${appart.bienImmobilier ? appart.bienImmobilier.image : 'Non spécifié'}" alt="image" class="img-fluid" />`;
-    document.getElementById("NombrePiece").innerHTML = appart.nbr_piece || 'Non spécifié';
-    document.getElementById("nomImmeuble").innerHTML = appart.bienImmobilier ? appart.bienImmobilier.nom_immeuble : 'Non spécifié';
-    document.getElementById("proprietaire").innerHTML = appart.bienImmobilier?.proprietaire ? `${appart.bienImmobilier.proprietaire.nom} ${appart.bienImmobilier.proprietaire.prenom}` : 'Non spécifié';
-    document.getElementById("caution").innerHTML = appart.montant_caution || 'Non spécifié';
+    document.getElementById("bienImage").innerHTML = `<img src="${annonce.bienImmobilier ? annonce.bienImmobilier.image : 'Non spécifié'}" alt="image" class="img-fluid" />`;
+    document.getElementById("typeAnnonce").innerHTML = annonce.type_annonce || 'Non spécifié';
+    document.getElementById("description").innerHTML = annonce.description || 'Non spécifié';
+    document.getElementById("prix").innerHTML = annonce.prix || 'Non spécifié';
+    document.getElementById("statut").innerHTML = annonce.statut|| 'Non spécifié';
 
     // Affiche le modal
     $('#bienModal').modal('show');
@@ -240,4 +208,4 @@
 
 </body>
 </html>
->>>>>>> df801db6913d6bd4e10082b6d954c63944b2ae35
+
