@@ -25,9 +25,9 @@ class addMaisonRequest extends FormRequest
       'image' => 'required|image|mimes:png,jpg,jpeg',
       'prix' => 'required|numeric',
       'localite_id' => 'required|exists:localites,id',
-      'type_bien_id' => 'required|exists:type_bien,id',
+      'type_bien_id' => 'required|exists:type_biens,id',
       'proprietaire_id' => 'required|exists:users,id,role,proprietaire',
-      'agent_id' => 'required|exists:users,id,role,agent',
+      'agent_id' => 'required|exists:users,id,role,admin',
       'superficie' => 'required|numeric',
       'nbr_piece' => 'required|numeric',
     ];

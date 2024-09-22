@@ -85,6 +85,13 @@ class UserController extends Controller
         'email' => ['l\'email ou le mot de passe est incorrect'],
       ]);
     }
+
+    if ($user->status == 0) {
+      throw ValidationException::withMessages([
+        'email' => ['Votre compte est inactif. Si Vous venez de vous inscrire veuillez
+        attendre votre compte est en cours d\'activation.'],
+      ]);
+    }
     $token = $user->createToken('MyApp')->plainTextToken;
 
     return response()->json(['user' => $user, 'token' => $token], 200);
