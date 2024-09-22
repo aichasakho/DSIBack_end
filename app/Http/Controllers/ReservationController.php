@@ -7,59 +7,48 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+  /**
+   * Display a listing of the resource.
+   */
+  public function index()
+  {
+    $reservation = Reservation::with('client', 'bien_immobilier')->paginate();
+    return view('admin.reservation.index', compact('reservation'));
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  /**
+   * Display the specified resource.
+   */
+  public function show(Reservation $reservation)
+  {
+    $reservation->load('client', 'bien_immobilier');
+    return view('admin.reservation.show', compact('reservation'));
+  }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Reservation $reservation)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Reservation $reservation)
-    {
-        //
-    }
+  /**
+   * Remove the specified resource from storage.
+   */
+  public function destroy(Reservation $reservation)
+  {
+    $reservation->delete();
+    return redirect()->route('admin.reservation.index');
+  }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Reservation $reservation)
-    {
-      //
-    }
+  public function annuler(Reservation $reservation)
+  {
+    $reservation->update([
+      'statut' => false,
+    ]);
+    return redirect()->route('admin.reservation.index');
+  }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Reservation $reservation)
-    {
-        //
-    }
+  public function confirmer(Reservation $reservation)
+  {
+    $reservation->update([
+      'statut' => true,
+    ]);
+    return redirect()->route('admin.reservation.index');
+  }
 }

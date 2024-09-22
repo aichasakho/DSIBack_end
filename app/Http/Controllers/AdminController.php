@@ -11,106 +11,105 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
 
-    /**
-     * Affiche une liste de tous les utilisateurs.
-     */
-    public function index(){
+  /**
+   * Affiche une liste de tous les utilisateurs.
+   */
+  public function index()
+  {
 
-        $usersAll=User::paginate(10);
-        return view("admin.account.index",compact("usersAll"));
+    $usersAll = User::paginate(10);
+    return view("admin.account.index", compact("usersAll"));
+  }
+
+  /**
+   * Affiche le formulaire de connexion
+   */
+  public function login()
+  {
+    return view("admin.account.login");
+  }
+
+  /**
+   * Affiche le formulaire de d'inscription
+   */
+  public function register()
+  {
+    return view("admin.account.register");
+  }
+
+  /**
+   * Authentifie un utilisateur avec ses informations d'identification.
+   */
+
+  public function doLogin(Request $request)
+  {
+
+    $request->validate([
+      'email' => 'required',
+      'password' => 'required'
+    ], [
+      'email.required' => 'L email est requis dans le formulaire',
+      'password.required' => 'Le mots de passe est requis dans le formulaire'
+
+    ]);
+
+    if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+      toastr()->error('Information introuvable');
+      return back();
+    }
+    toastr()->info('Bienvenue !' . Auth::user()->nom);
+
+    return redirect()->route('home.admin');
+  }
+
+
+  public function doRegister(Request $request)
+  {
+
+    if ($request->password != $request->confirmePassword) {
+      toastr()->error("Les mots de passe ne sont pas identiques");
+      return back();
     }
 
-    /**
-     * Affiche le formulaire de connexion
-     */
-    public function login(){
-        return view("admin.account.login");
+    $user = new User();
+    $user->nom = $request->nom;
+    $user->prenom = $request->prenom;
+    $user->email = $request->email;
+    $user->password = bcrypt($request->password);
+
+
+    $user->save();
+    toastr()->success("Compte ajoute avec succes");
+    return back();
+  }
+
+
+  /**
+   * Enregistre un nouvel utilisateur dans la base de données.
+   */
+  public function store(AddUsersAccountRequest $request)
+  {
+
+    if ($request->password != $request->password_confirmation) {
+      return back()->with("error", "Les mots de passes sont différents");
     }
 
-    /**
-     * Affiche le formulaire de d'inscription
-     */
-    public function register(){
-        return view("admin.account.register");
-    }
+    $user = new User();
+    $user->nom = $request->nom;
+    $user->prenom = $request->prenom;
+    $user->email = $request->email;
+    $user->tel = $request->tel;
+    $user->password = bcrypt($request->password);
 
-    /**
-     * Authentifie un utilisateur avec ses informations d'identification.
-     */
+    $user->save();
+    return redirect()->back()->with("success", "Compte ajouté avec succes !");
+  }
 
-    public function doLogin(Request $request){
-
-        $request->validate([
-            'email'=>'required',
-            'password'=>'required'
-        ],[
-            'email.required'=>'L email est requis dans le formulaire',
-            'password.required'=>'Le mots de passe est requis dans le formulaire'
-
-        ]);
-
-        if(!Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-            toastr()->error('Information introuvable');
-            return back();
-        }
-        toastr()->info('Bienvenue !'.Auth::user()->nom);
-
-        return redirect()->route('home.admin');
-
-    }
-
-
-
-    public function doRegister(Request $request){
-
-        $request->validate([
-            'prenom'=>'required',
-            'nom'=>'required',
-            'email'=>'required',
-            'password'=>'required'
-        ],[
-            'prenom.required'=>'Le prenom est requis dans le formulaire',
-            'nom.required'=>'Le nom est requis dans le formulaire',
-            'email.required'=>'L email est requis dans le formulaire',
-            'password.required'=>'Le mots de passe est requis dans le formulaire'
-
-        ]);
-
-        if(!Auth::attempt(['prenom'=>$request->prenom, 'nom'=>$request->nom, 'email'=>$request->email,'password'=>$request->password])){
-            toastr()->error('Information introuvable');
-            return back();
-        }
-        toastr()->info('Bienvenue !'.Auth::user()->nom);
-
-        return redirect()->route('home.admin');
-
-    }
-
-
-    /**
-     * Enregistre un nouvel utilisateur dans la base de données.
-     */
-    public function store(AddUsersAccountRequest $request){
-
-        if($request->password != $request->password_confirmation){
-            return back()->with("error","Les mots de passes sont différents");
-        }
-
-        $user = new User();
-        $user->nom = $request->nom;
-        $user->prenom = $request->prenom;
-        $user->email = $request->email;
-        $user->tel = $request->tel;
-        $user->password = bcrypt($request->password);
-
-        $user->save();
-        return redirect()->back()->with("success","Compte ajouté avec succes !");
-    }
-
-    /**
-     * Affiche la page d'accueil de l'administration.
-     */
-    public function home(){
-        return view('admin.index');
-    }
+  /**
+   * Affiche la page d'accueil de l'administration.
+   */
+  public function home()
+  {
+    return view('admin.index');
+  }
 }
