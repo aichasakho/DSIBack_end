@@ -82,12 +82,21 @@
         </button>
         <div class="collapse show" id="user-collapse">
             <ul class="btn-toggle-nav list-unstyled pb-1">
-            <li><a href="#" class="nav-link">Agents</a></li>
-            <li><a href="#" class="nav-link">Clients</a></li>
-            <li><a href="#" class="nav-link">Proprietaires</a></li>
+            <li><a href="<?php echo e(route('user.index')); ?>" class="nav-link">Agents</a></li>
+            <li><a href="<?php echo e(route('user.index')); ?>" class="nav-link">Clients</a></li>
+            <li><a href="<?php echo e(route('user.index')); ?>" class="nav-link">Proprietaires</a></li>
             </ul>
         </div>
         </li>
+    <li class="">
+      <button>
+      <a class="nav-link" href="<?php echo e(route('admin.login')); ?>">
+        <span class="menu-title">Déconnexion</span>
+      </a>
+      </button>
+    </li>
+
+
 
     </ul>
   </nav>

@@ -42,6 +42,7 @@
                           <th> statut </th>
                           <th> Details </th>
                           <th> Modifier </th>
+                          <th> Supprimer </th>
                         </tr>
                       </thead>
 
@@ -67,6 +68,11 @@
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
+                          </td>
+                          <td>
+                            <button class="btn btn-sm btn-inverse-danger" onclick="deleteAnnonce(<?php echo e($annonce->id); ?>)">
+                              <i class="mdi mdi-delete"></i>
+                            </button>
                           </td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -124,6 +130,31 @@
       </div>
     </div>
 
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Supprimer une annonce</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Etes-vous sur de vouloir supprimer cette annonce ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <form id="deleteForm" action="" method="POST">
+              <?php echo csrf_field(); ?>
+              <?php echo method_field('DELETE'); ?>
+              <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <?php if($errors->any()): ?>
     <div class="alert alert-danger">
       <ul>
@@ -156,6 +187,13 @@
 
     // Affiche le modal
     $('#annonceModal').modal('show');
+  }
+
+  function deleteAnnonce(id) {
+    let url = "<?php echo e(route('annonce.destroy', ':id')); ?>";
+    url = url.replace(':id', id);
+    $('#deleteModal').find('form').attr('action', url);
+    $('#deleteModal').modal('show');
   }
 </script>
 <?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/annonce/index.blade.php ENDPATH**/ ?>
