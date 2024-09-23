@@ -168,7 +168,7 @@
 
                           <td>
                             <button type="button" class="btn btn-sm btn-inverse-danger"
-                                    onclick="deleteBien(<?php echo e($bien->id); ?>)">
+                              onclick="deleteBien(<?php echo e($bien->id); ?>)">
                               <i class="mdi mdi-delete"></i>
                             </button>
                           </td>
@@ -276,11 +276,10 @@
     $('#bienModal').modal('show');
 }
   function deleteBien(id) {
-    let url = "<?php echo e(route('contrat.destroy', ':id')); ?>";
+    let url = "<?php echo e(route('bienImmobilier.destroy', ':id')); ?>";
     url = url.replace(':id', id);
     $('#deleteModal').find('form').attr('action', url);
     $('#deleteModal').modal('show');
   }
 
-</script>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
+</script><?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
