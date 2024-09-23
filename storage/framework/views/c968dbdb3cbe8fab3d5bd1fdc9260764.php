@@ -2,35 +2,28 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
   <div class="container-scroller d-flex">
-    @include("admin.pages.sidebar")
+    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      @include('admin.pages.navbar')
+      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          @if ($errors->any())
-          <div class="alert alert-danger">
-            <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-              @endforeach
-            </ul>
-          </div>
-          @endif
           <div class="row">
+
+
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-row gap-2">
                     <p class="card-description">
-                      <a href="{{ route('typebien.create') }}">
+                      <a href="<?php echo e(route('typebien.create')); ?>">
                         <button type="button" class="btn btn-info">
                           Ajouter un type de bien
                         </button>
@@ -53,23 +46,27 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($typebiens as $typebien)
+                        <?php $__currentLoopData = $typeBiens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $typebien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                          <td>{{ $typebien->type_bien }}</td>
+                          <td><?php echo e($typebien->type_bien); ?></td>
                           <td>
-                            <a href="{{ route('typebien.edit', $typebien) }}">
+                            <a href="<?php echo e(route('typebien.edit', $typebien)); ?>">
                               <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
                           </td>
                           <td>
-                            <button class="btn btn-inverse-danger" onclick="confirmDelete({{ $typebien->id }})">
-                              <i class="mdi mdi-delete"></i>
-                            </button>
+                            <form action="<?php echo e(route('typebien.destroy', $typebien->id)); ?>" method="POST">
+                              <?php echo csrf_field(); ?>
+                              <?php echo method_field('DELETE'); ?>
+                              <button type="submit" class="btn btn-inverse-danger">
+                                <i class="mdi mdi-delete"></i>
+                              </button>
+                            </form>
                           </td>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
                     </table>
                   </div>
@@ -100,40 +97,23 @@
     </div>
 
     <!-- Button trigger modal -->
-    {{-- Make here a modal --}}
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="deleteModalLabel">Confirmation</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Etes-vous sur de vouloir supprimer ce type de bien ?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-            <form action="" method="POST">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-danger">Supprimer</button>
-            </form>
-          </div>
-        </div>
-      </div>
+
+
+
+
+    <?php if($errors->any()): ?>
+    <div class="alert alert-danger">
+      <ul>
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <li><?php echo e($error); ?></li>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      </ul>
     </div>
+    <?php endif; ?>
+
     <!-- page-body-wrapper ends -->
   </div>
-  @include("admin.pages.js")
+  <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html>
-
-<script>
-  function confirmDelete(id) {
-    let url = "{{ route('typebien.destroy', ':id') }}";
-    url = url.replace(':id', id);
-    $('#deleteModal').find('form').attr('action', url);
-    $('#deleteModal').modal('show');
-  }
-</script>
+</html><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/typeBien/index.blade.php ENDPATH**/ ?>

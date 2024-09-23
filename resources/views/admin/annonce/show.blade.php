@@ -18,5 +18,3 @@
 <a href="{{ route('annonce.index') }}">Retour à la liste</a>
 </body>
 </html>
-
-

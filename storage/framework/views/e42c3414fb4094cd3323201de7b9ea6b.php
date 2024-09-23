@@ -2,15 +2,15 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
   <div class="container-scroller d-flex">
-    @include("admin.pages.sidebar")
+    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      @include('admin.pages.navbar')
+      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
       <!-- partial -->
       <div class="main-panel">
@@ -21,7 +21,7 @@
                 <div class="card-body">
                   <div class="d-flex flex-row gap-2">
                     <p class="card-description">
-                      <a href="{{ route('annonce.create') }}">
+                      <a href="<?php echo e(route('annonce.create')); ?>">
                         <button type="button" class="btn btn-info">
                           Ajouter une annonce
                         </button>
@@ -46,35 +46,36 @@
                       </thead>
 
                       <tbody>
-                        @foreach($annonces as $annonce)
+                        <?php $__currentLoopData = $annonces; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $annonce): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                           <td>
-                            <img src="{{ $annonce->bienImmobilier->image}}" alt="image" class="img-fluid" />
+                            <img src="<?php echo e($annonce->bienImmobilier->image); ?>" alt="image" class="img-fluid" />
                           </td>
-                          <td> {{ $annonce->type_annonce }} </td>
-                          <td> {{ substr($annonce->description, 0, 50) }} ... </td>
-                          <td> {{ $annonce->prix }} </td>
-                          <td> {{ $annonce->statut }} </td>
+                          <td> <?php echo e($annonce->type_annonce); ?> </td>
+                          <td> <?php echo e(substr($annonce->description, 0, 50)); ?> ... </td>
+                          <td> <?php echo e($annonce->prix); ?> </td>
+                          <td> <?php echo e($annonce->statut); ?> </td>
                           <td>
                             <button class="btn btn-sm btn-inverse-info" onclick="showModal(event)"
-                              data-annonce="{{ $annonce }}">
+                              data-annonce="<?php echo e($annonce); ?>">
                               <i class="mdi mdi-eye"></i>
                             </button>
                           </td>
                           <td>
-                            <a href="{{ route('annonce.edit', $annonce) }}">
+                            <a href="<?php echo e(route('annonce.edit', $annonce)); ?>">
                               <button class="btn btn-sm btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
                           </td>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
                     </table>
                   </div>
                 </div>
-                {{ $annonces->links() }}
+                <?php echo e($annonces->links()); ?>
+
               </div>
             </div>
           </div>
@@ -117,25 +118,25 @@
             <p>Prix: <span id="prix"></span></p>
             <p>Statut : <span id="statut"></span></p>
 
-            {{-- TODO: Ajouter les autres informations du bien --}}
+            
           </div>
         </div>
       </div>
     </div>
 
-    @if ($errors->any())
+    <?php if($errors->any()): ?>
     <div class="alert alert-danger">
       <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <li><?php echo e($error); ?></li>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </ul>
     </div>
-    @endif
+    <?php endif; ?>
 
     <!-- page-body-wrapper ends -->
   </div>
-  @include("admin.pages.js")
+  <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
@@ -157,3 +158,4 @@
     $('#annonceModal').modal('show');
   }
 </script>
+<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/annonce/index.blade.php ENDPATH**/ ?>

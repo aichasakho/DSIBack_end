@@ -2,28 +2,28 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
   <div class="container-scroller d-flex">
-    @include("admin.pages.sidebar")
+    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      @include('admin.pages.navbar')
+      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          @if ($errors->any())
+          <?php if($errors->any()): ?>
           <div class="alert alert-danger">
             <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-              @endforeach
+              <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li><?php echo e($error); ?></li>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </div>
-          @endif
+          <?php endif; ?>
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
@@ -32,9 +32,8 @@
                   <h1 class="card-title mb-5">Ajouter un contrat</h1>
 
                   <div class="table-responsive">
-                    <form action="{{ route('contrat.store') }}" method="POST">
-                      @csrf
-
+                    <form action="<?php echo e(route('contrat.store')); ?>" method="POST">
+                      <?php echo csrf_field(); ?>
 
                       <div class="mb-3">
                         <label for="numero_contrat" class="form-label">N°Contrat</label>
@@ -42,29 +41,31 @@
                           placeholder="3">
                       </div>
 
-                      {{-- biens immobiliers --}}
+                      
                       <div class="mb-3">
                         <label for="bien_immobilier_id" class="form-label">Bien Immobilier</label>
                         <select class="form-select" name="bien_immobilier_id" id="bien_immobilier_id">
-                          @foreach ($biens as $bien)
-                          <option value="{{ $bien->id }}">
-                            {{ $bien->nom_immeuble ?? $bien->proprietaire->prenom . " " .
-                            $bien->proprietaire->nom . " Bien :". $bien->id }}
+                          <?php $__currentLoopData = $biens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <option value="<?php echo e($bien->id); ?>">
+                            <?php echo e($bien->nom_immeuble ?? $bien->proprietaire->prenom . " " .
+                            $bien->proprietaire->nom . " Bien :". $bien->id); ?>
+
                           </option>
-                          @endforeach
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                       </div>
 
-                      {{-- clients --}}
+                      
 
                       <div class="mb-3">
                         <label for="client_id" class="form-label">Client</label>
                         <select class="form-select" name="client_id" id="client_id">
-                          @foreach ($clients as $client)
-                          <option value="{{ $client->id }}">
-                            {{ $client->nom . " " . $client->prenom }}
+                          <?php $__currentLoopData = $clients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <option value="<?php echo e($client->id); ?>">
+                            <?php echo e($client->nom . " " . $client->prenom); ?>
+
                           </option>
-                          @endforeach
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                       </div>
 
@@ -77,7 +78,7 @@
                         <label for="dateFin" class="form-label">Date de fin</label>
                         <input type="date" name="date_fin" class="form-control" id="dateFin" placeholder="3">
                       </div>
-                      {{-- date fin dois etre supperieur a la date de debut --}}
+                      
                       <script>
                         document.getElementById("dateFin").min = document.getElementById("date_debut").value;
                       </script>
@@ -129,7 +130,7 @@
 
 
     <!-- page-body-wrapper ends -->
-    @include("admin.pages.js")
+    <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html>
+</html><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/contrat/store.blade.php ENDPATH**/ ?>

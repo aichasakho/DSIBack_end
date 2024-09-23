@@ -2,15 +2,15 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
   <div class="container-scroller d-flex">
-    @include("admin.pages.sidebar")
+    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      @include('admin.pages.navbar')
+      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
       <!-- partial -->
       <div class="main-panel">
@@ -21,7 +21,7 @@
                 <div class="card-body">
                   <div class="d-flex flex-row gap-2">
                     <p class="card-description">
-                      <a href="{{ route('contrat.create') }}">
+                      <a href="<?php echo e(route('contrat.create')); ?>">
                         <button type="button" class="btn btn-info">
                           Ajouter un contrat
                         </button>
@@ -51,24 +51,24 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($contrats as $contrat)
+                        <?php $__currentLoopData = $contrats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contrat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                          <td> {{ $contrat->type_contrat }} </td>
-                          <td> {{ $contrat->date_debut }} </td>
-                          <td> {{ $contrat->date_fin }} </td>
-                          <td> {{ $contrat->client->prenom }} {{ $contrat->client->nom }} </td>
-                          <td> {{ $contrat->proprietaire->prenom }}{{ $contrat->proprietaire->nom }} </td>
-                          <td> {{ $contrat->agent->prenom }}{{ $contrat->agent->nom }} </td>
-                          <td> {{ $contrat->bien_immobilier?->nom_immeuble }} </td>
-                          <td> {{ $contrat->montant }} </td>
+                          <td> <?php echo e($contrat->type_contrat); ?> </td>
+                          <td> <?php echo e($contrat->date_debut); ?> </td>
+                          <td> <?php echo e($contrat->date_fin); ?> </td>
+                          <td> <?php echo e($contrat->client->prenom); ?> <?php echo e($contrat->client->nom); ?> </td>
+                          <td> <?php echo e($contrat->proprietaire->prenom); ?><?php echo e($contrat->proprietaire->nom); ?> </td>
+                          <td> <?php echo e($contrat->agent->prenom); ?><?php echo e($contrat->agent->nom); ?> </td>
+                          <td> <?php echo e($contrat->bien_immobilier?->nom_immeuble); ?> </td>
+                          <td> <?php echo e($contrat->montant); ?> </td>
                           <td>
                             <button class="btn btn-sm btn-inverse-info" onclick="showModal(event)"
-                              data-contrat="{{ $contrat }}">
+                              data-contrat="<?php echo e($contrat); ?>">
                               <i class="mdi mdi-eye"></i>
                             </button>
                           </td>
                           <td>
-                            <a href="{{ route('contrat.edit', $contrat) }}">
+                            <a href="<?php echo e(route('contrat.edit', $contrat)); ?>">
                               <button class="btn btn-sm btn-inverse-warning">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
@@ -76,12 +76,12 @@
                           </td>
                           <td>
                             <button type="button" class="btn btn-sm btn-inverse-danger"
-                              onclick="deleteContrat({{ $contrat->id }})">
+                              onclick="deleteContrat(<?php echo e($contrat->id); ?>)">
                               <i class="mdi mdi-delete"></i>
                             </button>
                           </td>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
                     </table>
                   </div>
@@ -149,8 +149,8 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
             <form action="" method="POST">
-              @csrf
-              @method('DELETE')
+              <?php echo csrf_field(); ?>
+              <?php echo method_field('DELETE'); ?>
               <button type="submit" class="btn btn-danger">Supprimer</button>
             </form>
           </div>
@@ -158,19 +158,19 @@
       </div>
     </div>
 
-    @if ($errors->any())
+    <?php if($errors->any()): ?>
     <div class="alert alert-danger">
       <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <li><?php echo e($error); ?></li>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </ul>
     </div>
-    @endif
+    <?php endif; ?>
 
     <!-- page-body-wrapper ends -->
   </div>
-  @include("admin.pages.js")
+  <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
@@ -195,9 +195,9 @@
   }
 
   function deleteContrat(id) {
-    let url = "{{ route('contrat.destroy', ':id') }}";
+    let url = "<?php echo e(route('contrat.destroy', ':id')); ?>";
     url = url.replace(':id', id);
     $('#deleteModal').find('form').attr('action', url);
     $('#deleteModal').modal('show');
   }
-</script>
+</script><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/contrat/index.blade.php ENDPATH**/ ?>

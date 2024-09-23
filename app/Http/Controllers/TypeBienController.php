@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TypeBien;
+use App\Models\typebien;
 use Illuminate\Http\Request;
+use Mockery\Matcher\Type;
 
-class TypeBienController extends Controller
+class typebienController extends Controller
 {
   /**
    * Display a listing of the resource.
    */
   public function index()
   {
-    $typeBiens = TypeBien::all();
-    return view('admin.typeBien.index', compact('typeBiens'));
+    $typebiens = TypeBien::all();
+    return view('admin.typebien.index', compact('typebiens'));
   }
 
   /**
@@ -21,7 +22,7 @@ class TypeBienController extends Controller
    */
   public function create()
   {
-    return view('admin.typeBien.store');
+    return view('admin.typebien.store');
   }
 
   /**
@@ -34,43 +35,44 @@ class TypeBienController extends Controller
     ]);
     TypeBien::create($request->all());
 
-    return redirect()->route('typeBien.index');
   }
 
   /**
    * Display the specified resource.
    */
-  public function show(TypeBien $typeBien)
+  public function show(TypeBien $typebien)
   {
-    return view('admin.typeBien.show', compact('typeBien'));
+    return view('admin.typebien.show', compact('typebien'));
   }
 
   /**
    * Show the form for editing the specified resource.
    */
-  public function edit(TypeBien $typeBien)
+  public function edit(TypeBien $typebien)
   {
-    return view('admin.typeBien.edit', compact('typeBien'));
+    return view('admin.typebien.edit', compact('typebien'));
   }
 
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, TypeBien $typeBien)
+  public function update(Request $request, TypeBien $typebien)
   {
     $request->validate([
       'type_bien' => 'required',
     ]);
-    $typeBien->update($request->all());
-    return redirect()->route('admin.typeBien.index');
+    $typebien->update($request->all());
+    toastr('Type bien mise à jour avec succès');
+    return redirect()->route('typebien.index');
   }
 
   /**
    * Remove the specified resource from storage.
    */
-  public function destroy(TypeBien $typeBien)
+  public function destroy(TypeBien $typebien)
   {
-    $typeBien->delete();
-    return redirect()->route('admin.typeBien.index');
+    $typebien->delete();
+    toastr('Type bien deleted successfully');
+    return redirect()->route('typebien.index');
   }
 }

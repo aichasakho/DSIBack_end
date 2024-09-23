@@ -2,15 +2,15 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
   <div class="container-scroller d-flex">
-    @include("admin.pages.sidebar")
+    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      @include('admin.pages.navbar')
+      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
       <!-- partial -->
       <div class="main-panel">
@@ -40,15 +40,15 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($reservations as $reservation)
+                        <?php $__currentLoopData = $reservations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reservation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                          <td>{{ $reservation->date_debut }}</td>
-                          <td>{{ $reservation->date_fin }}</td>
-                          <td>{{ $reservation->client->nom }} {{ $reservation->client->prenom }}</td>
-                          <td>{{ $reservation->profession }}</td>
-                          <td>{{ $reservation->situation_matrimonial }}</td>
+                          <td><?php echo e($reservation->date_debut); ?></td>
+                          <td><?php echo e($reservation->date_fin); ?></td>
+                          <td><?php echo e($reservation->client->nom); ?> <?php echo e($reservation->client->prenom); ?></td>
+                          <td><?php echo e($reservation->profession); ?></td>
+                          <td><?php echo e($reservation->situation_matrimonial); ?></td>
                           <td>
-                            <a href="{{ route('reservation.show', $reservation->id) }}">
+                            <a href="<?php echo e(route('reservation.show', $reservation->id)); ?>">
                               <button class="btn btn-sm btn-inverse-info">
                                 <i class="mdi mdi-eye"></i>
                               </button>
@@ -62,12 +62,12 @@
                             </a>
                           </td>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
                     </table>
                   </div>
                 </div>
-                {{ $reservations->links() }}
+                
               </div>
             </div>
           </div>
@@ -108,25 +108,27 @@
             <p>Profession: <span id="profession"></span></p>
             <p>Situation matrimoniale : <span id="situationMatrimoniale"></span></p>
             <p>Client : <span id="client"></span></p>
-            {{-- TODO: Ajouter les autres informations du bien --}}
+
+
+            
           </div>
         </div>
       </div>
     </div>
 
-    @if ($errors->any())
+    <?php if($errors->any()): ?>
     <div class="alert alert-danger">
       <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <li><?php echo e($error); ?></li>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </ul>
     </div>
-    @endif
+    <?php endif; ?>
 
     <!-- page-body-wrapper ends -->
   </div>
-  @include("admin.pages.js")
+  <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
@@ -148,4 +150,4 @@
     // Affiche le modal
     $('#bienModal').modal('show');
   }
-</script>
+</script><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/reservation/index.blade.php ENDPATH**/ ?>

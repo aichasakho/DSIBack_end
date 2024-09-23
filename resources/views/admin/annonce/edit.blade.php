@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,40 +34,52 @@
                   <div class="table-responsive">
                     <form action="{{ route('annonce.update', $annonce) }}" method="POST">
                       @csrf
-                      @method('put')
-                      <div class="my-3">
-                        <label for="immeuble" class="form-label">Selectionner un Immeuble existant</label>
-                        <select class="form-select" name="bien_immobilier_id" id="immeuble"
-                          aria-label="Selectionner un immeuble">
-                          <option value="{{ $appartement->bien_immobilier_id }}">
-                            {{$appartement?->bien_immobilier?->nom_immeuble }}
-                          </option>
-                          @foreach ($immeubles as $key => $val)
-                          <option value="{{ $key }}">{{ $val }}</option>
-                          @endforeach
-                        </select>
-                      </div>
+                      @method('PUT')
                       <div class="mb-3">
-                        <label for="type_de_bail" class="form-label">Type de bail</label>
-                        <select class="form-select" name="type_de_bail" id="type_de_bail">
-                          <option value="{{ $appartement->type_de_bail }}">{{ $appartement->type_de_bail }}</option>
-                          <option value="Appartement">Appartement</option>
-                          <option value="Bureau">Bureau</option>
-                          <option value="Studio">Studio</option>
-                          <option value="Commerce">Commerce</option>
+                        <label for="type_annonce" class="form-label">Selectionner un type d'annonce</label>
+                        <select class="form-select" name="type_annonce" id="type_annonce">
+                          <option value="{{ $annonce->type_annonce }}" selected>{{ $annonce->type_annonce }}</option>
+                          <option value="Location">Location</option>
+                          <option value="Vente">Vente</option>
                         </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="nbr_piece" class="form-label">Nombre de pièce</label>
-                        <input type="number" max="10" name="nbr_piece" class="form-control"
-                          value="{{ old('nbr_piece', $appartement->nbr_piece) }}" id="nbr_piece" placeholder="3">
                       </div>
 
                       <div class="mb-3">
-                        <label for="montant" class="form-label">Montant de la caution</label>
-                        <input type="number" name="montant_caution" class="form-control"
-                          value="{{ old('montant_caution', $appartement->montant_caution) }}" id="montant"
-                          placeholder="100000">
+                        <label for="bien_immobilier_id" class="form-label">Choisr un Bien</label>
+                        <select class="form-select" name="bien_immobilier_id" id="bien_immobilier_id">
+                          <option value="{{ $annonce->bien_immobilier_id }}" selected>{{
+                            $annonce->bienImmobilier->nom_immeuble ??
+                            $annonce->bienImmobilier->proprietaire->prenom . " " .
+                            $annonce->bienImmobilier->proprietaire->nom . " Bien :". $annonce->bien_immobilier_id }}
+                          </option>
+                          @foreach ($biens as $bien)
+                          <option value="{{ $bien->id }}">
+                            {{ $bien->nom_immeuble ?? $bien->proprietaire->prenom . " " .
+                            $bien->proprietaire->nom . " Bien :". $bien->id }}
+                          </option>
+                          @endforeach
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" name="description" id="description"
+                          rows="5">{{ $annonce->description }}</textarea>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="statut" class="form-label">Statut</label>
+                        <select class="form-select" name="statut" id="statut">
+                          <option value="{{ $annonce->statut }}" selected>{{ $annonce->statut }}</option>
+                          <option value="Disponible">Disponible</option>
+                          <option value="Indisponible">Indisponible</option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="prix" class="form-label">Prix</label>
+                        <input type="number" name="prix" class="form-control" value="{{ $annonce->prix }}" id="prix"
+                          placeholder="prix">
                       </div>
 
                       <button type="submit" class="btn btn-info">Modifier</button>
@@ -102,70 +113,8 @@
 
     <!-- Button trigger modal -->
 
-
-
     <!-- page-body-wrapper ends -->
     @include("admin.pages.js")
 </body>
 
-=======
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>modification</title>
-</head>
-<body>
-   <h1>{{ isset($annonce) ? 'Modifier l\'annonce' : 'Créer une nouvelle annonce' }}</h1>
-
-<form action="{{ isset($annonce) ? route('annonce.update', $annonce->id) : route('annonce.store') }}" method="POST">
-    @csrf
-    @if(isset($annonce))
-        @method('PUT')
-    @endif
-
-    <div>
-        <label>Type Annonce</label>
-        <select name="type_annonce">
-            <option value="location" {{ (isset($annonce) && $annonce->type_annonce == 'location') ? 'selected' : '' }}>Location</option>
-            <option value="vente" {{ (isset($annonce) && $annonce->type_annonce == 'vente') ? 'selected' : '' }}>Vente</option>
-        </select>
-    </div>
-
-    <div>
-        <label>Description</label>
-        <textarea name="description">{{ isset($annonce) ? $annonce->description : old('description') }}</textarea>
-    </div>
-
-    <div>
-        <label>Statut</label>
-        <select name="statut">
-            <option value="disponible" {{ (isset($annonce) && $annonce->statut == 'disponible') ? 'selected' : '' }}>Disponible</option>
-            <option value="indisponible" {{ (isset($annonce) && $annonce->statut == 'indisponible') ? 'selected' : '' }}>Indisponible</option>
-        </select>
-    </div>
-
-    <div>
-        <label>Prix</label>
-        <input type="text" name="prix" value="{{ isset($annonce) ? $annonce->prix : old('prix') }}">
-    </div>
-
-    <div>
-        <label>Bien Immobilier</label>
-        <select name="bien_immobilier_id">
-            @foreach($immeubles as $id => $nom_immeuble)
-            <option value="{{ $id }}" {{ (isset($annonce) && $annonce->bien_immobilier_id == $id) ? 'selected' : '' }}>{{ $nom_immeuble }}</option>
-            @endforeach
-        </select>
-    </div>
-
-    <button type="submit">{{ isset($annonce) ? 'Mettre à jour' : 'Créer' }}</button>
-</form>
-
-
-</body>
->>>>>>> df801db6913d6bd4e10082b6d954c63944b2ae35
 </html>

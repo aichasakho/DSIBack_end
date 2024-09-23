@@ -30,9 +30,7 @@ class AddContratRequest extends FormRequest
       'date_fin' => 'required',
       'montant' => 'required|numeric',
       'type_contrat' => 'required|string',
-      'agent_id' => 'required|exists:users,id,role,admin',
       'client_id' => 'required|exists:users,id,role,client',
-      'proprietaire_id' => 'required|exists:proprietaires,id',
     ];
   }
 

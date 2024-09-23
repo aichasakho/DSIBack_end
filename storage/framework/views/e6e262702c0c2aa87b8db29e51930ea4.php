@@ -2,28 +2,28 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
   <div class="container-scroller d-flex">
-    @include("admin.pages.sidebar")
+    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      @include('admin.pages.navbar')
+      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          @if ($errors->any())
+          <?php if($errors->any()): ?>
           <div class="alert alert-danger">
             <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-              @endforeach
+              <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li><?php echo e($error); ?></li>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </div>
-          @endif
+          <?php endif; ?>
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
@@ -32,15 +32,22 @@
                   <h1 class="card-title mb-5">Ajouter un type de bien</h1>
 
                   <div class="table-responsive">
-                    <form action="{{ route('typebien.store') }}" method="POST">
-                      @csrf
+                    <form action="<?php echo e(route('typebien.store')); ?>" method="POST">
+                      <?php echo csrf_field(); ?>
 
                       <div class="mb-3">
                         <label for="type_bien" class="form-label">Type de bien</label>
                         <input type="text" name="type_bien" class="form-control" id="type_bien">
-                        @error('type_bien')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        <?php $__errorArgs = ['type_bien'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <div class="alert alert-danger"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                       </div>
 
 
@@ -78,7 +85,7 @@
 
 
     <!-- page-body-wrapper ends -->
-    @include("admin.pages.js")
+    <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html>
+</html><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/typebien/store.blade.php ENDPATH**/ ?>

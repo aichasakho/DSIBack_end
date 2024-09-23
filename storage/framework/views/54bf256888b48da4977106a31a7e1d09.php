@@ -15,15 +15,27 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+
+          <!-- Button trigger modal -->
+          <?php if($errors->any()): ?>
+          <div class="alert alert-danger">
+            <ul>
+              <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li><?php echo e($error); ?></li>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </ul>
+          </div>
+          <?php endif; ?>
+
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter une nouvelle maison</h1>
+                  <h1 class="card-title mb-5">Modifier une nouvelle maison</h1>
 
                   <div class="table-responsive">
-                    <form action="<?php echo e(route('store.maison')); ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?php echo e(route('update.maison', $maison)); ?>" method="POST" enctype="multipart/form-data">
                       <?php echo csrf_field(); ?>
                       <input type="hidden" name="agent_id" value="<?php echo e(Auth::user()->id); ?>">
                       <div class="my-3">
@@ -32,17 +44,20 @@
                           placeholder="image">
                       </div>
 
+
                       <div class="my-3">
                         <label for="prix" class="form-label">Prix</label>
-                        <input type="number" name="prix" class="form-control" value="<?php echo e(old('prix')); ?>" id="prix"
-                          placeholder="100000">
+                        <input type="number" name="prix" class="form-control" value="<?php echo e(old('prix', $maison->prix)); ?>"
+                          id="prix" placeholder="100000">
                       </div>
 
                       <div class="mb-3">
                         <label for="superficie" class="form-label">Superficie</label>
-                        <input type="number" max="1000" name="superficie" class="form-control" id="superficie"
+                        <input type="number" max="10" name="superficie"
+                          value="<?php echo e(old('superficie', $maison->superficie)); ?>" class="form-control" id="superficie"
                           placeholder="3">
                       </div>
+
 
                       
                       <div class="my-3">
@@ -51,6 +66,10 @@
                         </label>
                         <select class="form-select" name="proprietaire_id" id="proprietaire"
                           aria-label="Selectionner un proprietaire">
+                          <option value="<?php echo e($maison->proprietaire_id); ?>" selected>
+                            <?php echo e($maison->proprietaire->nom); ?> <?php echo e($maison->proprietaire->prenoms); ?>
+
+                          </option>
                           <?php $__currentLoopData = $proprietaires; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proprio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                           <option value="<?php echo e($proprio->id); ?>">
                             <?php echo e($proprio->nom); ?> <?php echo e($proprio->prenoms); ?>
@@ -67,6 +86,10 @@
                         <label for="localite" class="form-label">Selectionner une localite</label>
                         <select class="form-select" name="localite_id" id="localite"
                           aria-label="Selectionner une localite">
+                          <option value="<?php echo e($maison->localite_id); ?>" selected>
+                            <?php echo e($maison->localite->ville); ?> <?php echo e($maison->localite->quartier); ?>
+
+                          </option>
                           <?php $__currentLoopData = $localites; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $localite): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                           <option value="<?php echo e($localite->id); ?>">
                             <?php echo e($localite->ville); ?> <?php echo e($localite->quartier); ?>
@@ -78,9 +101,11 @@
 
                       <div class="mb-3">
                         <label for="nbr_piece" class="form-label">Nombre de pièce</label>
-                        <input type="number" max="10" name="nbr_piece" class="form-control" id="nbr_piece"
+                        <input type="number" max="10" name="nbr_piece"
+                          value="<?php echo e(old('nbr_piece', $maison->nbr_piece)); ?>" class="form-control" id="nbr_piece"
                           placeholder="3">
                       </div>
+
 
 
                       <button type="submit" class="btn btn-info">Enregistrer</button>
@@ -111,19 +136,9 @@
       <!-- main-panel ends -->
     </div>
 
-    <!-- Button trigger modal -->
-    <?php if($errors->any()): ?>
-    <div class="alert alert-danger">
-      <ul>
-        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <li><?php echo e($error); ?></li>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-      </ul>
-    </div>
-    <?php endif; ?>
-
     <!-- page-body-wrapper ends -->
     <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/maison/add.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/maison/edit.blade.php ENDPATH**/ ?>

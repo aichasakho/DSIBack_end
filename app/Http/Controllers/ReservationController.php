@@ -12,8 +12,8 @@ class ReservationController extends Controller
    */
   public function index()
   {
-    $reservation = Reservation::with('client', 'bien_immobilier')->paginate();
-    return view('admin.reservation.index', compact('reservation'));
+    $reservations = Reservation::with('client', 'bien_immobilier')->paginate();
+    return view('admin.reservation.index', compact('reservations'));
   }
 
 

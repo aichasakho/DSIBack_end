@@ -2,86 +2,83 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
   <div class="container-scroller d-flex">
-    @include("admin.pages.sidebar")
+    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      @include('admin.pages.navbar')
+      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          @if ($errors->any())
+          <?php if($errors->any()): ?>
           <div class="alert alert-danger">
             <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-              @endforeach
+              <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li><?php echo e($error); ?></li>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </div>
-          @endif
+          <?php endif; ?>
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-row gap-2">
                     <p class="card-description">
-                      <a href="{{ route('localite.create') }}">
+                      <a href="<?php echo e(route('typebien.create')); ?>">
                         <button type="button" class="btn btn-info">
-                          Ajouter une localité
+                          Ajouter un type de bien
                         </button>
                       </a>
                     </p>
 
                   </div>
                   <hr>
-                  <h4 class="card-title">Liste des localités</h4>
+                  <h4 class="card-title">Liste des types de bien</h4>
 
                   <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th> Région </th>
-                          <th> Ville </th>
-                          <th> Quartier </th>
+                          <th> Type de bien </th>
                           <th> Modifier </th>
                           <th> Supprimer </th>
+
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($localites as $localite)
+                        <?php $__currentLoopData = $typebiens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $typebien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                          <td> {{ $localite?->region }} </td>
-                          <td> {{ $localite?->ville }} </td>
-                          <td> {{ $localite?->quartier}} </td>
+                          <td><?php echo e($typebien->type_bien); ?></td>
                           <td>
-                            <a href="{{ route('localite.edit', $localite) }}">
-                              <button class="btn btn-sm btn-inverse-success">
+                            <a href="<?php echo e(route('typebien.edit', $typebien)); ?>">
+                              <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
                           </td>
                           <td>
-                            <button class="btn btn-sm btn-inverse-danger" onclick="confirmDelete({{ $localite->id }})">
+                            <button class="btn btn-inverse-danger" onclick="confirmDelete(<?php echo e($typebien->id); ?>)">
                               <i class="mdi mdi-delete"></i>
                             </button>
                           </td>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
                     </table>
                   </div>
-                  {{ $localites->links() }}
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
         <footer class="footer">
@@ -102,42 +99,41 @@
       <!-- main-panel ends -->
     </div>
 
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <!-- Button trigger modal -->
+    
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">Supprimer une localité</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <h1 class="modal-title fs-5" id="deleteModalLabel">Confirmation</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Etes-vous sur de vouloir supprimer cette localité ?</p>
+            Etes-vous sur de vouloir supprimer ce type de bien ?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-            <form id="deleteForm" action="" method="POST">
-              @csrf
-              @method('DELETE')
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <form action="" method="POST">
+              <?php echo csrf_field(); ?>
+              <?php echo method_field('DELETE'); ?>
               <button type="submit" class="btn btn-danger">Supprimer</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-
     <!-- page-body-wrapper ends -->
   </div>
-  @include("admin.pages.js")
+  <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
+
 <script>
   function confirmDelete(id) {
-    var url = "{{ route('localite.destroy', ':id') }}";
-    var form = document.getElementById('deleteForm');
-    form.action = url.replace(':id', id);
+    let url = "<?php echo e(route('typebien.destroy', ':id')); ?>";
+    url = url.replace(':id', id);
+    $('#deleteModal').find('form').attr('action', url);
     $('#deleteModal').modal('show');
   }
-</script>
+</script><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/typebien/index.blade.php ENDPATH**/ ?>

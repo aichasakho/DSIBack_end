@@ -15,9 +15,9 @@ class ContratController extends Controller
    */
   public function index()
   {
-    $contrat = Contrat::with('bien_immobilier', 'client', 'agent', 'proprietaire')
+    $contrats = Contrat::with('bien_immobilier', 'client', 'agent', 'proprietaire')
       ->paginate(10);
-    return view('admin.contrat.index', compact('contrat'));
+    return view('admin.contrat.index', compact('contrats'));
   }
 
   /**
@@ -25,7 +25,7 @@ class ContratController extends Controller
    */
   public function create()
   {
-    $biens = BienImmobilier::all();
+    $biens = BienImmobilier::all()->load('type_bien', 'localite', 'proprietaire', 'agent');
     $clients = User::where('role', 'client')->get();
     return view('admin.contrat.store', compact('biens', 'clients'));
   }
@@ -35,8 +35,14 @@ class ContratController extends Controller
    */
   public function store(AddContratRequest $request)
   {
+    $validated = $request->validated();
 
-    Contrat::create($request->validated());
+    $bien = BienImmobilier::find($request->bien_immobilier_id)->load('proprietaire', 'agent');
+
+    $validated['proprietaire_id'] = $bien->proprietaire->id;
+    $validated['agent_id'] = $bien->agent->id;
+
+    Contrat::create($validated);
     return redirect()->route('contrat.index')
       ->with('success', 'Contrat ajouté avec succès');
   }
@@ -64,8 +70,16 @@ class ContratController extends Controller
    */
   public function update(Request $request, Contrat $contrat)
   {
-    $contrat->update($request->validated());
-    return to_route('admin.contrat.index')
+
+    $validated = $request->validate([
+      'date_debut' => 'required|date',
+      'date_fin' => 'required|date',
+      'montant' => 'required|numeric',
+      'type_contrat' => 'required|string|max:255',
+    ]);
+
+    $contrat->update($validated);
+    return to_route('contrat.index')
       ->with('success', 'Contrat modifié avec succès');
   }
 

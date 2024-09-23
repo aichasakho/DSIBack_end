@@ -2,35 +2,35 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
   <div class="container-scroller d-flex">
-    @include("admin.pages.sidebar")
+    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      @include('admin.pages.navbar')
+      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          @if ($errors->any())
+          <?php if($errors->any()): ?>
           <div class="alert alert-danger">
             <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-              @endforeach
+              <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li><?php echo e($error); ?></li>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </div>
-          @endif
+          <?php endif; ?>
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-row gap-2">
                     <p class="card-description">
-                      <a href="{{ route('localite.create') }}">
+                      <a href="<?php echo e(route('localite.create')); ?>">
                         <button type="button" class="btn btn-info">
                           Ajouter une localité
                         </button>
@@ -54,29 +54,30 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($localites as $localite)
+                        <?php $__currentLoopData = $localites; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $localite): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                          <td> {{ $localite?->region }} </td>
-                          <td> {{ $localite?->ville }} </td>
-                          <td> {{ $localite?->quartier}} </td>
+                          <td> <?php echo e($localite?->region); ?> </td>
+                          <td> <?php echo e($localite?->ville); ?> </td>
+                          <td> <?php echo e($localite?->quartier); ?> </td>
                           <td>
-                            <a href="{{ route('localite.edit', $localite) }}">
+                            <a href="<?php echo e(route('localite.edit', $localite)); ?>">
                               <button class="btn btn-sm btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
                           </td>
                           <td>
-                            <button class="btn btn-sm btn-inverse-danger" onclick="confirmDelete({{ $localite->id }})">
+                            <button class="btn btn-sm btn-inverse-danger" onclick="confirmDelete(<?php echo e($localite->id); ?>)">
                               <i class="mdi mdi-delete"></i>
                             </button>
                           </td>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
                     </table>
                   </div>
-                  {{ $localites->links() }}
+                  <?php echo e($localites->links()); ?>
+
                 </div>
               </div>
             </div>
@@ -118,8 +119,8 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
             <form id="deleteForm" action="" method="POST">
-              @csrf
-              @method('DELETE')
+              <?php echo csrf_field(); ?>
+              <?php echo method_field('DELETE'); ?>
               <button type="submit" class="btn btn-danger">Supprimer</button>
             </form>
           </div>
@@ -129,15 +130,15 @@
 
     <!-- page-body-wrapper ends -->
   </div>
-  @include("admin.pages.js")
+  <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
 <script>
   function confirmDelete(id) {
-    var url = "{{ route('localite.destroy', ':id') }}";
+    var url = "<?php echo e(route('localite.destroy', ':id')); ?>";
     var form = document.getElementById('deleteForm');
     form.action = url.replace(':id', id);
     $('#deleteModal').modal('show');
   }
-</script>
+</script><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/localite/index.blade.php ENDPATH**/ ?>

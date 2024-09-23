@@ -114,7 +114,7 @@
                           <td> <?php echo e($bien->proprietaire->nom); ?> <?php echo e($bien->proprietaire->prenom); ?></td>
                           <td> <?php echo e($bien->superficie ?? $bien->nbr_etage); ?></td>
                           <td> <?php echo e($bien->type_bien->type_bien); ?> </td>
-                          <td> <?php echo e($bien->localite->ville); ?> <?php echo e($bien->localite->quartier); ?> </td>
+                          <td> <?php echo e($bien->localite->ville); ?> / <?php echo e($bien->localite->quartier); ?> </td>
                           <td> <?php echo e($bien->etat ? 'Actif' : 'Inactif'); ?></td>
                           <td>
 
@@ -181,8 +181,6 @@
               </div>
             </div>
 
-
-
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -211,7 +209,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="bienModalLabel">Date-visite</h1>
+            <h1 class="modal-title fs-5" id="bienModalLabel">Détail du bien</h1>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
           </div>
           <div class="modal-body">
@@ -245,11 +243,12 @@
     document.getElementById("bienId").innerHTML = bien.id;
     document.getElementById("bienTypeBien").innerHTML = bien.type_bien ? bien.type_bien.type_bien : 'Non spécifié';
     document.getElementById("proprietaire").innerHTML = bien.proprietaire ? bien.proprietaire.prenom  : 'Non spécifié';
-    document.getElementById("localiteBien").innerHTML = bien.localite ? bien.localite.localite : 'Non spécifié';
+    document.getElementById("localiteBien").innerHTML = bien.localite ?  `${bien.localite.ville} ${bien.localite.quartier}` : 'Non spécifié';
     // TODO: Ajouter les autres informations du bien
 
     // Affiche le modal
     $('#bienModal').modal('show');
 }
 
-</script><?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>
+</script>
+<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/admin/bien/index.blade.php ENDPATH**/ ?>

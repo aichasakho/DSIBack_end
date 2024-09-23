@@ -6,9 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class addAnnonceRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+  /**
+   * Determine if the user is authorized to make this request.
+   */
   public function authorize(): bool
   {
     return true;
@@ -26,8 +26,7 @@ class addAnnonceRequest extends FormRequest
       'description' => 'required',
       'statut' => 'required',
       'prix' => 'required|numeric',
-      'bien_immobilier_id' => 'required|exists:bien_immobiliers,id,type_bien_id,1',
-
+      'bien_immobilier_id' => 'required|exists:bien_immobiliers,id',
     ];
   }
 
