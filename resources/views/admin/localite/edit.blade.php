@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 @include("admin.pages.head")
 
 <body>
@@ -29,51 +28,27 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter un Appartement</h1>
-
-                  <h4>
-                    <a href="{{ route('add.immeuble') }}">
-                      <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
-                    </a>
-                  </h4>
+                  <h1 class="card-title mb-5">Modifier une localité</h1>
 
                   <div class="table-responsive">
-                    <form action="{{ route('appartement.update', $appartement) }}" method="POST">
+                    <form action="{{ route('localite.update', $localite) }}" method="POST">
                       @csrf
-
-                      <div class="my-3">
-                        <label for="immeuble" class="form-label">Selectionner un Immeuble existant</label>
-                        <select class="form-select" name="bien_immobilier_id" id="immeuble"
-                          aria-label="Selectionner un immeuble">
-                          <option value="{{ $appartement->bien_immobilier_id }}">
-                            {{$appartement?->bien_immobilier?->nom_immeuble }}
-                          </option>
-                          @foreach ($immeubles as $key => $val)
-                          <option value="{{ $key }}">{{ $val }}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="type_de_bail" class="form-label">Type de bail</label>
-                        <select class="form-select" name="type_de_bail" id="type_de_bail">
-                          <option value="{{ $appartement->type_de_bail }}">{{ $appartement->type_de_bail }}</option>
-                          <option value="Appartement">Appartement</option>
-                          <option value="Bureau">Bureau</option>
-                          <option value="Studio">Studio</option>
-                          <option value="Commerce">Commerce</option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="nbr_piece" class="form-label">Nombre de pièce</label>
-                        <input type="number" max="10" name="nbr_piece" class="form-control"
-                          value="{{ old('nbr_piece', $appartement->nbr_piece) }}" id="nbr_piece" placeholder="3">
-                      </div>
+                      @method('PUT')
 
                       <div class="mb-3">
-                        <label for="montant" class="form-label">Montant de la caution</label>
-                        <input type="number" name="montant_caution" class="form-control"
-                          value="{{ old('montant_caution', $appartement->montant_caution) }}" id="montant"
-                          placeholder="100000">
+                        <label for="region" class="form-label">Region</label>
+                        <input type="text" name="region" class="form-control" id="region"
+                          value="{{ old('region', $localite->region ) }}">
+                      </div>
+                      <div class="mb-3">
+                        <label for="ville" class="form-label">Ville</label>
+                        <input type="text" name="ville" class="form-control" id="ville"
+                          value="{{ old('ville', $localite->ville ) }}">
+                      </div>
+                      <div class="mb-3">
+                        <label for="quartier" class="form-label">Quartier</label>
+                        <input type="text" name="quartier" class="form-control" id="quartier"
+                          value="{{ old('quartier', $localite->quartier ) }}">
                       </div>
 
                       <button type="submit" class="btn btn-info">Modifier</button>
@@ -104,11 +79,6 @@
       </div>
       <!-- main-panel ends -->
     </div>
-
-    <!-- Button trigger modal -->
-
-
-
     <!-- page-body-wrapper ends -->
     @include("admin.pages.js")
 </body>

@@ -29,7 +29,7 @@ class BienImmobilierSeeder extends Seeder
 
         BienImmobilier::factory()->create(
             [
-                'type_bien_id' => 2,
+                'type_bien_id' => 1,
                 'localite_id' => 2,
                 'proprietaire_id' => 3,
                 'agent_id' => 1,
@@ -75,7 +75,7 @@ class BienImmobilierSeeder extends Seeder
         BienImmobilier::factory()->create(
             [
 
-                'type_bien_id' => 5,
+                'type_bien_id' => 4,
                 'localite_id' => 2,
                 'proprietaire_id' => 2,
                 'agent_id' => 1,

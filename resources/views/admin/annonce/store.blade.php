@@ -34,20 +34,29 @@
                   <div class="table-responsive">
                     <form action="{{ route('annonce.store') }}" method="POST">
                       @csrf
-
-
                       <div class="mb-3">
                         <label for="type_annonce" class="form-label">Selectionner un type d'annonce</label>
                         <select class="form-select" name="type_annonce" id="type_annonce">
                           <option value="Location">Location</option>
                           <option value="Vente">Vente</option>
+                        </select>
+                      </div>
 
+                      <div class="mb-3">
+                        <label for="bien_immobilier_id" class="form-label">Choisr un Bien</label>
+                        <select class="form-select" name="bien_immobilier_id" id="bien_immobilier_id">
+                          @foreach ($biens as $bien)
+                          <option value="{{ $bien->id }}">
+                            {{ $bien->nom_immeuble ?? $bien->proprietaire->prenom . " " .
+                            $bien->proprietaire->nom . " Bien :". $bien->id }}
+                          </option>
+                          @endforeach
                         </select>
                       </div>
 
                       <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <input type="text"  name="description" class="form-control" id="description" placeholder="description">
+                        <textarea class="form-control" name="description" id="description" rows="5"></textarea>
                       </div>
 
                       <div class="mb-3">
@@ -55,12 +64,12 @@
                         <select class="form-select" name="statut" id="statut">
                           <option value="Disponible">Disponible</option>
                           <option value="Indisponible">Indisponible</option>
-
                         </select>
                       </div>
+
                       <div class="mb-3">
                         <label for="prix" class="form-label">Prix</label>
-                        <input type="number"  name="prix" class="form-control" id="prix" placeholder="prix">
+                        <input type="number" name="prix" class="form-control" id="prix" placeholder="prix">
                       </div>
 
                       <button type="submit" class="btn btn-info">Enregistrer</button>
@@ -94,10 +103,8 @@
 
     <!-- Button trigger modal -->
 
-
-
     <!-- page-body-wrapper ends -->
-  @include("admin.pages.js")
+    @include("admin.pages.js")
 </body>
 
 </html>

@@ -29,53 +29,43 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter un Appartement</h1>
-
-                  <h4>
-                    <a href="{{ route('add.immeuble') }}">
-                      <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
-                    </a>
-                  </h4>
+                  <h1 class="card-title mb-5">Modifier un contrat</h1>
 
                   <div class="table-responsive">
-                    <form action="{{ route('appartement.update', $appartement) }}" method="POST">
+                    <form action="{{ route('contrat.update', $contrat->id) }}" method="POST">
                       @csrf
+                      @method('PUT')
 
-                      <div class="my-3">
-                        <label for="immeuble" class="form-label">Selectionner un Immeuble existant</label>
-                        <select class="form-select" name="bien_immobilier_id" id="immeuble"
-                          aria-label="Selectionner un immeuble">
-                          <option value="{{ $appartement->bien_immobilier_id }}">
-                            {{$appartement?->bien_immobilier?->nom_immeuble }}
-                          </option>
-                          @foreach ($immeubles as $key => $val)
-                          <option value="{{ $key }}">{{ $val }}</option>
-                          @endforeach
+                      <div class="mb-3">
+                        <label for="date_debut" class="form-label">Date de début</label>
+                        <input type="date" name="date_debut" class="form-control" id="date_debut" placeholder="3"
+                          value="{{ $contrat->date_debut }}">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="dateFin" class="form-label">Date de fin</label>
+                        <input type="date" name="date_fin" class="form-control" id="dateFin" placeholder="3"
+                          value="{{ $contrat->date_fin }}">
+                      </div>
+                      {{-- date fin dois etre supperieur a la date de debut --}}
+                      <script>
+                        document.getElementById("dateFin").min = document.getElementById("date_debut").value;
+                      </script>
+
+                      <div class="mb-3">
+                        <label for="montant" class="form-label">Montant</label>
+                        <input type="number" name="montant" class="form-control" value="{{ $contrat->montant }}"
+                          id="montant" placeholder="3">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="type_contrat" class="form-label">Type de contrat</label>
+                        <select class="form-select" name="type_contrat" id="type_contrat">
+                          <option value="{{ $contrat->type_contrat }}" selected>{{ $contrat->type_contrat }}</option>
+                          <option value="Location">Location</option>
+                          <option value="Vente">Vente</option>
                         </select>
                       </div>
-                      <div class="mb-3">
-                        <label for="type_de_bail" class="form-label">Type de bail</label>
-                        <select class="form-select" name="type_de_bail" id="type_de_bail">
-                          <option value="{{ $appartement->type_de_bail }}">{{ $appartement->type_de_bail }}</option>
-                          <option value="Appartement">Appartement</option>
-                          <option value="Bureau">Bureau</option>
-                          <option value="Studio">Studio</option>
-                          <option value="Commerce">Commerce</option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="nbr_piece" class="form-label">Nombre de pièce</label>
-                        <input type="number" max="10" name="nbr_piece" class="form-control"
-                          value="{{ old('nbr_piece', $appartement->nbr_piece) }}" id="nbr_piece" placeholder="3">
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="montant" class="form-label">Montant de la caution</label>
-                        <input type="number" name="montant_caution" class="form-control"
-                          value="{{ old('montant_caution', $appartement->montant_caution) }}" id="montant"
-                          placeholder="100000">
-                      </div>
-
                       <button type="submit" class="btn btn-info">Modifier</button>
                     </form>
                   </div>

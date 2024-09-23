@@ -34,42 +34,15 @@
 
 
                   <div class="table-responsive">
-                    <form action="{{ route('typebien.update', $typebien) }}" method="POST">
+                    <form action="{{ route('typebien.update', $typebien) }}" method="POST" novalidate>
                       @csrf
-
-                      <div class="my-3">
-                        <label for="immeuble" class="form-label">Selectionner un Immeuble existant</label>
-                        <select class="form-select" name="bien_immobilier_id" id="immeuble"
-                          aria-label="Selectionner un immeuble">
-                          <option value="{{ $appartement->bien_immobilier_id }}">
-                            {{$appartement?->bien_immobilier?->nom_immeuble }}
-                          </option>
-                          @foreach ($immeubles as $key => $val)
-                          <option value="{{ $key }}">{{ $val }}</option>
-                          @endforeach
-                        </select>
-                      </div>
+                      @method('PUT')
                       <div class="mb-3">
-                        <label for="type_de_bail" class="form-label">Type de bail</label>
-                        <select class="form-select" name="type_de_bail" id="type_de_bail">
-                          <option value="{{ $appartement->type_de_bail }}">{{ $appartement->type_de_bail }}</option>
-                          <option value="Appartement">Appartement</option>
-                          <option value="Bureau">Bureau</option>
-                          <option value="Studio">Studio</option>
-                          <option value="Commerce">Commerce</option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="nbr_piece" class="form-label">Nombre de pièce</label>
-                        <input type="number" max="10" name="nbr_piece" class="form-control"
-                          value="{{ old('nbr_piece', $appartement->nbr_piece) }}" id="nbr_piece" placeholder="3">
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="montant" class="form-label">Montant de la caution</label>
-                        <input type="number" name="montant_caution" class="form-control"
-                          value="{{ old('montant_caution', $appartement->montant_caution) }}" id="montant"
-                          placeholder="100000">
+                        <label for="type_bien" class="form-label">Type de bien</label>
+                        <input type="text" name="type_bien" class="form-control" id="type_bien" value="{{ $typebien->type_bien }}">
+                        @error('type_bien')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
 
                       <button type="submit" class="btn btn-info">Modifier</button>

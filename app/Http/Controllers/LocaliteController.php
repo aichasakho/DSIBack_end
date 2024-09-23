@@ -10,79 +10,77 @@ use Illuminate\Http\Request;
 
 class LocaliteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-      $localite = Localite::all();
-      return view('admin.localite.index', ['localite' => $localite]);
-    }
+  /**
+   * Display a listing of the resource.
+   */
+  public function index()
+  {
+    $localite = Localite::paginate(5);
+    return view('admin.localite.index', ['localites' => $localite]);
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-      $localites = Localite::all();
+  /**
+   * Show the form for creating a new resource.
+   */
+  public function create()
+  {
+    $localites = Localite::all();
 
-      return view('admin.localite.store', compact('localites'));
-    }
+    return view('admin.localite.store', compact('localites'));
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(addLocaliteRequest $request)
-    {
-      $validated = $request->validated();
+  /**
+   * Store a newly created resource in storage.
+   */
+  public function store(addLocaliteRequest $request)
+  {
+    $validated = $request->validated();
 
-      Localite::create($validated);
+    Localite::create($validated);
 
-      return redirect()->route('localite.index')->with('success', 'Localité créée avec succès');
-    }
+    return redirect()->route('localite.index')->with('success', 'Localité créée avec succès');
+  }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Localite $localite)
-    {
-      $localite->load('localite');
-      return view('admin.localite.show', compact('localite'));
-    }
+  /**
+   * Display the specified resource.
+   */
+  public function show(Localite $localite)
+  {
+    $localite->load('localite');
+    return view('admin.localite.show', compact('localite'));
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Localite $localite)
-    {
-      $localites = Localite::all();
-      return view('admin.localite.edit', compact('localite', 'localites'));
+  /**
+   * Show the form for editing the specified resource.
+   */
+  public function edit(Localite $localite)
+  {
+    $localites = Localite::all();
+    return view('admin.localite.edit', compact('localite', 'localites'));
+  }
 
-    }
+  /**
+   * Update the specified resource in storage.
+   */
+  public function update(Request $request, Localite $localite)
+  {
+    $validated = $request->validate([
+      'region' => 'required|string|max:255',
+      'ville' => 'required|string',
+      'quartier' => 'required|string',
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Localite $localite)
-    {
-      $validated = $request->validate([
-        'region' => 'required|string|max:255',
-        'ville' => 'required|string',
-        'quartier' => 'required|string',
+    ]);
 
-      ]);
+    $localite->update($validated);
+    return redirect()->route('localite.index')->with('success', 'Localite mise à jour avec succès');
+  }
 
-      $localite->update($validated);
-      return redirect()->route('localite.index')->with('success', 'Localite mise à jour avec succès');
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Localite $localite)
-    {
-      $localite->delete();
-      return redirect()->route('localite.index');
-    }
+  /**
+   * Remove the specified resource from storage.
+   */
+  public function destroy(Localite $localite)
+  {
+    $localite->delete();
+    return redirect()->route('localite.index');
+  }
 }

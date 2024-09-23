@@ -16,8 +16,6 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-
-
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -29,11 +27,9 @@
                         </button>
                       </a>
                     </p>
-
                   </div>
                   <hr>
                   <h4 class="card-title">Liste des Annonces</h4>
-
                   <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
@@ -50,41 +46,35 @@
                       </thead>
 
                       <tbody>
-{{--                        @foreach($annonce as $a)--}}
-{{--                        <tr>--}}
-{{--                          <td class="py-1">--}}
-{{--                            <img src="{{ $a?->bienImmobilier?->image }}" alt="image" /><br>--}}
-{{--                          </td>--}}
-{{--                          <td> {{ $a?->type_annonce }} </td>--}}
-{{--                          <td> {{ $a?->description }} </td>--}}
-{{--                          <td> {{ $a?->prix}} </td>--}}
-{{--                          <td> {{ $a?->statut }} </td>--}}
-{{--                          <td>--}}
-{{--                            <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="{{ json_encode($a) }}">--}}
-{{--                              <i class="mdi mdi-eye"></i>--}}
-{{--                            </button>--}}
-{{--                          </td>--}}
-{{--                          <td>--}}
-{{--                            <a href="{{ route('annonce.edit', $a) }}">--}}
-{{--                              <button class="btn btn-inverse-success">--}}
-{{--                                <i class="mdi mdi-pencil"></i>--}}
-{{--                              </button>--}}
-{{--                            </a>--}}
-{{--                          </td>--}}
-{{--                          <td>--}}
-{{--                            <a href="{{ route('annonce.destroy', $a) }}">--}}
-{{--                              <button class="btn btn-inverse-danger">--}}
-{{--                                <i class="mdi mdi-delete"></i>--}}
-{{--                              </button>--}}
-{{--                            </a>--}}
-{{--                          </td>--}}
-{{--                        </tr>--}}
-{{--                        @endforeach--}}
+                        @foreach($annonces as $annonce)
+                        <tr>
+                          <td>
+                            <img src="{{ $annonce->bienImmobilier->image}}" alt="image" class="img-fluid" />
+                          </td>
+                          <td> {{ $annonce->type_annonce }} </td>
+                          <td> {{ substr($annonce->description, 0, 50) }} ... </td>
+                          <td> {{ $annonce->prix }} </td>
+                          <td> {{ $annonce->statut }} </td>
+                          <td>
+                            <button class="btn btn-sm btn-inverse-info" onclick="showModal(event)"
+                              data-annonce="{{ $annonce }}">
+                              <i class="mdi mdi-eye"></i>
+                            </button>
+                          </td>
+                          <td>
+                            <a href="{{ route('annonce.edit', $annonce) }}">
+                              <button class="btn btn-sm btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                          </td>
+                        </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
                 </div>
-                {{ $annonce->links() }}
+                {{ $annonces->links() }}
               </div>
             </div>
           </div>
@@ -113,11 +103,11 @@
     <!-- Button trigger modal -->
 
 
-    <div class="modal fade" id="bienModal" tabindex="-1" aria-labelledby="bienModalLabel" aria-hidden="true">
+    <div class="modal fade" id="annonceModal" tabindex="-1" aria-labelledby="annonceModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="bienModalLabel">Détail de l'annonce</h1>
+            <h1 class="modal-title fs-5" id="annonceModalLabel">Détail de l'annonce</h1>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
           </div>
           <div class="modal-body">
@@ -133,7 +123,7 @@
       </div>
     </div>
 
-  @if ($errors->any())
+    @if ($errors->any())
     <div class="alert alert-danger">
       <ul>
         @foreach ($errors->all() as $error)
@@ -147,22 +137,23 @@
   </div>
   @include("admin.pages.js")
 </body>
+
 </html>
 
 <script>
   function showModal(event) {
     // Récupère l'attribut 'data-bien' et parse-le en objet JSON
-    var appart = JSON.parse(event.currentTarget.getAttribute('data-bien'));
+    var annonce = JSON.parse(event.currentTarget.getAttribute('data-annonce'));
     console.log(annonce); // Pour vérifier la structure de l'objet
 
-    // Utiliser les propriétés de l'objet 'appart'
-    document.getElementById("bienImage").innerHTML = `<img src="${annonce.bienImmobilier ? annonce.bienImmobilier.image : 'Non spécifié'}" alt="image" class="img-fluid" />`;
+
+    document.getElementById("bienImage").innerHTML = `<img src="${annonce.bien_immobilier ? annonce.bien_immobilier.image : 'Non spécifié'}" alt="image" class="img-fluid" />`;
     document.getElementById("typeAnnonce").innerHTML = annonce.type_annonce || 'Non spécifié';
     document.getElementById("description").innerHTML = annonce.description || 'Non spécifié';
     document.getElementById("prix").innerHTML = annonce.prix || 'Non spécifié';
     document.getElementById("statut").innerHTML = annonce.statut|| 'Non spécifié';
 
     // Affiche le modal
-    $('#bienModal').modal('show');
+    $('#annonceModal').modal('show');
   }
 </script>
