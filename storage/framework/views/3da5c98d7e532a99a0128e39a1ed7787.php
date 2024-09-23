@@ -37,13 +37,7 @@
 
                     <div class="mb-3">
                       <label for="type_bien" class="form-label">Type de bien</label>
-                      <select class="form-select" name="type_bien" id="type_bien">
-                        <option value="Terrain">Terrain</option>
-                        <option value="Immeuble">Immeuble</option>
-                        <option value="Maison">Maison</option>
-                        <option value="Appartement">Appartement</option>
-                        <option value="Parcelle">Parcelle</option>
-                      </select>
+                      <input type="text" max="1000" name="type_bien" class="form-control" id="type_bien" placeholder="">
                     </div>
 
 

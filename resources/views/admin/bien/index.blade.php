@@ -103,6 +103,9 @@
                           <th>
                             Modifier
                           </th>
+                          <th>
+                            Retirer
+                          </th>
                         </tr>
                       </thead>
                       <tbody>

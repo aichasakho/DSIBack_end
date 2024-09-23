@@ -78,6 +78,7 @@ class AdminController extends Controller
     $user->password = bcrypt($request->password);
 
 
+
     $user->save();
     toastr()->success("Compte ajoute avec succes");
     return back();

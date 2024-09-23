@@ -33,7 +33,8 @@ class TypeBienController extends Controller
       'type_bien' => 'required',
     ]);
     TypeBien::create($request->all());
-    return redirect()->route('admin.typeBien.index');
+
+    return redirect()->route('typeBien.index');
   }
 
   /**

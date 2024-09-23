@@ -213,8 +213,6 @@ class BienImmobilierController extends Controller
   {
     $proprietaires = User::where('role', 'proprietaire')->get();
     $localites = Localite::all();
-
-
     return view(
       'admin.terrain.edit',
       compact('terrain', 'proprietaires', 'localites')

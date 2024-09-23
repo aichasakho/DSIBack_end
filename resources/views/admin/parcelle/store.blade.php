@@ -56,13 +56,13 @@
                       <div class="mb-3">
                         <label for="superficie" class="form-label">Superficie</label>
                         <input type="number" max="1000" name="superficie" class="form-control" id="superficie"
-                          placeholder="3">
+                          placeholder="">
                       </div>
 
                       <div class="mb-3">
-                        <label for="numero_parcelle" class="form-label">Numero de parcelle</label>
+                        <label for="numero_parcelle" class="form-label">N° parcelle</label>
                         <input type="number" max="1000" name="numero_parcelle" class="form-control" id="numero_parcelle"
-                          placeholder="3">
+                          placeholder="">
                       </div>
 
 

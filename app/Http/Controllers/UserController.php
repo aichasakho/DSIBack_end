@@ -18,24 +18,55 @@ class UserController extends Controller
     return view('user.show', compact('user'));
   }
 
-  public function allClients()
+
+//client
+  public function addClient()
   {
     $users = User::where('role', 'client')->get();
-    return view('user.allClients', compact('users'));
+    return view('admin.client.add', compact('users'));
   }
 
-  public function allAdmins()
+  public function editClient()
+  {
+    $users = User::with('bien_immobiliers')
+      ->where('role', 'client')->get();
+    return view('admin.client.edit', compact('users'));
+  }
+
+
+//agent
+  public function addAgent()
   {
     $users = User::where('role', 'admin')->get();
-    return view('user.allAdmins', compact('users'));
+    return view('admin.agent.add', compact('users'));
   }
 
-  public function allProrietaires()
+  public function editAgent()
+  {
+    $users = User::with('bien_immobiliers')
+      ->where('role', 'admin')->get();
+    return view('admin.agent.edit', compact('users'));
+  }
+
+
+
+//proprietaire
+  public function addProprietaire()
   {
     $users = User::with('bien_immobiliers')
       ->where('role', 'proprietaire')->get();
-    return view('user.allProrietaires', compact('users'));
+    return view('admin.proprietaire.add', compact('users'));
   }
+  public function editProprietaire()
+  {
+    $users = User::with('bien_immobiliers')
+      ->where('role', 'proprietaire')->get();
+    return view('admin.proprietaire.edit', compact('users'));
+  }
+
+
+
+
 
   public function edit(User $user)
   {

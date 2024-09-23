@@ -36,25 +36,25 @@
 
                     <div class="mb-3">
                       <label for="numero_contrat" class="form-label">N°Contrat</label>
-                      <input type="number" max="10" name="numero_contrat" class="form-control" id="numero_contrat" placeholder="3">
+                      <input type="number" max="10" name="numero_contrat" class="form-control" id="numero_contrat" placeholder="">
                     </div>
                     <div class="mb-3">
                       <label for="description" class="form-label">Description</label>
-                      <input type="number" max="10" name="nbr_piece" class="form-control" id="nbr_piece" placeholder="3">
+                      <input type="text" max="10" name="nbr_piece" class="form-control" id="nbr_piece" placeholder="">
                     </div>
 
                     <div class="mb-3">
                       <label for="dateDebut" class="form-label">Date de début</label>
-                      <input type="date" max="10" name="dateDebut" class="form-control" id="dateDebut" placeholder="3">
+                      <input type="date" max="10" name="dateDebut" class="form-control" id="dateDebut" placeholder="">
                     </div>
 
                     <div class="mb-3">
                       <label for="dateFin" class="form-label">Date de fin</label>
-                      <input type="date" max="10" name="dateFin" class="form-control" id="dateFin" placeholder="3">
+                      <input type="date" max="10" name="dateFin" class="form-control" id="dateFin" placeholder="">
                     </div>
                     <div class="mb-3">
                       <label for="montant" class="form-label">Montant</label>
-                      <input type="number" max="10" name="montant" class="form-control" id="montant" placeholder="3">
+                      <input type="number"  name="montant" class="form-control" id="montant" placeholder="">
                     </div>
                     <div class="mb-3">
                       <label for="type_contrat" class="form-label">Type de contrat</label>

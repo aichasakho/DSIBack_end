@@ -89,11 +89,9 @@
                             $parcelle?->bienImmobilier->proprietaire?->prenom }}</td>
                           <td> {{ $parcelle?->superficie }} </td>
                           <td>
-                            <a href="{{ route('parcelle.update', $parcelle) }}">
-                              <button class="btn btn-inverse-info">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
-                            </a>
+                            <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="{{ json_encode($parcelle) }}">
+                              <i class="mdi mdi-eye"></i>
+                            </button>
                           </td>
                           <td>
                             <a href="{{ route('parcelle.edit', $parcelle) }}">

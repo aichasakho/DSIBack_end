@@ -7,6 +7,7 @@ use App\Http\Controllers\ParcelleController;
 use App\Http\Controllers\ReglementController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\TypeBienController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AdminController;
@@ -33,6 +34,31 @@ Route::middleware(['auth.admin'])->group(function(){
     Route::resource('bienImmobilier',BienImmobilierController::class);
     Route::resource('appartement', AppartementController::class);
     Route::resource('parcelle', ParcelleController::class);
+    Route::resource('user',UserController::class);
+//Agent
+  Route::get('admin-add-agent/',[UserController::class,'addAgent'])
+    ->name('add.agent');
+
+  Route::get('admin-edit-agent/{agent}',[UserController::class,'editAgent'])
+    ->name('edit.agent');
+
+
+  //Proprietaire
+  Route::get('admin-add-proprietaire/',[UserController::class,'addProprietaire'])
+    ->name('add.proprietaire');
+
+  Route::get('admin-edit-proprietaire/{proprietaire}',[UserController::class,'editProprietaire'])
+    ->name('edit.proprietaire');
+
+
+
+  //Client
+   Route::get('admin-add-client/',[UserController::class,'addClient'])
+     ->name('add.client');
+
+  Route::get('admin-edit-client/{client}',[UserController::class,'editClient'])
+    ->name('edit.client');
+
 
 
     Route::get('homeAdmin',[AdminController::class,'home'])->name('home.admin');
