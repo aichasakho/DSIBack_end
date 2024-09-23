@@ -88,11 +88,9 @@
                           <td> <?php echo e($parcelle?->bienImmobilier->proprietaire?->nom); ?> <?php echo e($parcelle?->bienImmobilier->proprietaire?->prenom); ?></td>
                           <td> <?php echo e($parcelle?->superficie); ?> </td>
                           <td>
-                            <a href="<?php echo e(route('parcelle.update', $parcelle)); ?>">
-                              <button class="btn btn-inverse-info">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
-                            </a>
+                            <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="<?php echo e(json_encode($parcelle)); ?>">
+                              <i class="mdi mdi-eye"></i>
+                            </button>
                           </td>
                           <td>
                             <a href="<?php echo e(route('parcelle.edit', $parcelle)); ?>">

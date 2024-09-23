@@ -265,4 +265,12 @@ class BienImmobilierController extends Controller
     }
     return redirect()->back()->with('error', 'Une erreur est survenue');
   }
+
+  public function destroy(BienImmobilier $bien)
+  {
+    $bien->delete();
+    return to_route('admin.bien.index')
+      ->with('success', 'bien supprimé avec succès');
+  }
+
 }
