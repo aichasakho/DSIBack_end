@@ -29,16 +29,12 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter un Appartement</h1>
+                  <h1 class="card-title mb-5">Modifier un type de bien</h1>
 
-                  <h4>
-                    <a href="{{ route('add.immeuble') }}">
-                      <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
-                    </a>
-                  </h4>
+
 
                   <div class="table-responsive">
-                    <form action="{{ route('appartement.update', $appartement) }}" method="POST">
+                    <form action="{{ route('typebien.update', $typebien) }}" method="POST">
                       @csrf
 
                       <div class="my-3">

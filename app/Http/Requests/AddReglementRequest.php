@@ -24,7 +24,7 @@ class AddReglementRequest extends FormRequest
     return [
       'date_reglement'=>'required',
       'numero_reglement'=>'required',
-      'nom'=>'required',
+      'nom'=>'nullable',
       'contrat_id'=>'required|exists:contrats,id',
       'agent_id' => 'required|exists:users,id,role,admin',
 

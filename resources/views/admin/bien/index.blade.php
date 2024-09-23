@@ -114,7 +114,7 @@
                           <td> {{ $bien->proprietaire->nom }} {{ $bien->proprietaire->prenom }}</td>
                           <td> {{ $bien->superficie ?? $bien->nbr_etage }}</td>
                           <td> {{ $bien->type_bien->type_bien }} </td>
-                          <td> {{ $bien->localite->ville }} {{ $bien->localite->quartier }} </td>
+                          <td> {{ $bien->localite->ville }} / {{ $bien->localite->quartier }} </td>
                           <td> {{ $bien->etat ? 'Actif' : 'Inactif' }}</td>
                           <td>
 
@@ -180,8 +180,6 @@
               </div>
             </div>
 
-
-
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -210,7 +208,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="bienModalLabel">Date-visite</h1>
+            <h1 class="modal-title fs-5" id="bienModalLabel">Détail du bien</h1>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
           </div>
           <div class="modal-body">

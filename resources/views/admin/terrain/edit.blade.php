@@ -32,7 +32,7 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter un nouveau terrain</h1>
+                  <h1 class="card-title mb-5">Modifier un terrain</h1>
 
                   <div class="table-responsive">
                     <form action="{{ route('update.terrain', $terrain) }}" method="POST" enctype="multipart/form-data">

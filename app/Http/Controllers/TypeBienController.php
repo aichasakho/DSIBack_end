@@ -21,7 +21,7 @@ class TypeBienController extends Controller
    */
   public function create()
   {
-    return view('admin.typeBien.create');
+    return view('admin.typeBien.store');
   }
 
   /**

@@ -49,44 +49,44 @@
 
                     </tr>
                     </thead>
-
                     <tbody>
-                    {{--                        @foreach($contrats as $contrat)--}}
-                    {{--                        <tr>--}}
-                    {{--                          <td> {{ $contrat?->type_contrat }} </td>--}}
-                    {{--                          <td> {{ $contrat?->date_debut }} </td>--}}
-                    {{--                          <td> {{ $contrat?->date_fin}} </td>--}}
-                    {{--                          <td> {{ $contrat?->montant }} </td>--}}
-                    {{--                          <td>--}}
-                    {{--                            <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="{{ json_encode($contrat) }}">--}}
-                    {{--                              <i class="mdi mdi-eye"></i>--}}
-                    {{--                            </button>--}}
-                    {{--                          </td>--}}
-                    {{--                          <td>--}}
-                    {{--                            <a href="{{ route('contrat.edit', $contrat) }}">--}}
-                    {{--                              <button class="btn btn-inverse-success">--}}
-                    {{--                                <i class="mdi mdi-pencil"></i>--}}
-                    {{--                              </button>--}}
-                    {{--                            </a>--}}
-                    {{--                          </td>--}}
-                    {{--                          <td>--}}
-                    {{--                            <a href="{{ route('contrat.destroy', $contrat) }}">--}}
-                    {{--                              <button class="btn btn-inverse-danger">--}}
-                    {{--                                <i class="mdi mdi-delete"></i>--}}
-                    {{--                              </button>--}}
-                    {{--                            </a>--}}
-                    {{--                          </td>--}}
-                    {{--                        </tr>--}}
-                    {{--                        @endforeach--}}
-                    </tbody>
+{{--                                            @foreach($contrats as $contrat)--}}
+{{--                                            <tr>--}}
+{{--                                              <td> {{ $contrat?->type_contrat }} </td>--}}
+{{--                                              <td> {{ $contrat?->date_debut }} </td>--}}
+{{--                                              <td> {{ $contrat?->date_fin}} </td>--}}
+{{--                                              <td> {{ $contrat?->montant }} </td>--}}
+{{--                                              <td>--}}
+{{--                                                <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="{{ json_encode($contrat) }}">--}}
+{{--                                                  <i class="mdi mdi-eye"></i>--}}
+{{--                                                </button>--}}
+{{--                                              </td>--}}
+{{--                                              <td>--}}
+{{--                                                <a href="{{ route('contrat.edit', $contrat) }}">--}}
+{{--                                                  <button class="btn btn-inverse-success">--}}
+{{--                                                    <i class="mdi mdi-pencil"></i>--}}
+{{--                                                  </button>--}}
+{{--                                                </a>--}}
+{{--                                              </td>--}}
+{{--                                              <td>--}}
+{{--                                                <a href="{{ route('contrat.destroy', $contrat) }}">--}}
+{{--                                                  <button class="btn btn-inverse-danger">--}}
+{{--                                                    <i class="mdi mdi-delete"></i>--}}
+{{--                                                  </button>--}}
+{{--                                                </a>--}}
+{{--                                              </td>--}}
+{{--                                            </tr>--}}
+{{--                                            @endforeach--}}
+                   </tbody>
                   </table>
                 </div>
               </div>
-              {{ $contrats->links() }}
+{{--              {{ $contrats->links() }}--}}
             </div>
           </div>
         </div>
       </div>
+
       <!-- content-wrapper ends -->
       <!-- partial:../../partials/_footer.html -->
       <footer class="footer">
@@ -102,6 +102,7 @@
           </div>
         </div>
       </footer>
+
       <!-- partial -->
     </div>
     <!-- main-panel ends -->
@@ -118,11 +119,10 @@
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
         </div>
         <div class="modal-body">
-          <p id="bienImage"></p>
           <p>Type de contrat : <span id="typeContrat"></span></p>
-          <p>Date de début: <span id="description"></span></p>
-          <p>Prix: <span id="prix"></span></p>
-          <p>Statut : <span id="statut"></span></p>
+          <p>Date de début: <span id="dateDebut"></span></p>
+          <p>Date de Fin: <span id="dateFin"></span></p>
+          <p>Montant : <span id="montant"></span></p>
 
           {{-- TODO: Ajouter les autres informations du bien --}}
         </div>
@@ -150,60 +150,15 @@
   function showModal(event) {
     // Récupère l'attribut 'data-bien' et parse-le en objet JSON
     var appart = JSON.parse(event.currentTarget.getAttribute('data-bien'));
-    console.log(annonce); // Pour vérifier la structure de l'objet
+    console.log(contrat); // Pour vérifier la structure de l'objet
 
     // Utiliser les propriétés de l'objet 'appart'
-    document.getElementById("bienImage").innerHTML = `<img src="${annonce.bienImmobilier ? annonce.bienImmobilier.image : 'Non spécifié'}" alt="image" class="img-fluid" />`;
-    document.getElementById("typeAnnonce").innerHTML = annonce.type_annonce || 'Non spécifié';
-    document.getElementById("description").innerHTML = annonce.description || 'Non spécifié';
-    document.getElementById("prix").innerHTML = annonce.prix || 'Non spécifié';
-    document.getElementById("statut").innerHTML = annonce.statut|| 'Non spécifié';
+    document.getElementById("typeContrat").innerHTML = contrat.type_contrat || 'Non spécifié';
+    document.getElementById("dateDebut").innerHTML = contrat.date_debut || 'Non spécifié';
+    document.getElementById("dateFin").innerHTML = contrat.date_fin|| 'Non spécifié';
+    document.getElementById("montant").innerHTML = contrat.montant|| 'Non spécifié';
 
     // Affiche le modal
     $('#bienModal').modal('show');
   }
 </script>
-=======
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Liste</title>
-</head>
-<body>
-<h1>Liste des Annonces</h1>
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Prix</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  @foreach($annonce as $a)
-    <tr>
-      <td>{{ $a->id }}</td>
-      <td>{{ $a->type_annonce }}</td>
-      <td>{{ $a->description }}</td>
-      <td>{{ $a->prix }}</td>
-      <td>
-        <a href="{{ route('annonce.edit', $a->id) }}">Modifier</a>
-        <form action="{{ route('annonce.destroy', $a->id) }}" method="POST" style="display:inline">
-          @csrf
-          @method('DELETE')
-          <button type="submit">Supprimer</button>
-        </form>
-      </td>
-    </tr>
-  @endforeach
-  </tbody>
-</table>
-{{ $annonce->links() }}
-
-
-</body>
-</html>
-

@@ -15,7 +15,7 @@ class LocaliteController extends Controller
      */
     public function index()
     {
-      $localite = Localite::all()->paginate(10);
+      $localite = Localite::all();
       return view('admin.localite.index', ['localite' => $localite]);
     }
 

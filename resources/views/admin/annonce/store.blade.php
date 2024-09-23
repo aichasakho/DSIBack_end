@@ -29,44 +29,38 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter un Appartement</h1>
-
-                  <h4>
-                    <a href="{{ route('add.immeuble') }}">
-                      <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
-                    </a>
-                  </h4>
+                  <h1 class="card-title mb-5">Ajouter une annonce</h1>
 
                   <div class="table-responsive">
-                    <form action="{{ route('appartement.store') }}" method="POST">
+                    <form action="{{ route('annonce.store') }}" method="POST">
                       @csrf
 
-                      <div class="my-3">
-                        <label for="immeuble" class="form-label">Selectionner un Immeuble existant</label>
-                        <select class="form-select" name="bien_immobilier_id" id="immeuble"
-                          aria-label="Selectionner un immeuble">
-                          @foreach ($immeubles as $key => $val)
-                          <option value="{{ $key }}">{{ $val }}</option>
-                          @endforeach
-                        </select>
-                      </div>
+
                       <div class="mb-3">
-                        <label for="type_de_bail" class="form-label">Type de bail</label>
-                        <select class="form-select" name="type_de_bail" id="type_de_bail">
-                          <option value="Appartement">Appartement</option>
-                          <option value="Bureau">Bureau</option>
-                          <option value="Studio">Studio</option>
-                          <option value="Commerce">Commerce</option>
+                        <label for="type_annonce" class="form-label">Selectionner un type d'annonce</label>
+                        <select class="form-select" name="type_annonce" id="type_annonce">
+                          <option value="Location">Location</option>
+                          <option value="Vente">Vente</option>
+
                         </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="nbr_piece" class="form-label">Nombre de pièce</label>
-                        <input type="number" max="10" name="nbr_piece" class="form-control" id="nbr_piece" placeholder="3">
                       </div>
 
                       <div class="mb-3">
-                        <label for="montant" class="form-label">Montant de la caution</label>
-                        <input type="number" name="montant_caution" class="form-control" id="montant" placeholder="100000">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text"  name="description" class="form-control" id="description" placeholder="description">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="statut" class="form-label">Statut</label>
+                        <select class="form-select" name="statut" id="statut">
+                          <option value="Disponible">Disponible</option>
+                          <option value="Indisponible">Indisponible</option>
+
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="prix" class="form-label">Prix</label>
+                        <input type="number"  name="prix" class="form-control" id="prix" placeholder="prix">
                       </div>
 
                       <button type="submit" class="btn btn-info">Enregistrer</button>

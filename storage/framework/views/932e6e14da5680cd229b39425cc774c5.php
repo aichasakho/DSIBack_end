@@ -32,7 +32,7 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter un nouveau terrain</h1>
+                  <h1 class="card-title mb-5">Modifier un terrain</h1>
 
                   <div class="table-responsive">
                     <form action="<?php echo e(route('update.terrain', $terrain)); ?>" method="POST" enctype="multipart/form-data">
@@ -128,4 +128,5 @@
     <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html><?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/terrain/edit.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/terrain/edit.blade.php ENDPATH**/ ?>
