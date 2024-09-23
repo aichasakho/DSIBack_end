@@ -68,6 +68,10 @@ class DatabaseSeeder extends Seeder
             BienImmobilierSeeder::class,
             AppartementSeeder::class,
             AnnonceSeeder::class,
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d9bf98f50ad682488327e42f0ff80c266b39363
         ]);
     }
 }

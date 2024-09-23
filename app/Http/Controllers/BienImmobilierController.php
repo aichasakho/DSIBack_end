@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AddBienImmobilierRequest;
-use App\Http\Requests\AddImmeubleRequest;
-use App\Http\Requests\addMaisonRequest;
-use App\Http\Requests\addTerrainRequest;
-use App\Models\Appartement;
-use App\Models\BienImmobilier;
+use Exception;
+use App\Models\User;
 use App\Models\Localite;
 use App\Models\TypeBien;
-use App\Models\User;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Foundation\Application;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Appartement;
 use Illuminate\Http\Request;
+use App\Models\BienImmobilier;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
+use App\Http\Requests\addMaisonRequest;
+use App\Http\Requests\addTerrainRequest;
+use App\Http\Requests\AddImmeubleRequest;
+use App\Http\Requests\AddBienImmobilierRequest;
 
 class BienImmobilierController extends Controller
 {
@@ -264,5 +265,16 @@ class BienImmobilierController extends Controller
       return redirect()->back()->with('success', 'Bien Immobilier restaure avec succes');
     }
     return redirect()->back()->with('error', 'Une erreur est survenue');
+  }
+
+  public function destroy(BienImmobilier $bienImmobilier): RedirectResponse
+  {
+    try {
+      $bienImmobilier->delete();
+      return redirect()->route('bienImmobilier.index');
+    } catch (Exception $e) {
+      return redirect()->route('bienImmobilier.index')
+        ->with('error', 'Erreur: ' . $e->getMessage());
+    }
   }
 }

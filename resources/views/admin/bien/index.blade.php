@@ -117,7 +117,7 @@
                           <td> {{ $bien->proprietaire->nom }} {{ $bien->proprietaire->prenom }}</td>
                           <td> {{ $bien->superficie ?? $bien->nbr_etage }}</td>
                           <td> {{ $bien->type_bien->type_bien }} </td>
-                          <td> {{ $bien->localite->ville }} / {{ $bien->localite->quartier }} </td>
+                          <td> {{ $bien->localite?->ville }} / {{ $bien->localite?->quartier }} </td>
                           <td> {{ $bien->etat ? 'Actif' : 'Inactif' }}</td>
                           <td>
 
@@ -167,11 +167,10 @@
                           </td>
 
                           <td>
-                            <a href="">
-                              <button class="btn btn-inverse-danger">
-                                <i class="mdi mdi-delete"></i>
-                              </button>
-                            </a>
+                            <button type="button" class="btn btn-sm btn-inverse-danger"
+                              onclick="deleteBien({{ $bien->id }})">
+                              <i class="mdi mdi-delete"></i>
+                            </button>
                           </td>
                         </tr>
                         @endforeach
@@ -207,6 +206,8 @@
 
     <!-- Button trigger modal -->
 
+
+
     <div class="modal fade" id="bienModal" tabindex="-1" aria-labelledby="bienModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -222,6 +223,28 @@
             <p>Localité : <span id="localiteBien"></span></p>
 
             {{-- TODO: Ajouter les autres informations du bien --}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="deleteModalLabel">Confirmation</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Etes-vous sur de vouloir supprimer ce bien ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <form action="" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
           </div>
         </div>
       </div>
@@ -251,5 +274,11 @@
     // Affiche le modal
     $('#bienModal').modal('show');
 }
+  function deleteBien(id) {
+    let url = "{{ route('bienImmobilier.destroy', ':id') }}";
+    url = url.replace(':id', id);
+    $('#deleteModal').find('form').attr('action', url);
+    $('#deleteModal').modal('show');
+  }
 
 </script>

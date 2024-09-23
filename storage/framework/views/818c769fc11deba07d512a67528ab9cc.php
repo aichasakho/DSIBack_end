@@ -29,46 +29,44 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter une parcelle</h1>
-
-                  <h4>
-                    <a href="<?php echo e(route('add.terrain')); ?>">
-                      <button class="btn btn-info"> Ajouter un nouveau terrain </button>
-                    </a>
-                  </h4>
+                  <h1 class="card-title mb-5">Modifier un contrat</h1>
 
                   <div class="table-responsive">
-                    <form action="<?php echo e(route('parcelle.store')); ?>" method="POST">
+                    <form action="<?php echo e(route('contrat.update', $contrat->id)); ?>" method="POST">
                       <?php echo csrf_field(); ?>
+                      <?php echo method_field('PUT'); ?>
 
-                      <div class="my-3">
-                        <label for="terrain" class="form-label">Selectionner un Terrain existant</label>
-                        <select class="form-select" name="bien_immobilier_id" id="terrain"
-                          aria-label="Selectionner un terrain">
-                          <?php $__currentLoopData = $terrains; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $terrain): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                          <option value="<?php echo e($terrain->id); ?>">
-                            Terrain <?php echo e($terrain->proprietaire->nom); ?> <?php echo e($terrain->proprietaire->prenom); ?>
+                      <div class="mb-3">
+                        <label for="date_debut" class="form-label">Date de début</label>
+                        <input type="date" name="date_debut" class="form-control" id="date_debut" placeholder="3"
+                          value="<?php echo e($contrat->date_debut); ?>">
+                      </div>
 
-                            - <?php echo e($terrain->superficie); ?> - <?php echo e($terrain->id); ?>
+                      <div class="mb-3">
+                        <label for="dateFin" class="form-label">Date de fin</label>
+                        <input type="date" name="date_fin" class="form-control" id="dateFin" placeholder="3"
+                          value="<?php echo e($contrat->date_fin); ?>">
+                      </div>
+                      
+                      <script>
+                        document.getElementById("dateFin").min = document.getElementById("date_debut").value;
+                      </script>
 
-                          </option>
-                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                      <div class="mb-3">
+                        <label for="montant" class="form-label">Montant</label>
+                        <input type="number" name="montant" class="form-control" value="<?php echo e($contrat->montant); ?>"
+                          id="montant" placeholder="3">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="type_contrat" class="form-label">Type de contrat</label>
+                        <select class="form-select" name="type_contrat" id="type_contrat">
+                          <option value="<?php echo e($contrat->type_contrat); ?>" selected><?php echo e($contrat->type_contrat); ?></option>
+                          <option value="Location">Location</option>
+                          <option value="Vente">Vente</option>
                         </select>
                       </div>
-                      <div class="mb-3">
-                        <label for="superficie" class="form-label">Superficie</label>
-                        <input type="number" max="1000" name="superficie" class="form-control" id="superficie"
-                          placeholder="">
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="numero_parcelle" class="form-label">N° parcelle</label>
-                        <input type="number" max="1000" name="numero_parcelle" class="form-control" id="numero_parcelle"
-                          placeholder="">
-                      </div>
-
-
-                      <button type="submit" class="btn btn-info">Enregistrer</button>
+                      <button type="submit" class="btn btn-info">Modifier</button>
                     </form>
                   </div>
                 </div>
@@ -105,5 +103,4 @@
     <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/parcelle/store.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/contrat/edit.blade.php ENDPATH**/ ?>
