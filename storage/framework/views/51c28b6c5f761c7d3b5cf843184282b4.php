@@ -37,6 +37,7 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
+                          <th> ID contrat </th>
                           <th> Type contrat </th>
                           <th> Date début </th>
                           <th> Date fin</th>
@@ -48,11 +49,14 @@
                           <th> Details </th>
                           <th> Modifier </th>
                           <th> Résilier </th>
+                          <th> Imprimer </th>
+
                         </tr>
                       </thead>
                       <tbody>
                         <?php $__currentLoopData = $contrats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contrat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
+                          <td> <?php echo e($contrat->id); ?> </td>
                           <td> <?php echo e($contrat->type_contrat); ?> </td>
                           <td> <?php echo e($contrat->date_debut); ?> </td>
                           <td> <?php echo e($contrat->date_fin); ?> </td>
@@ -80,6 +84,15 @@
                               <i class="mdi mdi-delete"></i>
                             </button>
                           </td>
+                          <td>
+                            <a href="<?php echo e(route('contrat.pdf', $contrat)); ?>">
+                              <button class="btn btn-sm btn-inverse-success">
+                                <i class="mdi mdi-printer"></i>
+                              </button>
+                            </a>
+                          </td>
+
+
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
@@ -200,4 +213,5 @@
     $('#deleteModal').find('form').attr('action', url);
     $('#deleteModal').modal('show');
   }
-</script><?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/contrat/index.blade.php ENDPATH**/ ?>
+</script>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/contrat/index.blade.php ENDPATH**/ ?>

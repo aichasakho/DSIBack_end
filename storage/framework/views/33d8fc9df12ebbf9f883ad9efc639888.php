@@ -29,51 +29,30 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter une annonce</h1>
+                  <h1 class="card-title mb-5">Modifier un type de bien</h1>
+
+
 
                   <div class="table-responsive">
-                    <form action="<?php echo e(route('annonce.store')); ?>" method="POST">
+                    <form action="<?php echo e(route('typebien.update', $typebien)); ?>" method="POST" novalidate>
                       <?php echo csrf_field(); ?>
+                      <?php echo method_field('PUT'); ?>
                       <div class="mb-3">
-                        <label for="type_annonce" class="form-label">Selectionner un type d'annonce</label>
-                        <select class="form-select" name="type_annonce" id="type_annonce">
-                          <option value="Location">Location</option>
-                          <option value="Vente">Vente</option>
-                        </select>
+                        <label for="type_bien" class="form-label">Type de bien</label>
+                        <input type="text" name="type_bien" class="form-control" id="type_bien" value="<?php echo e($typebien->type_bien); ?>">
+                        <?php $__errorArgs = ['type_bien'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <div class="alert alert-danger"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                       </div>
 
-                      <div class="mb-3">
-                        <label for="bien_immobilier_id" class="form-label">Choisr un Bien</label>
-                        <select class="form-select" name="bien_immobilier_id" id="bien_immobilier_id">
-                          <?php $__currentLoopData = $biens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                          <option value="<?php echo e($bien->id); ?>">
-                            <?php echo e($bien->nom_immeuble ?? $bien->proprietaire->prenom . " " .
-                            $bien->proprietaire->nom . " Bien :". $bien->id); ?>
-
-                          </option>
-                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" name="description" id="description" rows="5"></textarea>
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="statut" class="form-label">Statut</label>
-                        <select class="form-select" name="statut" id="statut">
-                          <option value="Disponible">Disponible</option>
-                          <option value="Indisponible">Indisponible</option>
-                        </select>
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="prix" class="form-label">Prix</label>
-                        <input type="number" name="prix" class="form-control" id="prix" placeholder="prix">
-                      </div>
-
-                      <button type="submit" class="btn btn-info">Enregistrer</button>
+                      <button type="submit" class="btn btn-info">Modifier</button>
                     </form>
                   </div>
                 </div>
@@ -104,9 +83,11 @@
 
     <!-- Button trigger modal -->
 
+
+
     <!-- page-body-wrapper ends -->
     <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/annonce/store.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/typebien/edit.blade.php ENDPATH**/ ?>

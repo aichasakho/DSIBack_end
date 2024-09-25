@@ -86,8 +86,8 @@
                             <img src="{{ $appart?->bienImmobilier?->image }}" alt="image" /><br>
                           </td>
                           <td> {{ $appart?->bienImmobilier?->nom_immeuble }} </td>
-                          <td> {{ $appart?->bienImmobilier->proprietaire?->nom }} {{
-                            $appart?->bienImmobilier->proprietaire?->prenom }}</td>
+                          <td> {{ $appart?->bienImmobilier?->proprietaire?->nom }} {{
+                            $appart?->bienImmobilier?->proprietaire?->prenom }}</td>
                           <td> {{ $appart?->nbr_piece }} </td>
                           <td> {{ $appart?->montant_caution }} </td>
                           <td>

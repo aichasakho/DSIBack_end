@@ -37,6 +37,7 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
+                          <th> ID contrat </th>
                           <th> Type contrat </th>
                           <th> Date début </th>
                           <th> Date fin</th>
@@ -48,11 +49,14 @@
                           <th> Details </th>
                           <th> Modifier </th>
                           <th> Résilier </th>
+                          <th> Imprimer </th>
+
                         </tr>
                       </thead>
                       <tbody>
                         @foreach($contrats as $contrat)
                         <tr>
+                          <td> {{ $contrat->id }} </td>
                           <td> {{ $contrat->type_contrat }} </td>
                           <td> {{ $contrat->date_debut }} </td>
                           <td> {{ $contrat->date_fin }} </td>
@@ -80,6 +84,15 @@
                               <i class="mdi mdi-delete"></i>
                             </button>
                           </td>
+                          <td>
+                            <a href="{{ route('contrat.pdf', $contrat) }}">
+                              <button class="btn btn-sm btn-inverse-success">
+                                <i class="mdi mdi-printer"></i>
+                              </button>
+                            </a>
+                          </td>
+
+
                         </tr>
                         @endforeach
                       </tbody>

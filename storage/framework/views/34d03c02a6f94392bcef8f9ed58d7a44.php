@@ -109,7 +109,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="deleteModalLabel">Supprimer une localité</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -117,7 +117,7 @@
             <p>Etes-vous sur de vouloir supprimer cette localité ?</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
             <form id="deleteForm" action="" method="POST">
               <?php echo csrf_field(); ?>
               <?php echo method_field('DELETE'); ?>
@@ -141,4 +141,5 @@
     form.action = url.replace(':id', id);
     $('#deleteModal').modal('show');
   }
-</script><?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/localite/index.blade.php ENDPATH**/ ?>
+</script>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/localite/index.blade.php ENDPATH**/ ?>

@@ -86,7 +86,7 @@
                             <img src="<?php echo e($appart?->bienImmobilier?->image); ?>" alt="image" /><br>
                           </td>
                           <td> <?php echo e($appart?->bienImmobilier?->nom_immeuble); ?> </td>
-                          <td> <?php echo e($appart?->bienImmobilier->proprietaire?->nom); ?> <?php echo e($appart?->bienImmobilier->proprietaire?->prenom); ?></td>
+                          <td> <?php echo e($appart?->bienImmobilier?->proprietaire?->nom); ?> <?php echo e($appart?->bienImmobilier?->proprietaire?->prenom); ?></td>
                           <td> <?php echo e($appart?->nbr_piece); ?> </td>
                           <td> <?php echo e($appart?->montant_caution); ?> </td>
                           <td>

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Contrat;
 use Illuminate\Http\Request;
 use App\Models\BienImmobilier;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ContratController extends Controller
 {
@@ -91,5 +92,12 @@ class ContratController extends Controller
     $contrat->delete();
     return to_route('admin.contrat.index')
       ->with('success', 'Contrat supprimé avec succès');
+  }
+
+  public function generatePDF()
+  {
+    $contrats = Contrat::with('bien_immobilier', 'client', 'agent', 'proprietaire')->get();
+    $pdf = Pdf::loadView('admin.contrat.pdf', compact('contrats'));
+    return $pdf->download('contrats.pdf');
   }
 }

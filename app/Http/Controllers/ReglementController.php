@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Contrat;
 use App\Models\Reglement;
 use App\Models\Reservation;
+use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddReglementRequest;
 
@@ -16,8 +18,8 @@ class ReglementController extends Controller
    */
   public function index()
   {
-    $reglement = Reglement::with('contrat')->get();
-    return view('admin.reglement.index', compact('reglement'));
+    $reglements = Reglement::with('contrat')->get();
+    return view('admin.reglement.index', compact('reglements'));
   }
 
   /**
@@ -26,7 +28,9 @@ class ReglementController extends Controller
   public function create()
   {
     $contrat = Contrat::all();
-    return view('admin.reglement.store', compact('contrat'));
+    $agents = User::where('role', 'admin')->get();
+
+    return view('admin.reglement.store', compact('contrat', 'agents'));
   }
 
   /**
@@ -71,7 +75,7 @@ class ReglementController extends Controller
   public function edit(Reglement $reglement)
   {
     return view(
-      'admin.reglement.form',
+      'admin.reglement.edit',
       compact('reglement')
     );
   }
@@ -96,5 +100,13 @@ class ReglementController extends Controller
     return redirect()
       ->back()
       ->with('success', 'reglement supprimé avec succès');
+  }
+
+
+  public function generatePDF()
+  {
+    $reglements = Reglement::with('contrat')->get();
+    $pdf = Pdf::loadView('admin.reglement.pdf', compact('reglements'));
+    return $pdf->download('reglements.pdf');
   }
 }

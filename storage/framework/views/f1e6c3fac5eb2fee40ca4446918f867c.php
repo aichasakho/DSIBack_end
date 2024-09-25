@@ -29,14 +29,16 @@
               <div class="card">
                 <div class="card-body">
 
-                  <h1 class="card-title mb-5">Ajouter une annonce</h1>
+                  <h1 class="card-title mb-5">Modifier une annonce</h1>
 
                   <div class="table-responsive">
-                    <form action="<?php echo e(route('annonce.store')); ?>" method="POST">
+                    <form action="<?php echo e(route('annonce.update', $annonce)); ?>" method="POST">
                       <?php echo csrf_field(); ?>
+                      <?php echo method_field('PUT'); ?>
                       <div class="mb-3">
                         <label for="type_annonce" class="form-label">Selectionner un type d'annonce</label>
                         <select class="form-select" name="type_annonce" id="type_annonce">
+                          <option value="<?php echo e($annonce->type_annonce); ?>" selected><?php echo e($annonce->type_annonce); ?></option>
                           <option value="Location">Location</option>
                           <option value="Vente">Vente</option>
                         </select>
@@ -45,6 +47,11 @@
                       <div class="mb-3">
                         <label for="bien_immobilier_id" class="form-label">Choisr un Bien</label>
                         <select class="form-select" name="bien_immobilier_id" id="bien_immobilier_id">
+                          <option value="<?php echo e($annonce->bien_immobilier_id); ?>" selected><?php echo e($annonce->bienImmobilier->nom_immeuble ??
+                            $annonce->bienImmobilier->proprietaire->prenom . " " .
+                            $annonce->bienImmobilier->proprietaire->nom . " Bien :". $annonce->bien_immobilier_id); ?>
+
+                          </option>
                           <?php $__currentLoopData = $biens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                           <option value="<?php echo e($bien->id); ?>">
                             <?php echo e($bien->nom_immeuble ?? $bien->proprietaire->prenom . " " .
@@ -57,12 +64,14 @@
 
                       <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" name="description" id="description" rows="5"></textarea>
+                        <textarea class="form-control" name="description" id="description"
+                          rows="5"><?php echo e($annonce->description); ?></textarea>
                       </div>
 
                       <div class="mb-3">
                         <label for="statut" class="form-label">Statut</label>
                         <select class="form-select" name="statut" id="statut">
+                          <option value="<?php echo e($annonce->statut); ?>" selected><?php echo e($annonce->statut); ?></option>
                           <option value="Disponible">Disponible</option>
                           <option value="Indisponible">Indisponible</option>
                         </select>
@@ -70,10 +79,11 @@
 
                       <div class="mb-3">
                         <label for="prix" class="form-label">Prix</label>
-                        <input type="number" name="prix" class="form-control" id="prix" placeholder="prix">
+                        <input type="number" name="prix" class="form-control" value="<?php echo e($annonce->prix); ?>" id="prix"
+                          placeholder="prix">
                       </div>
 
-                      <button type="submit" class="btn btn-info">Enregistrer</button>
+                      <button type="submit" class="btn btn-info">Modifier</button>
                     </form>
                   </div>
                 </div>
@@ -108,5 +118,4 @@
     <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
-</html>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/annonce/store.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/annonce/edit.blade.php ENDPATH**/ ?>

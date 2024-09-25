@@ -49,7 +49,7 @@
                   <p class="card-description">
                     <a href="<?php echo e(route('add.agent')); ?>">
                       <button type="button" class="btn btn-info">
-                        Ajouter un Agent
+                        Ajouter un agent
                       </button>
                     </a>
                   </p>

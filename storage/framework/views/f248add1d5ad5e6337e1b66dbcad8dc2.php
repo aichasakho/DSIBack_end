@@ -16,8 +16,6 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-
-
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -29,11 +27,9 @@
                         </button>
                       </a>
                     </p>
-
                   </div>
                   <hr>
                   <h4 class="card-title">Liste des Annonces</h4>
-
                   <hr>
                   <div class="table-responsive">
                     <table class="table table-striped">
@@ -46,45 +42,45 @@
                           <th> statut </th>
                           <th> Details </th>
                           <th> Modifier </th>
+                          <th> Supprimer </th>
                         </tr>
                       </thead>
 
                       <tbody>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                        <?php $__currentLoopData = $annonces; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $annonce): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <tr>
+                          <td>
+                            <img src="<?php echo e($annonce->bienImmobilier->image); ?>" alt="image" class="img-fluid" />
+                          </td>
+                          <td> <?php echo e($annonce->type_annonce); ?> </td>
+                          <td> <?php echo e(substr($annonce->description, 0, 50)); ?> ... </td>
+                          <td> <?php echo e($annonce->prix); ?> </td>
+                          <td> <?php echo e($annonce->statut); ?> </td>
+                          <td>
+                            <button class="btn btn-sm btn-inverse-info" onclick="showModal(event)"
+                              data-annonce="<?php echo e($annonce); ?>">
+                              <i class="mdi mdi-eye"></i>
+                            </button>
+                          </td>
+                          <td>
+                            <a href="<?php echo e(route('annonce.edit', $annonce)); ?>">
+                              <button class="btn btn-sm btn-inverse-success">
+                                <i class="mdi mdi-pencil"></i>
+                              </button>
+                            </a>
+                          </td>
+                          <td>
+                            <button class="btn btn-sm btn-inverse-danger" onclick="deleteAnnonce(<?php echo e($annonce->id); ?>)">
+                              <i class="mdi mdi-delete"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
                     </table>
                   </div>
                 </div>
-                <?php echo e($annonce->links()); ?>
+                <?php echo e($annonces->links()); ?>
 
               </div>
             </div>
@@ -114,11 +110,11 @@
     <!-- Button trigger modal -->
 
 
-    <div class="modal fade" id="bienModal" tabindex="-1" aria-labelledby="bienModalLabel" aria-hidden="true">
+    <div class="modal fade" id="annonceModal" tabindex="-1" aria-labelledby="annonceModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="bienModalLabel">Détail de l'annonce</h1>
+            <h1 class="modal-title fs-5" id="annonceModalLabel">Détail de l'annonce</h1>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
           </div>
           <div class="modal-body">
@@ -134,7 +130,32 @@
       </div>
     </div>
 
-  <?php if($errors->any()): ?>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Supprimer une annonce</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Etes-vous sur de vouloir supprimer cette annonce ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <form id="deleteForm" action="" method="POST">
+              <?php echo csrf_field(); ?>
+              <?php echo method_field('DELETE'); ?>
+              <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <?php if($errors->any()): ?>
     <div class="alert alert-danger">
       <ul>
         <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -148,23 +169,31 @@
   </div>
   <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
+
 </html>
 
 <script>
   function showModal(event) {
     // Récupère l'attribut 'data-bien' et parse-le en objet JSON
-    var appart = JSON.parse(event.currentTarget.getAttribute('data-bien'));
+    var annonce = JSON.parse(event.currentTarget.getAttribute('data-annonce'));
     console.log(annonce); // Pour vérifier la structure de l'objet
 
-    // Utiliser les propriétés de l'objet 'appart'
-    document.getElementById("bienImage").innerHTML = `<img src="${annonce.bienImmobilier ? annonce.bienImmobilier.image : 'Non spécifié'}" alt="image" class="img-fluid" />`;
+
+    document.getElementById("bienImage").innerHTML = `<img src="${annonce.bien_immobilier ? annonce.bien_immobilier.image : 'Non spécifié'}" alt="image" class="img-fluid" />`;
     document.getElementById("typeAnnonce").innerHTML = annonce.type_annonce || 'Non spécifié';
     document.getElementById("description").innerHTML = annonce.description || 'Non spécifié';
     document.getElementById("prix").innerHTML = annonce.prix || 'Non spécifié';
     document.getElementById("statut").innerHTML = annonce.statut|| 'Non spécifié';
 
     // Affiche le modal
-    $('#bienModal').modal('show');
+    $('#annonceModal').modal('show');
+  }
+
+  function deleteAnnonce(id) {
+    let url = "<?php echo e(route('annonce.destroy', ':id')); ?>";
+    url = url.replace(':id', id);
+    $('#deleteModal').find('form').attr('action', url);
+    $('#deleteModal').modal('show');
   }
 </script>
 <?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/annonce/index.blade.php ENDPATH**/ ?>

@@ -85,8 +85,8 @@
                             <img src="{{ $parcelle?->bienImmobilier?->image }}" alt="image" /><br>
                           </td>
                           <td> {{ $parcelle?->numero_parcelle }} </td>
-                          <td> {{ $parcelle?->bienImmobilier->proprietaire?->nom }} {{
-                            $parcelle?->bienImmobilier->proprietaire?->prenom }}</td>
+                          <td> {{ $parcelle?->bienImmobilier?->proprietaire?->nom }} {{
+                            $parcelle?->bienImmobilier?->proprietaire?->prenom }}</td>
                           <td> {{ $parcelle?->superficie }} </td>
                           <td>
                             <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="{{ json_encode($parcelle) }}">

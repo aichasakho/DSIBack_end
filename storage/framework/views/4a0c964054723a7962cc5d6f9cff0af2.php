@@ -85,7 +85,7 @@
                             <img src="<?php echo e($parcelle?->bienImmobilier?->image); ?>" alt="image" /><br>
                           </td>
                           <td> <?php echo e($parcelle?->numero_parcelle); ?> </td>
-                          <td> <?php echo e($parcelle?->bienImmobilier->proprietaire?->nom); ?> <?php echo e($parcelle?->bienImmobilier->proprietaire?->prenom); ?></td>
+                          <td> <?php echo e($parcelle?->bienImmobilier?->proprietaire?->nom); ?> <?php echo e($parcelle?->bienImmobilier?->proprietaire?->prenom); ?></td>
                           <td> <?php echo e($parcelle?->superficie); ?> </td>
                           <td>
                             <button class="btn btn-inverse-info" onclick="showModal(event)" data-bien="<?php echo e(json_encode($parcelle)); ?>">

@@ -2,28 +2,28 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
 <div class="container-scroller d-flex">
-  @include("admin.pages.sidebar")
+  <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   <!-- partial -->
   <div class="container-fluid page-body-wrapper">
     <!-- partial:../../partials/_navbar.html -->
-    @include('admin.pages.navbar')
+    <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <!-- partial -->
     <div class="main-panel">
       <div class="content-wrapper">
-        @if ($errors->any())
+        <?php if($errors->any()): ?>
           <div class="alert alert-danger">
             <ul>
-              @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-              @endforeach
+              <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($error); ?></li>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </div>
-        @endif
+        <?php endif; ?>
         <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
@@ -32,20 +32,20 @@
                 <h1 class="card-title mb-5">Modifier un reglement</h1>
 
                 <div class="table-responsive">
-                  <form action="{{ route('reglement.update', $reglement->id) }}" method="POST">
-                    @csrf
-                    @method('PUT')
+                  <form action="<?php echo e(route('reglement.update', $reglement->id)); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
+                    <?php echo method_field('PUT'); ?>
 
                     <div class="mb-3">
                       <label for="numero_reglement" class="form-label">N° Reglement</label>
                       <input type="text" name="numero_reglement" class="form-control" id="numero_reglement" placeholder=""
-                             value="{{ $reglement->numero_reglement }}">
+                             value="<?php echo e($reglement->numero_reglement); ?>">
                     </div>
 
                     <div class="mb-3">
                       <label for="date_reglement" class="form-label">Date règlement</label>
                       <input type="date" name="date_reglement" class="form-control" id="date_reglement" placeholder=""
-                             value="{{ $reglement->date_reglement }}">
+                             value="<?php echo e($reglement->date_reglement); ?>">
                     </div>
 
 
@@ -86,7 +86,8 @@
 
 
   <!-- page-body-wrapper ends -->
-@include("admin.pages.js")
+<?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
+<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/reglement/edit.blade.php ENDPATH**/ ?>

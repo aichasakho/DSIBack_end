@@ -123,3 +123,9 @@ Route::resource('reservation', ReservationController::class);
 
 //typebien
 Route::resource('typebien', TypeBienController::class);
+
+//contrat-pdf
+Route::get('contrats/pdf', [ContratController::class, 'generatePDF'])->name('contrat.pdf');
+
+//contrat-pdf
+Route::get('reglements/pdf', [ReglementController::class, 'generatePDF'])->name('reglement.pdf');
