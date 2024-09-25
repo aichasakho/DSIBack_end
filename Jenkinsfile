@@ -14,6 +14,7 @@ pipeline {
                 }
             }
         }
+
         // stage('Checkout Frontend') {
         //     steps {
         //         // Cloner le dépôt frontend
@@ -22,6 +23,7 @@ pipeline {
         //         }
         //     }
         // }
+        
         stage('Install Dependencies for Laravel') {
             steps {
                 // Installer Composer dans le répertoire backend
@@ -98,4 +100,5 @@ pipeline {
             echo 'Build or analysis failed!'
         }
     }
+}
 }
