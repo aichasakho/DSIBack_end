@@ -10,7 +10,7 @@ pipeline {
             steps {
                 // Cloner le dépôt backend
                 dir('backend') {
-                    git 'https://github.com/aichasakho/DSIBack_end.git'
+                    git branch: 'main', url: 'https://github.com/aichasakho/DSIBack_end.git'
                 }
             }
         }
