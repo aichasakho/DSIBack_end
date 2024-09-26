@@ -32,6 +32,13 @@ Route::get('users/get/proprietaires', [\App\Http\Controllers\Api\UserController:
 Route::get('users/get/clients', [\App\Http\Controllers\Api\UserController::class, 'getClients']);
 
 Route::get('annonces', [\App\Http\Controllers\Api\AnnonceController::class, 'index']);
+Route::get('locationAnnonce', [\App\Http\Controllers\Api\AnnonceController::class, 'location']);
+Route::get('venteAnnonce', [\App\Http\Controllers\Api\AnnonceController::class, 'vente']);
+
+
+
+
+
 Route::get('annonces/{id}', [\App\Http\Controllers\Api\AnnonceController::class, 'show']);
 
 

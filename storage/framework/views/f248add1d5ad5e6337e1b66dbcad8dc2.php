@@ -50,7 +50,7 @@
                         <?php $__currentLoopData = $annonces; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $annonce): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                           <td>
-                            <img src="<?php echo e($annonce->bienImmobilier->image); ?>" alt="image" class="img-fluid" />
+                            <img src="<?php echo e($annonce->bienImmobilier?->image); ?>" alt="image" class="img-fluid" />
                           </td>
                           <td> <?php echo e($annonce->type_annonce); ?> </td>
                           <td> <?php echo e(substr($annonce->description, 0, 50)); ?> ... </td>
