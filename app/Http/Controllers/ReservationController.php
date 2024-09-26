@@ -33,22 +33,22 @@ class ReservationController extends Controller
   public function destroy(Reservation $reservation)
   {
     $reservation->delete();
-    return redirect()->route('admin.reservation.index');
+    return redirect()->route('reservation.index');
   }
 
-  public function annuler(Reservation $reservation)
+  public function refuser(Reservation $reservation)
   {
-    $reservation->update([
-      'statut' => false,
-    ]);
-    return redirect()->route('admin.reservation.index');
+    $reservation->statut = false;
+    $reservation->save();
+    toastr('Reservation refusee');
+    return redirect()->route('reservation.index');
   }
 
-  public function confirmer(Reservation $reservation)
+  public function valider(Reservation $reservation)
   {
-    $reservation->update([
-      'statut' => true,
-    ]);
-    return redirect()->route('admin.reservation.index');
+    $reservation->statut = true;
+    $reservation->save();
+    toastr('Reservation validee');
+    return redirect()->route('reservation.index');
   }
 }

@@ -13,7 +13,7 @@ class Reservation extends Model
     'date_debut',
     'date_fin',
     'profession',
-    'situation_matriminiale',
+    'situation_matrimonial',
     'client_nom',
     'client_id',
     'bien_immobilier_id'

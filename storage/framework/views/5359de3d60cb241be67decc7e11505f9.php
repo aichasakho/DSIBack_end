@@ -88,13 +88,15 @@
             </ul>
         </div>
         </li>
-    <li class="">
-      <button>
-      <a class="nav-link" href="<?php echo e(route('admin.login')); ?>">
-        <span class="menu-title">Déconnexion</span>
-      </a>
-      </button>
-    </li>
+
+
+        <li class="">
+          <button class="bg-light w-100" >
+          <a class="nav-link" href="<?php echo e(route('admin.login')); ?>">
+            <span class="text-dark fw-bold fs-5">Déconnexion</span>
+          </a>
+          </button>
+        </li>
 
 
 

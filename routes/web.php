@@ -96,6 +96,14 @@ Route::middleware(['auth.admin'])->group(function(){
   Route::post('admin-update-terrain/{terrain}',[BienImmobilierController::class,'updateTerrain'])
     ->name('update.terrain');
 
+
+  //Route for reservation
+  Route::get('admin-valide-reservation/{reservation}/valider',[ReservationController::class,'valider'])
+    ->name('reservation.valider');
+  Route::get('admin-refuse-reservation/{reservation}/refuser',[ReservationController::class,'refuser'])
+    ->name('reservation.refuser');
+
+
 });
 
 Route::get('',[AdminController::class,'login'])->name('admin.login');
