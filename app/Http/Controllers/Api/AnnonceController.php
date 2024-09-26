@@ -25,5 +25,19 @@ class AnnonceController extends Controller
         return response()->json($annonce);
     }
 
+  public function location()
+  {
+
+    $annonce = Annonce::with('bienImmobilier')->where('type_annonce','location')->get();
+    return response()->json($annonce);
+  }
+
+  public function vente()
+  {
+
+    $annonce = Annonce::with('bienImmobilier')->where('type_annonce','vente')->get();
+    return response()->json($annonce);
+  }
+
 }
 

@@ -41,9 +41,9 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('first'),
             'role' => 'proprietaire',
             'ninea' => '123456709',
-            'adresse' => 'Adresse 1',
-            'tel' => '123456759',
-            'registreDeCommerce' => '00002313113',
+            'adresse' => 'Adresse 2',
+            'tel' => '123456959',
+            'registreDeCommerce' => '00002313913',
         ]);
 
         \App\Models\User::factory()->create([
@@ -52,15 +52,76 @@ class DatabaseSeeder extends Seeder
             'email' => 'trois@gmail.com',
             'password' => bcrypt('first'),
             'role' => 'proprietaire',
-            'ninea' => '123453789',
-            'adresse' => 'Adresse 1',
+            'ninea' => '123453780',
+            'adresse' => 'Adresse 3',
             'tel' => '123450789',
-            'registreDeCommerce' => '00002313113',
+            'registreDeCommerce' => '00002343113',
         ]);
 
+      \App\Models\User::factory()->create([
+        'nom' => 'Skn',
+        'prenom' => 'chekhne',
+        'email' => 'quatre@gmail.com',
+        'password' => bcrypt('first'),
+        'role' => 'proprietaire',
+        'ninea' => '123451459',
+        'adresse' => 'Adresse 4',
+        'tel' => '123450909',
+        'registreDeCommerce' => '00002093113',
+      ]);
+
+      \App\Models\User::factory()->create([
+        'nom' => 'Aicha',
+        'prenom' => 'Mama',
+        'email' => 'cinq@gmail.com',
+        'password' => bcrypt('first'),
+        'role' => 'proprietaire',
+        'ninea' => '123454538',
+        'adresse' => 'Adresse 5',
+        'tel' => '123450679',
+        'registreDeCommerce' => '0000234413',
+      ]);
+
+      \App\Models\User::factory()->create([
+        'nom' => 'sylla',
+        'prenom' => 'Ali',
+        'email' => 'six@gmail.com',
+        'password' => bcrypt('first'),
+        'role' => 'proprietaire',
+        'ninea' => '12345349',
+        'adresse' => 'Adresse 6',
+        'tel' => '123450809',
+        'registreDeCommerce' => '000023888',
+      ]);
+
+      \App\Models\User::factory()->create([
+        'nom' => 'Sow',
+        'prenom' => 'Fatou',
+        'email' => 'sept@gmail.com',
+        'password' => bcrypt('first'),
+        'role' => 'proprietaire',
+        'ninea' => '12345589',
+        'adresse' => 'Adresse 7',
+        'tel' => '123450459',
+        'registreDeCommerce' => '00004713113',
+      ]);
+
+      \App\Models\User::factory()->create([
+        'nom' => 'LY',
+        'prenom' => 'Omar',
+        'email' => 'huit@gmail.com',
+        'password' => bcrypt('first'),
+        'role' => 'proprietaire',
+        'ninea' => '123458789',
+        'adresse' => 'Adresse 8',
+        'tel' => '12345889',
+        'registreDeCommerce' => '00002888113',
+      ]);
 
 
-        \App\Models\User::factory(10)->create();
+
+
+      \App\Models\User::factory(10)->create();
 
         $this->call([
             TypeBienSeeder::class,
