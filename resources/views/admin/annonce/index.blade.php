@@ -50,7 +50,7 @@
                         @foreach($annonces as $annonce)
                         <tr>
                           <td>
-                            <img src="{{ $annonce->bienImmobilier->image}}" alt="image" class="img-fluid" />
+                            <img src="{{ $annonce->bienImmobilier?->image}}" alt="image" class="img-fluid" />
                           </td>
                           <td> {{ $annonce->type_annonce }} </td>
                           <td> {{ substr($annonce->description, 0, 50) }} ... </td>
