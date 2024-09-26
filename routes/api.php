@@ -2,8 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\BienImmobilierController;
-use App\Http\Controllers\Api\ReservationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -49,3 +47,4 @@ Route::get('reservation', [\App\Http\Controllers\Api\ReservationController::clas
 Route::post('reservation', [\App\Http\Controllers\Api\ReservationController::class, 'store']);
 Route::put('reservation', [\App\Http\Controllers\Api\ReservationController::class, 'show']);
 Route::delete('reservation', [\App\Http\Controllers\Api\ReservationController::class, 'destroy']);
+Route::get('my-reservation', [\App\Http\Controllers\Api\ReservationController::class, 'getClientReservations']);

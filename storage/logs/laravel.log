@@ -129,7 +129,7 @@
 #61 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle()
 #62 C:\\Users\\Claude\\Desktop\\Folders\\Aicha_DSI\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('...')
 #63 {main}
-"} 
+"}
 [2024-09-23 23:41:13] local.ERROR: Undefined variable $proprietaires {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\client\\add.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-939783869 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1419</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -615,7 +615,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-23 23:41:19] local.ERROR: Undefined variable $proprietaires {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\client\\add.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-27566785 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1419</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -1101,7 +1101,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-23 23:41:24] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Champ 'bien_immobiliers.user_id' inconnu dans where clause (Connection: mysql, SQL: select * from `bien_immobiliers` where `bien_immobiliers`.`user_id` in (2, 3, 4)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Champ 'bien_immobiliers.user_id' inconnu dans where clause (Connection: mysql, SQL: select * from `bien_immobiliers` where `bien_immobiliers`.`user_id` in (2, 3, 4)) at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
@@ -1241,7 +1241,7 @@
 #65 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #66 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #67 {main}
-"} 
+"}
 [2024-09-23 23:41:30] local.ERROR: Undefined variable $proprietaires {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\agent\\add.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-743510782 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1415</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -1412,7 +1412,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-23 23:41:36] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Champ 'bien_immobiliers.user_id' inconnu dans where clause (Connection: mysql, SQL: select * from `bien_immobiliers` where `bien_immobiliers`.`user_id` in (1)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Champ 'bien_immobiliers.user_id' inconnu dans where clause (Connection: mysql, SQL: select * from `bien_immobiliers` where `bien_immobiliers`.`user_id` in (1)) at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
@@ -1552,7 +1552,7 @@
 #65 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #66 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #67 {main}
-"} 
+"}
 [2024-09-23 23:47:50] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Champ 'bien_immobiliers.user_id' inconnu dans where clause (Connection: mysql, SQL: select * from `bien_immobiliers` where `bien_immobiliers`.`user_id` in (1)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Champ 'bien_immobiliers.user_id' inconnu dans where clause (Connection: mysql, SQL: select * from `bien_immobiliers` where `bien_immobiliers`.`user_id` in (1)) at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
@@ -1692,7 +1692,7 @@
 #65 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #66 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #67 {main}
-"} 
+"}
 [2024-09-24 16:09:15] local.ERROR: Attempt to read property "proprietaire" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\appartement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-825193071 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1403</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -1852,7 +1852,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-24 16:09:50] local.ERROR: Attempt to read property "proprietaire" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\appartement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1899833920 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1403</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -2012,7 +2012,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-24 16:09:55] local.ERROR: Attempt to read property "proprietaire" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\appartement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1295922722 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1403</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -2172,7 +2172,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-24 16:10:00] local.ERROR: Attempt to read property "proprietaire" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\parcelle\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-963468751 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1407</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -2326,7 +2326,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-24 16:10:14] local.ERROR: Attempt to read property "proprietaire" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\appartement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2110594559 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1403</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -2486,7 +2486,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-24 16:12:21] local.ERROR: Attempt to read property "proprietaire" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\parcelle\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1844632325 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1407</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -2642,7 +2642,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-24 16:14:30] local.ERROR: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'prix' at row 1 (Connection: mysql, SQL: insert into `bien_immobiliers` (`image`, `proprietaire_id`, `prix`, `localite_id`, `type_bien_id`, `agent_id`, `nbr_etage`, `nom_immeuble`, `date_construction`, `updated_at`, `created_at`) values (http://127.0.0.1:8000/storage/bien/gPcGoPB3wMw2xJGcYc4En6PP4enj3COtB72Ohb7I.jpg, 3, 9000000, 5, 1, 1, 8, Immeuble skn, 2024-09-24, 2024-09-24 16:14:30, 2024-09-24 16:14:30)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 22003): SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'prix' at row 1 (Connection: mysql, SQL: insert into `bien_immobiliers` (`image`, `proprietaire_id`, `prix`, `localite_id`, `type_bien_id`, `agent_id`, `nbr_etage`, `nom_immeuble`, `date_construction`, `updated_at`, `created_at`) values (http://127.0.0.1:8000/storage/bien/gPcGoPB3wMw2xJGcYc4En6PP4enj3COtB72Ohb7I.jpg, 3, 9000000, 5, 1, 1, 8, Immeuble skn, 2024-09-24, 2024-09-24 16:14:30, 2024-09-24 16:14:30)) at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('insert into `bi...', Array, Object(Closure))
@@ -2784,7 +2784,7 @@
 #66 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #67 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #68 {main}
-"} 
+"}
 [2024-09-24 16:22:34] local.ERROR: Route [admin.contrat.index] not defined. {"userId":1,"exception":"[object] (Symfony\\Component\\Routing\\Exception\\RouteNotFoundException(code: 0): Route [admin.contrat.index] not defined. at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:477)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Redirector.php(154): Illuminate\\Routing\\UrlGenerator->route('admin.contrat.i...', Array)
@@ -2840,7 +2840,7 @@
 #50 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #52 {main}
-"} 
+"}
 [2024-09-24 16:23:35] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Champ 'bien_immobiliers.user_id' inconnu dans where clause (Connection: mysql, SQL: select * from `bien_immobiliers` where `bien_immobiliers`.`user_id` in (5, 6, 7, 8, 9, 10, 11, 12, 13, 14)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Champ 'bien_immobiliers.user_id' inconnu dans where clause (Connection: mysql, SQL: select * from `bien_immobiliers` where `bien_immobiliers`.`user_id` in (5, 6, 7, 8, 9, 10, 11, 12, 13, 14)) at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
@@ -2980,7 +2980,7 @@
 #65 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #66 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #67 {main}
-"} 
+"}
 [2024-09-24 18:45:06] local.ERROR: Undefined variable $reglements {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1946304195 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1446</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -3111,7 +3111,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 18:54:22] local.ERROR: Undefined variable $reglements {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-432188454 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1446</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -3242,7 +3242,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 20:01:53] local.ERROR: Undefined variable $reglements {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1366911737 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1446</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -3373,7 +3373,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 20:43:32] local.ERROR: Undefined variable $reglements {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2074163804 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1446</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -3504,7 +3504,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 20:43:51] local.ERROR: Undefined variable $reglements {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-862548263 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1446</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -3635,7 +3635,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 21:06:52] local.ERROR: Undefined variable $reglements {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1706506619 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1446</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -3766,7 +3766,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 21:08:14] local.ERROR: Undefined variable $clients {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\store.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-755926467 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1447</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -3897,7 +3897,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 21:13:27] local.ERROR: Undefined variable $reglements {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\store.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-946747877 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1447</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -4028,7 +4028,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 21:13:46] local.ERROR: Undefined variable $agents {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\store.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1023114333 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1458</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -4159,7 +4159,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 21:17:36] local.ERROR: Undefined variable $contrats {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\store.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1784942720 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1447</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -4290,7 +4290,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 21:28:29] local.ERROR: Undefined variable $agent {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\store.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1396867688 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1447</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -4455,7 +4455,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 23:01:25] local.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'nom' doesn't have a default value (Connection: mysql, SQL: insert into `reglements` (`date_reglement`, `numero_reglement`, `contrat_id`, `agent_id`, `updated_at`, `created_at`) values (2024-09-24, 6777D, 3, 1, 2024-09-24 23:01:25, 2024-09-24 23:01:25)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: HY000): SQLSTATE[HY000]: General error: 1364 Field 'nom' doesn't have a default value (Connection: mysql, SQL: insert into `reglements` (`date_reglement`, `numero_reglement`, `contrat_id`, `agent_id`, `updated_at`, `created_at`) values (2024-09-24, 6777D, 3, 1, 2024-09-24 23:01:25, 2024-09-24 23:01:25)) at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('insert into `re...', Array, Object(Closure))
@@ -4593,7 +4593,7 @@
 #64 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #65 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #66 {main}
-"} 
+"}
 [2024-09-24 23:04:50] local.ERROR: syntax error, unexpected token "<<", expecting "]" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting \"]\" at C:\\Users\\sakho\\DSIBack_end\\database\\seeders\\DatabaseSeeder.php:71)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('C:\\\\Users\\\\sakho\\\\...')
@@ -4628,7 +4628,7 @@
 #29 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #30 C:\\Users\\sakho\\DSIBack_end\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #31 {main}
-"} 
+"}
 [2024-09-24 23:33:10] local.ERROR: Attempt to read property "id" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\store.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1794167880 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1447</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -4834,7 +4834,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 23:34:47] local.ERROR: Route [admin.contrat.index] not defined. {"userId":1,"exception":"[object] (Symfony\\Component\\Routing\\Exception\\RouteNotFoundException(code: 0): Route [admin.contrat.index] not defined. at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:477)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Redirector.php(154): Illuminate\\Routing\\UrlGenerator->route('admin.contrat.i...', Array)
@@ -4890,7 +4890,7 @@
 #50 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #52 {main}
-"} 
+"}
 [2024-09-24 23:37:51] local.ERROR: Attempt to read property "prenom" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1317255758 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1446</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -5055,7 +5055,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 23:38:54] local.ERROR: Attempt to read property "nom" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-836501533 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1446</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -5220,7 +5220,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 23:39:13] local.ERROR: Attempt to read property "type_contrat" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1155529829 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1446</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -5385,7 +5385,7 @@
 #56 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #58 {main}
-"} 
+"}
 [2024-09-24 23:41:35] local.ERROR: View [admin.reglement.form] not found. {"userId":1,"exception":"[object] (InvalidArgumentException(code: 0): View [admin.reglement.form] not found. at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php:137)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php(79): Illuminate\\View\\FileViewFinder->findInPaths('admin.reglement...', Array)
@@ -5442,7 +5442,7 @@
 #51 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #52 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #53 {main}
-"} 
+"}
 [2024-09-24 23:45:09] local.ERROR: View [admin.reglement.form] not found. {"userId":1,"exception":"[object] (InvalidArgumentException(code: 0): View [admin.reglement.form] not found. at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php:137)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php(79): Illuminate\\View\\FileViewFinder->findInPaths('admin.reglement...', Array)
@@ -5499,7 +5499,7 @@
 #51 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #52 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #53 {main}
-"} 
+"}
 [2024-09-25 02:33:16] local.ERROR: Trait "App\Http\Controllers\Barryvdh\DomPDF\Facade\Pdf" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"App\\Http\\Controllers\\Barryvdh\\DomPDF\\Facade\\Pdf\" not found at C:\\Users\\sakho\\DSIBack_end\\app\\Http\\Controllers\\ReglementController.php:13)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Trait \"App\\\\\\\\Ht...', code: '0', error: '['type' => 1, '...', traceOffset: '0', traceArgs: '???', trace: '???')
@@ -5541,7 +5541,7 @@
 #36 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): ()
 #37 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(0): {main}()
 #38 {main}
-"} 
+"}
 [2024-09-25 02:33:59] local.ERROR: Undefined variable $contrat {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1769575665 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1533</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -5710,7 +5710,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-25 02:34:40] local.ERROR: Attempt to read property "id" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\reglement\\pdf.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-308116648 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1557</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -5885,7 +5885,7 @@
 #61 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #62 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #63 {main}
-"} 
+"}
 [2024-09-25 03:44:24] local.ERROR: Undefined variable $contrat {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\contrat\\pdf.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1268988624 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1545</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -6060,7 +6060,7 @@
 #61 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #62 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #63 {main}
-"} 
+"}
 [2024-09-25 03:49:09] local.ERROR: Undefined variable $contrat {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\contrat\\pdf.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2093952240 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1545</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -6235,7 +6235,7 @@
 #61 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #62 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #63 {main}
-"} 
+"}
 [2024-09-25 03:49:29] local.ERROR: Attempt to read property "nom" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\contrat\\pdf.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2063235445 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1545</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -6410,7 +6410,7 @@
 #61 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #62 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #63 {main}
-"} 
+"}
 [2024-09-25 03:49:51] local.ERROR: Attempt to read property "nom" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\contrat\\pdf.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1737239553 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1545</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -6585,7 +6585,7 @@
 #61 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #62 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #63 {main}
-"} 
+"}
 [2024-09-25 03:50:13] local.ERROR: Attempt to read property "nom" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\contrat\\pdf.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1538644442 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1545</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -6760,7 +6760,7 @@
 #61 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #62 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #63 {main}
-"} 
+"}
 [2024-09-25 20:52:48] local.ERROR: Attempt to read property "ville" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\terrain\\edit.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-375470666 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1515</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -7299,7 +7299,7 @@
 #60 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #61 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #62 {main}
-"} 
+"}
 [2024-09-25 20:53:29] local.ERROR: Attempt to read property "image" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\annonce\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-909984917 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1517</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -7469,7 +7469,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-25 20:53:43] local.ERROR: Attempt to read property "image" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\annonce\\index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-447782881 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1517</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -7639,7 +7639,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-25 20:54:46] local.ERROR: Attempt to read property "proprietaire" on null {"view":{"view":"C:\\Users\\sakho\\DSIBack_end\\resources\\views\\admin\\annonce\\edit.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-682633268 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1520</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
@@ -7936,7 +7936,7 @@
 #58 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #60 {main}
-"} 
+"}
 [2024-09-26 04:15:13] local.ERROR: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'prix' at row 1 (Connection: mysql, SQL: insert into `bien_immobiliers` (`image`, `proprietaire_id`, `prix`, `localite_id`, `type_bien_id`, `agent_id`, `nbr_etage`, `nom_immeuble`, `date_construction`, `updated_at`, `created_at`) values (http://127.0.0.1:8000/storage/bien/mHGRUOvo4rHRz9UoEQeOApi4eLkZJbphDi5SgEQA.jpg, 7, 1500000, 3, 1, 1, 6, Immeuble Aicha, 2024-09-26, 2024-09-26 04:15:13, 2024-09-26 04:15:13)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 22003): SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'prix' at row 1 (Connection: mysql, SQL: insert into `bien_immobiliers` (`image`, `proprietaire_id`, `prix`, `localite_id`, `type_bien_id`, `agent_id`, `nbr_etage`, `nom_immeuble`, `date_construction`, `updated_at`, `created_at`) values (http://127.0.0.1:8000/storage/bien/mHGRUOvo4rHRz9UoEQeOApi4eLkZJbphDi5SgEQA.jpg, 7, 1500000, 3, 1, 1, 6, Immeuble Aicha, 2024-09-26, 2024-09-26 04:15:13, 2024-09-26 04:15:13)) at C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('insert into `bi...', Array, Object(Closure))
@@ -8082,4 +8082,4 @@
 #68 C:\\Users\\sakho\\DSIBack_end\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #69 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #70 {main}
-"} 
+"}
