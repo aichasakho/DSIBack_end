@@ -21,7 +21,7 @@ class AdminMiddelware
 
             return redirect()->route('admin.login');
         }
-      
         return $next($request);
+        
     }
 }
