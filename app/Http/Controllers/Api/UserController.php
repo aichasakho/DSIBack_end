@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use App\Models\Contrat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -44,39 +45,39 @@ class UserController extends Controller
 
   public function addAdmin(UserFormRequest $request)
   {
-      $user = User::create(array_merge(
-          $request->only('nom', 'prenom', 'email', 'tel', 'ninea', 'regitreDeCommerce'),
-          [
-              'password' => Hash::make($request->password), // Hachage du mot de passe
-              'role' => 'admin',
-          ]
-      ));
-      return response()->json($user, 201);
+    $user = User::create(array_merge(
+      $request->only('nom', 'prenom', 'email', 'tel', 'ninea', 'regitreDeCommerce'),
+      [
+        'password' => Hash::make($request->password), // Hachage du mot de passe
+        'role' => 'admin',
+      ]
+    ));
+    return response()->json($user, 201);
   }
 
+  public function getLocataires(User $proprietaire)
+  {
+    $locataire_id = Contrat::all()
+      ->where('proprietaire_id', $proprietaire->id)
+      ->get('client_id');
 
-  
+    $getLocataires = User::whereIn('id', $locataire_id)->get();
+
+    return response()->json($getLocataires, 200);
+  }
+
   public function addProprietaire(UserFormRequest $request)
   {
-      $user = User::create(array_merge(
-          $request->only('nom', 'prenom', 'email', 'password', 'tel', 'cni', 'adresse'),
-          ['role' => 'proprietaire']
-      ));
-      return response()->json($user, 201);
+    $user = User::create(array_merge(
+      $request->only('nom', 'prenom', 'email', 'password', 'tel', 'cni', 'adresse'),
+      ['role' => 'proprietaire']
+    ));
+    return response()->json($user, 201);
   }
-  
+
 
   public function addClient(UserFormRequest $request)
   {
-      \Log::info($request->all()); 
-
-      $existingUser = User::where('tel', $request->tel)->first();
-      if ($existingUser) {
-          return response()->json([
-              'message' => 'existe deja donc y a conflit.'
-          ], 409); 
-      }
-
       try {
           $user = User::create([
               'nom' => $request->nom,

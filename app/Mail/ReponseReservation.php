@@ -12,22 +12,15 @@ class ReponseReservation extends Mailable
     use Queueable, SerializesModels;
 
     public $reservation;
-    public $reponse;
 
-    public function __construct(Reservation $reservation, $reponse)
+    public function __construct(Reservation $reservation)
     {
         $this->reservation = $reservation;
-        $this->reponse = $reponse;
     }
 
     public function build()
     {
-        return $this->view('emails.reponse-reservation')
-                    ->subject('Réponse de l"agent par rapport à la réservation')
-                    ->with([
-                        'reservation' => $this->reservation,
-                        'reponse' => $this->reponse,
-                    ])
-                    ->to('aichasakho2205@gmail.com');
+      return $this->subject('Votre reservation a été validée')
+        ->view('emails.reponse_reservation', ['reserv' => $this->reservation]);
     }
 }

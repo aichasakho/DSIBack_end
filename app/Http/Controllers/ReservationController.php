@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ReponseReservation;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ReservationController extends Controller
 {
@@ -46,9 +48,13 @@ class ReservationController extends Controller
 
   public function valider(Reservation $reservation)
   {
+    $reservation->load('client');
     $reservation->statut = true;
     $reservation->save();
-    toastr('Reservation validee');
+    // Envoyer l'email
+    Mail::to($reservation->client->email)->send(new ReponseReservation($reservation));
+
+    toastr('Reservation validée');
     return redirect()->route('reservation.index');
   }
 }

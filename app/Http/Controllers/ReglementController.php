@@ -80,6 +80,12 @@ class ReglementController extends Controller
     );
   }
 
+  public function reglement(contrat $contrat )
+  {
+
+    return view('admin.reglement.store', compact('contrat'));
+  }
+
   /**
    * Update the specified resource in storage.
    */
