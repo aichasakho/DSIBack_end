@@ -78,27 +78,29 @@ class UserController extends Controller
 
   public function addClient(UserFormRequest $request)
   {
-    try {
-      $user = User::create([
-        'nom' => $request->nom,
-        'prenom' => $request->prenom,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'tel' => $request->tel,
-        'cni' => $request->cni,
-        'adresse' => $request->adresse,
-        'role' => 'client',
-      ]);
-      return response()->json($user, 201);
-    } catch (\Exception $e) {
-      return response()->json([
-        'message' => 'Error occurred while creating client',
-        'error' => $e->getMessage()
-      ], 500);
-    }
+      try {
+          $user = User::create([
+              'nom' => $request->nom,
+              'prenom' => $request->prenom,
+              'email' => $request->email,
+              'password' => Hash::make($request->password),
+              'tel' => $request->tel,
+              'cni' => $request->cni,
+              'adresse' => $request->adresse,
+              'role' => 'client',
+          ]);
+          return response()->json($user, 201);
+      } catch (\Exception $e) {
+          return response()->json([
+              'message' => 'Error occurred while creating client',
+              'error' => $e->getMessage()
+          ], 500);
+      }
   }
 
 
+  
+  
 
   // public function addProprietaire(UserFormRequest $request)
   // {
