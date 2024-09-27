@@ -19,7 +19,7 @@ class AnnonceSeeder extends Seeder
                     L’appartement bénéficie d’un parquet en chêne massif, de double vitrage et d’une isolation thermique et phonique de qualité. Une cave privative est également incluse, avec possibilité de stationnement en supplément. L'emplacement, à proximité des commerces, écoles et transports, en fait un lieu de vie idéal pour les citadins à la recherche de confort et de praticité.",
                 'statut' => 'disponible',
                 'prix' => 150000,
-                'bien_immobilier_id' => 2,
+                'bien_immobilier_id' => 1,
             ]
         );
 
@@ -41,7 +41,7 @@ class AnnonceSeeder extends Seeder
                     L’appartement bénéficie d’un parquet en chêne massif, de double vitrage et d’une isolation thermique et phonique de qualité. Une cave privative est également incluse, avec possibilité de stationnement en supplément. L'emplacement, à proximité des commerces, écoles et transports, en fait un lieu de vie idéal pour les citadins à la recherche de confort et de praticité.",
                 'statut' => 'disponible',
                 'prix' => 200000,
-                'bien_immobilier_id' => 2,
+                'bien_immobilier_id' => 3,
             ]
         );
 
@@ -52,7 +52,7 @@ class AnnonceSeeder extends Seeder
                     L’appartement bénéficie d’un parquet en chêne massif, de double vitrage et d’une isolation thermique et phonique de qualité. Une cave privative est également incluse, avec possibilité de stationnement en supplément. L'emplacement, à proximité des commerces, écoles et transports, en fait un lieu de vie idéal pour les citadins à la recherche de confort et de praticité.",
           'statut' => 'disponible',
           'prix' => 250000,
-          'bien_immobilier_id' => 2,
+          'bien_immobilier_id' => 4,
         ]
       );
 
@@ -63,7 +63,7 @@ class AnnonceSeeder extends Seeder
                     L’appartement bénéficie d’un parquet en chêne massif, de double vitrage et d’une isolation thermique et phonique de qualité. Une cave privative est également incluse, avec possibilité de stationnement en supplément. L'emplacement, à proximité des commerces, écoles et transports, en fait un lieu de vie idéal pour les citadins à la recherche de confort et de praticité.",
           'statut' => 'disponible',
           'prix' => 280000,
-          'bien_immobilier_id' => 2,
+          'bien_immobilier_id' => 5,
         ]
       );
 
@@ -85,7 +85,7 @@ class AnnonceSeeder extends Seeder
                     L’appartement bénéficie d’un parquet en chêne massif, de double vitrage et d’une isolation thermique et phonique de qualité. Une cave privative est également incluse, avec possibilité de stationnement en supplément. L'emplacement, à proximité des commerces, écoles et transports, en fait un lieu de vie idéal pour les citadins à la recherche de confort et de praticité.",
           'statut' => 'disponible',
           'prix' => 100000,
-          'bien_immobilier_id' => 2,
+          'bien_immobilier_id' => 3,
         ]
       );
 
@@ -96,7 +96,7 @@ class AnnonceSeeder extends Seeder
                     L’appartement bénéficie d’un parquet en chêne massif, de double vitrage et d’une isolation thermique et phonique de qualité. Une cave privative est également incluse, avec possibilité de stationnement en supplément. L'emplacement, à proximité des commerces, écoles et transports, en fait un lieu de vie idéal pour les citadins à la recherche de confort et de praticité.",
           'statut' => 'disponible',
           'prix' => 90000,
-          'bien_immobilier_id' => 2,
+          'bien_immobilier_id' => 1,
         ]
       );
     }

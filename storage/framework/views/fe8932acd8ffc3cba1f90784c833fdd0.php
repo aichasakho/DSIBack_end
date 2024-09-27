@@ -33,14 +33,14 @@
   </style>
 </head>
 <body>
-<h1>Reçu de Paiement</h1>
+<h1>Reglement</h1>
 <div class="container">
   <?php $__currentLoopData = $reglements; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reglement): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="details">
       <h3>Règlement N°: <?php echo e($reglement->numero_reglement); ?></h3>
       <p><strong>Nom Client:</strong> <?php echo e($reglement->nom); ?></p>
       <p><strong>Date de Règlement:</strong> <?php echo e(\Carbon\Carbon::parse($reglement->date_reglement)->format('d/m/Y')); ?></p>
-      <p><strong>Montant:</strong> <?php echo e(number_format($reglement->montant, 2, ',', ' ')); ?> €</p>
+      <p><strong>Montant:</strong> <?php echo e(number_format($reglement->contrat->montant, 2, ',', ' ')); ?> F</p>
       <p><strong>Agent:</strong> <?php echo e($reglement->agent->prenom); ?> <?php echo e($reglement->agent->nom); ?></p>
       <p><strong>ID Contrat:</strong> <?php echo e($reglement->contrat_id); ?></p>
     </div>

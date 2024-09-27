@@ -36,7 +36,10 @@
                           <th> Profession </th>
                           <th> Situation matrimoniale</th>
                           <th> Details </th>
-                          <th> Modifier </th>
+                          <th> Statut </th>
+                          <th> Valider </th>
+                          <th> Refuser </th>
+                          <th> Supprimer </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -54,12 +57,26 @@
                               </button>
                             </a>
                           </td>
+                          <td><?php echo e($reservation->statut == true ? 'Valider' : 'En cours'); ?></td>
                           <td>
-                            <a href="#">
-                              <button class="btn btn-sm btn-inverse-danger">
-                                <i class="mdi mdi-cancel"></i>
+                            <a href="<?php echo e(route('reservation.valider', $reservation->id)); ?>">
+                              <button class="btn btn-sm btn-inverse-success">
+                                <i class="mdi mdi-check"></i>
                               </button>
                             </a>
+                          </td>
+                          <td>
+                            <a href="<?php echo e(route('reservation.refuser', $reservation->id)); ?>">
+                              <button class="btn btn-sm btn-inverse-danger">
+                                <i class="mdi mdi-close"></i>
+                              </button>
+                            </a>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-sm btn-inverse-danger"
+                              onclick="deleteReservation(<?php echo e($reservation->id); ?>)">
+                              <i class="mdi mdi-delete"></i>
+                            </button>
                           </td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -95,25 +112,31 @@
 
     <!-- Button trigger modal -->
 
-
-    <div class="modal fade" id="bienModal" tabindex="-1" aria-labelledby="bienModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="bienModalLabel">Détail de la réservation</h1>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            <h5 class="modal-title" id="deleteModalLabel">Supprimer une reservation</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <div class="modal-body">
-            <p>Début: <span id="debut"></span></p>
-            <p>Fin: <span id="fin"></span></p>
-            <p>Profession: <span id="profession"></span></p>
-            <p>Situation matrimoniale : <span id="situationMatrimoniale"></span></p>
-            <p>Client : <span id="client"></span></p>
-            
+            <p>Etes-vous sur de vouloir supprimer cette reservation ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <form id="deleteForm" action="" method="POST">
+              <?php echo csrf_field(); ?>
+              <?php echo method_field('DELETE'); ?>
+              <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
+
 
     <?php if($errors->any()): ?>
     <div class="alert alert-danger">
@@ -149,5 +172,13 @@
     // Affiche le modal
     $('#bienModal').modal('show');
   }
-</script>
-<?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/reservation/index.blade.php ENDPATH**/ ?>
+
+
+  function deleteReservation(id){
+    var url = "<?php echo e(route('reservation.destroy', ':id')); ?>";
+    url = url.replace(':id', id);
+    $('#deleteModal').modal('show');
+    document.querySelector('#deleteModal form').setAttribute('action', url);
+  }
+
+</script><?php /**PATH C:\Users\sakho\DSIBack_end\resources\views/admin/reservation/index.blade.php ENDPATH**/ ?>

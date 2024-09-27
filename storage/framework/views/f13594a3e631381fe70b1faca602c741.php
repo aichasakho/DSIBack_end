@@ -43,41 +43,21 @@
                     </div>
 
                     <div class="mb-3">
+                      <label for="nom" class="form-label">Nom</label>
+                      <input type="text" name="nom" class="form-control" id="nom"
+                             placeholder="">
+                    </div>
+
+                    <div class="mb-3">
                       <label for="date_reglement" class="form-label">Date règlement</label>
                       <input type="date" name="date_reglement" class="form-control" id="date_reglement"
                              placeholder="">
                     </div>
+                    
+                    <input type="hidden" value="<?php echo e($contrat->agent->id); ?>" name="agent_id">
 
                     
-
-                    <div class="mb-3">
-                      <label for="agent_id" class="form-label">Agent</label>
-                      <select class="form-select" name="agent_id" id="agent_id">
-                        <?php $__currentLoopData = $agents; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $agent): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                          <option value="<?php echo e($agent->id); ?>">
-                            <?php echo e($agent->nom); ?>
-
-                          </option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                      </select>
-                    </div>
-
-
-
-
-                    
-
-                    <div class="mb-3">
-                      <label for="contrat_id" class="form-label">Id Contrat</label>
-                      <select class="form-select" name="contrat_id" id="contrat_id">
-                        <?php $__currentLoopData = $contrat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                          <option value="<?php echo e($c->id); ?>">
-                            <?php echo e($c->contrat_id); ?>
-
-                          </option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                      </select>
-                    </div>
+                    <input type="hidden" value="<?php echo e($contrat->id); ?>" name="contrat_id">
 
 
 

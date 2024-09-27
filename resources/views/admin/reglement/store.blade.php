@@ -43,39 +43,21 @@
                     </div>
 
                     <div class="mb-3">
+                      <label for="nom" class="form-label">Nom</label>
+                      <input type="text" name="nom" class="form-control" id="nom"
+                             placeholder="">
+                    </div>
+
+                    <div class="mb-3">
                       <label for="date_reglement" class="form-label">Date règlement</label>
                       <input type="date" name="date_reglement" class="form-control" id="date_reglement"
                              placeholder="">
                     </div>
-
-                    {{-- agents --}}
-
-                    <div class="mb-3">
-                      <label for="agent_id" class="form-label">Agent</label>
-                      <select class="form-select" name="agent_id" id="agent_id">
-                        @foreach ($agents as $agent)
-                          <option value="{{ $agent->id }}">
-                            {{ $agent->nom }}
-                          </option>
-                        @endforeach
-                      </select>
-                    </div>
-
-
-
+                    {{-- Id contrat --}}
+                    <input type="hidden" value="{{$contrat->agent->id}}" name="agent_id">
 
                     {{-- Id contrat --}}
-
-                    <div class="mb-3">
-                      <label for="contrat_id" class="form-label">Id Contrat</label>
-                      <select class="form-select" name="contrat_id" id="contrat_id">
-                        @foreach ($contrat as $c)
-                          <option value="{{ $c->id }}">
-                            {{ $c->contrat_id }}
-                          </option>
-                        @endforeach
-                      </select>
-                    </div>
+                    <input type="hidden" value="{{$contrat->id}}" name="contrat_id">
 
 
 

@@ -50,6 +50,8 @@
                           <th> Modifier </th>
                           <th> Résilier </th>
                           <th> Imprimer </th>
+                          <th> Imprimer </th>
+
 
                         </tr>
                       </thead>
@@ -90,6 +92,13 @@
                                 <i class="mdi mdi-printer"></i>
                               </button>
                             </a>
+                          </td>
+                          <td>
+                          <a href="<?php echo e(route('reglement', $contrat)); ?>">
+                            <button class="btn btn-sm btn-inverse-success">
+                              <i class="mdi mdi-printer"></i>
+                            </button>
+                          </a>
                           </td>
 
 
