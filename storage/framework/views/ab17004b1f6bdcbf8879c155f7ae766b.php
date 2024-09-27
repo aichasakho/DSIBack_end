@@ -16,7 +16,7 @@
 
       
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?php echo e(route('annonce.index')); ?>">
           <i class="mdi mdi-view-headline menu-icon"></i>
           <span class="menu-title">Annonce</span>
         </a>
@@ -40,34 +40,34 @@
 
 
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?php echo e(route('reservation.index')); ?>">
           <i class="mdi mdi-calendar-check menu-icon"></i>
           <span class="menu-title">Reservation</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?php echo e(route('localite.index')); ?>">
           <i class="mdi mdi-map-marker menu-icon"></i>
           <span class="menu-title">Localite</span>
         </a>
       </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="<?php echo e(route('typebien.index')); ?>">
                 <i class="mdi mdi-cube menu-icon"></i>
                 <span class="menu-title">Type de Bien</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="<?php echo e(route('contrat.index')); ?>">
                 <i class="mdi mdi-file-check menu-icon"></i>
                 <span class="menu-title">Contrat</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="<?php echo e(route('reglement.index')); ?>">
                 <i class="mdi mdi-file-document menu-icon"></i>
                 <span class="menu-title">Reglement</span>
             </a>
@@ -82,12 +82,23 @@
         </button>
         <div class="collapse show" id="user-collapse">
             <ul class="btn-toggle-nav list-unstyled pb-1">
-            <li><a href="#" class="nav-link">Agents</a></li>
-            <li><a href="#" class="nav-link">Clients</a></li>
-            <li><a href="#" class="nav-link">Proprietaires</a></li>
+            <li><a href="<?php echo e(route('user.index')); ?>" class="nav-link">Agents</a></li>
+            <li><a href="<?php echo e(route('user.index')); ?>" class="nav-link">Clients</a></li>
+            <li><a href="<?php echo e(route('user.index')); ?>" class="nav-link">Proprietaires</a></li>
             </ul>
         </div>
         </li>
+
+
+        <li class="">
+          <button class="bg-light w-100" >
+          <a class="nav-link" href="<?php echo e(route('admin.login')); ?>">
+            <span class="text-dark fw-bold fs-5">Déconnexion</span>
+          </a>
+          </button>
+        </li>
+
+
 
     </ul>
   </nav>
