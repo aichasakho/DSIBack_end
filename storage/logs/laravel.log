@@ -8083,3 +8083,173 @@
 #69 C:\\Users\\sakho\\DSIBack_end\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\sakho\\\\...')
 #70 {main}
 "}
+[2024-09-26 23:47:40] local.INFO: array (
+  'nom' => 'Doe',
+  'prenom' => 'John',
+  'email' => 'john.doe@example.com',
+  'password' => 'password123',
+  'password_confirmation' => 'password123',
+  'tel' => '123456789',
+)  
+[2024-09-26 23:49:33] local.INFO: array (
+  'nom' => 'Doe',
+  'prenom' => 'John',
+  'email' => 'john.doe@example.com',
+  'password' => 'password123',
+  'password_confirmation' => 'password123',
+  'tel' => '123456759',
+)  
+[2024-09-26 23:49:56] local.INFO: array (
+  'nom' => 'Doe',
+  'prenom' => 'John',
+  'email' => 'john.doe@example.com',
+  'password' => 'password122',
+  'password_confirmation' => 'password122',
+  'tel' => '123456759',
+)  
+[2024-09-26 23:50:54] local.INFO: array (
+  'nom' => 'Doe',
+  'prenom' => 'John',
+  'email' => 'john.doe@example.com',
+  'password' => 'password122',
+  'password_confirmation' => 'password122',
+  'tel' => '123456759',
+)  
+[2024-09-26 23:51:46] local.INFO: array (
+  'nom' => 'Doe',
+  'prenom' => 'John',
+  'email' => 'john.doe@example.com',
+  'password' => 'password122',
+  'password_confirmation' => 'password122',
+  'tel' => '778727929',
+)  
+[2024-09-27 00:34:01] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohillb@gmail.com',
+  'tel' => '778727942',
+  'password' => 'Ib20081997',
+  'confirmed_password' => 'Ib20081997',
+  'adresse' => 'bhtwre',
+  'cni' => '12748478904',
+)  
+[2024-09-27 00:34:44] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohillb@gmail.com',
+  'tel' => '778727942',
+  'password' => 'Ib20081997',
+  'confirmed_password' => 'Ib20081997',
+  'adresse' => 'bhtwre',
+  'cni' => '12748478923',
+)  
+[2024-09-27 00:35:03] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohillb1@gmail.com',
+  'tel' => '778727943',
+  'password' => 'Ib20081997',
+  'confirmed_password' => 'Ib20081997',
+  'adresse' => 'bhtwre',
+  'cni' => '12748478923',
+)  
+[2024-09-27 00:55:26] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohillb1@gmail.com',
+  'tel' => '778727943',
+  'password' => 'Ib20081997',
+  'confirmed_password' => 'Ib20081997',
+  'adresse' => 'bhtwre',
+  'cni' => '12748478923',
+)  
+[2024-09-27 00:55:32] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohillb1@gmail.com',
+  'tel' => '778727943',
+  'password' => 'Ib20081997',
+  'confirmed_password' => 'Ib20081997',
+  'adresse' => 'bhtwre',
+  'cni' => '12748478923',
+)  
+[2024-09-27 00:59:54] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohillb12@gmail.com',
+  'tel' => '778727942',
+  'password' => '12345676',
+  'confirmed_password' => '12345676',
+  'adresse' => 'bhtw',
+  'cni' => '127484789045',
+)  
+[2024-09-27 01:14:06] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohillb@gmail.com',
+  'tel' => '778727942',
+  'password' => 'Passer123',
+  'confirmed_password' => 'Passer123',
+  'adresse' => 'bhtw',
+  'cni' => '6785463634364',
+)  
+[2024-09-27 01:14:18] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohillb12@gmail.com',
+  'tel' => '778727942',
+  'password' => 'Passer123',
+  'confirmed_password' => 'Passer123',
+  'adresse' => 'bhtw',
+  'cni' => '6785463634364',
+)  
+[2024-09-27 01:14:42] local.INFO: array (
+  'nom' => 'bocoume',
+  'prenom' => 'ibrahima',
+  'email' => 'ibrohillb12@gmail.com',
+  'tel' => '778727948',
+  'password' => 'Passer123',
+  'confirmed_password' => 'Passer123',
+  'adresse' => 'bhtwecw',
+  'cni' => '67854636764',
+)  
+[2024-09-27 01:48:55] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohillb01@gmail.com',
+  'tel' => '778727942',
+  'password' => '123456',
+  'confirmed_password' => '123456',
+  'adresse' => 'bhtw',
+  'cni' => '123456783456',
+)  
+[2024-09-27 01:49:18] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohill@gmail.com',
+  'tel' => '778727942',
+  'password' => '123456',
+  'confirmed_password' => '123456',
+  'adresse' => 'bhtw',
+  'cni' => '123456783456',
+)  
+[2024-09-27 01:49:28] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohill@gmail.com',
+  'tel' => '778727942',
+  'password' => '123456',
+  'confirmed_password' => '123456',
+  'adresse' => 'bhtw',
+  'cni' => '57754584675476',
+)  
+[2024-09-27 01:49:41] local.INFO: array (
+  'nom' => 'bocoum',
+  'prenom' => 'ibrahim',
+  'email' => 'ibrohill@gmail.com',
+  'tel' => '778727324',
+  'password' => '123456',
+  'confirmed_password' => '123456',
+  'adresse' => 'bhtwdych',
+  'cni' => '57754584675476',
+)  

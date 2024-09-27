@@ -68,12 +68,21 @@ class UserController extends Controller
 
   public function addClient(UserFormRequest $request)
   {
+      \Log::info($request->all()); 
+
+      $existingUser = User::where('tel', $request->tel)->first();
+      if ($existingUser) {
+          return response()->json([
+              'message' => 'existe deja donc y a conflit.'
+          ], 409); 
+      }
+
       try {
           $user = User::create([
               'nom' => $request->nom,
               'prenom' => $request->prenom,
               'email' => $request->email,
-              'password' => Hash::make($request->password), 
+              'password' => Hash::make($request->password),
               'tel' => $request->tel,
               'cni' => $request->cni,
               'adresse' => $request->adresse,
@@ -84,9 +93,11 @@ class UserController extends Controller
           return response()->json([
               'message' => 'Error occurred while creating client',
               'error' => $e->getMessage()
-          ], 500); 
+          ], 500);
       }
   }
+
+
   
   
 
