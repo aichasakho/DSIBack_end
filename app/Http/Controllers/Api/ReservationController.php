@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use App\Models\Reservation;
+use App\Http\Controllers\Controller;
 
 class ReservationController extends Controller
 {
@@ -45,9 +46,9 @@ class ReservationController extends Controller
     return response()->json($reservation, 201);
   }
 
-  public function getClientReservations($id) {
-    $reservations = Reservation::with('annonce.bienImmobilier')
-      ->where('client_id', $id);
+  public function getClientReservations(User $client) {
+    $reservations = Reservation::with('bien_immobilier')
+      ->where('client_id', $client->id);
     return response()->json($reservations, 200);
   }
 
