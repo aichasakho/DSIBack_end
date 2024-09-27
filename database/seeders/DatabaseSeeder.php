@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'nom' => 'Soukouna',
             'prenom' => 'Djibril',
-            'email' => 'deux@gmail.com',
+            'email' => 'aichasakho2205@gmail.com',
             'password' => bcrypt('first'),
             'role' => 'proprietaire',
             'ninea' => '123456709',
