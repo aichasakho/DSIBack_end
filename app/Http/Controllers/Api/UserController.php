@@ -78,29 +78,29 @@ class UserController extends Controller
 
   public function addClient(UserFormRequest $request)
   {
-      try {
-          $user = User::create([
-              'nom' => $request->nom,
-              'prenom' => $request->prenom,
-              'email' => $request->email,
-              'password' => Hash::make($request->password),
-              'tel' => $request->tel,
-              'cni' => $request->cni,
-              'adresse' => $request->adresse,
-              'role' => 'client',
-          ]);
-          return response()->json($user, 201);
-      } catch (\Exception $e) {
-          return response()->json([
-              'message' => 'Error occurred while creating client',
-              'error' => $e->getMessage()
-          ], 500);
-      }
+    try {
+      $user = User::create([
+        'nom' => $request->nom,
+        'prenom' => $request->prenom,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'tel' => $request->tel,
+        'cni' => $request->cni,
+        'adresse' => $request->adresse,
+        'role' => 'client',
+      ]);
+      return response()->json($user, 201);
+    } catch (\Exception $e) {
+      return response()->json([
+        'message' => 'Error occurred while creating client',
+        'error' => $e->getMessage()
+      ], 500);
+    }
   }
 
 
-  
-  
+
+
 
   // public function addProprietaire(UserFormRequest $request)
   // {
@@ -121,18 +121,21 @@ class UserController extends Controller
 
     $user = User::where('email', $request->email)->first();
 
+
     if (! $user || ! Hash::check($request->password, $user->password)) {
       throw ValidationException::withMessages([
         'email' => ['l\'email ou le mot de passe est incorrect'],
       ]);
     }
 
-    if ($user->status == 0) {
+    
+    if (!$user->statut) {
       throw ValidationException::withMessages([
         'email' => ['Votre compte est inactif. Si Vous venez de vous inscrire veuillez
         attendre votre compte est en cours d\'activation.'],
       ]);
     }
+      
     $token = $user->createToken('MyApp')->plainTextToken;
 
     return response()->json(['user' => $user, 'token' => $token], 200);
