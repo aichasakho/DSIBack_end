@@ -19,7 +19,7 @@ class UserController extends Controller
   }
 
 
-//client
+  //client
   public function addClient()
   {
     $users = User::where('role', 'client')->get();
@@ -34,7 +34,7 @@ class UserController extends Controller
   }
 
 
-//agent
+  //agent
   public function addAgent()
   {
     $users = User::where('role', 'admin')->get();
@@ -50,7 +50,7 @@ class UserController extends Controller
 
 
 
-//proprietaire
+  //proprietaire
   public function addProprietaire()
   {
     $users = User::with('bien_immobiliers')
@@ -76,12 +76,26 @@ class UserController extends Controller
   public function update(Request $request, User $user)
   {
     $user->update($request->all());
-    return redirect()->route('admin.user.index');
+    return redirect()->route('user.index');
   }
 
   public function destroy(User $user)
   {
     $user->delete();
-    return redirect()->route('admin.user.index');
+    return redirect()->route('user.index');
+  }
+
+  public function bloquer(User $user)
+  {
+    $user->statut = false;
+    $user->save();
+    return redirect()->route('user.index');
+  }
+
+  public function debloquer(User $user)
+  {
+    $user->statut = true;
+    $user->save();
+    return redirect()->route('user.index');
   }
 }
