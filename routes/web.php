@@ -106,6 +106,8 @@ Route::middleware(['auth.admin'])->group(function(){
 
 });
 
+
+
 Route::get('',[AdminController::class,'login'])->name('admin.login');
 Route::get('/register',[AdminController::class,'register'])->name('admin.register');
 Route::post('Authentification-admin/',[AdminController::class,'doLogin'])->name('doLogin.login');
@@ -137,3 +139,5 @@ Route::get('contrats/pdf', [ContratController::class, 'generatePDF'])->name('con
 
 //contrat-pdf
 Route::get('reglements/pdf', [ReglementController::class, 'generatePDF'])->name('reglement.pdf');
+
+Route::get('reglements/{contrat}/create', [ReglementController::class, 'reglement'])->name('reglement');

@@ -40,7 +40,7 @@
       <h3>Règlement N°: {{ $reglement->numero_reglement }}</h3>
       <p><strong>Nom Client:</strong> {{ $reglement->nom }}</p>
       <p><strong>Date de Règlement:</strong> {{ \Carbon\Carbon::parse($reglement->date_reglement)->format('d/m/Y') }}</p>
-      <p><strong>Montant:</strong> {{ number_format($reglement->montant, 2, ',', ' ') }} €</p>
+      <p><strong>Montant:</strong> {{ number_format($reglement->contrat->montant, 2, ',', ' ') }} F</p>
       <p><strong>Agent:</strong> {{ $reglement->agent->prenom }} {{ $reglement->agent->nom }}</p>
       <p><strong>ID Contrat:</strong> {{ $reglement->contrat_id }}</p>
     </div>
