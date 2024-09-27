@@ -2,29 +2,29 @@
 <html lang="en">
 
 
-@include("admin.pages.head")
+<?php echo $__env->make("admin.pages.head", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body>
   <div class="container-scroller d-flex">
-    @include("admin.pages.sidebar")
+    <?php echo $__env->make("admin.pages.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
-      @include('admin.pages.navbar')
+      <?php echo $__env->make('admin.pages.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
 
-          @if ($errors->any())
+          <?php if($errors->any()): ?>
           <div class="alert alert-danger">
             <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-              @endforeach
+              <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li><?php echo e($error); ?></li>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </div>
-          @endif
+          <?php endif; ?>
 
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
@@ -32,14 +32,14 @@
                 <div class="card-body">
                   <div class="d-flex flex-row gap-2">
                     <p class="card-description">
-                      <a href="{{ route('add.client') }}">
+                      <a href="<?php echo e(route('add.client')); ?>">
                         <button type="button" class="btn btn-info">
                           Ajouter un client
                         </button>
                       </a>
                     </p>
                     <p class="card-description">
-                      <a href="{{ route('add.proprietaire') }}">
+                      <a href="<?php echo e(route('add.proprietaire')); ?>">
                         <button type="button" class="btn btn-info">
                           Ajouter un proprietaire
                         </button>
@@ -47,7 +47,7 @@
                     </p>
 
                     <p class="card-description">
-                      <a href="{{ route('add.agent') }}">
+                      <a href="<?php echo e(route('add.agent')); ?>">
                         <button type="button" class="btn btn-info">
                           Ajouter un agent
                         </button>
@@ -99,36 +99,36 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($users as $user)
+                        <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
 
-                          <td> {{ $user->nom }}</td>
-                          <td> {{ $user->prenom }}</td>
-                          <td> {{ $user->email }}</td>
-                          <td> {{ $user->tel }} </td>
-                          <td> {{ $user->role}} </td>
-                          <td> {{ $user->statut ? 'debloquer' : 'bloquer'}} </td>
+                          <td> <?php echo e($user->nom); ?></td>
+                          <td> <?php echo e($user->prenom); ?></td>
+                          <td> <?php echo e($user->email); ?></td>
+                          <td> <?php echo e($user->tel); ?> </td>
+                          <td> <?php echo e($user->role); ?> </td>
+                          <td> <?php echo e($user->statut ? 'debloquer' : 'bloquer'); ?> </td>
 
                           <td>
-                            @if ($user->role== 'admin')
-                            <a href="{{ route('edit.agent', $user->id) }}">
+                            <?php if($user->role== 'admin'): ?>
+                            <a href="<?php echo e(route('edit.agent', $user->id)); ?>">
                               <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
-                            @elseif($user->role =='client')
-                            <a href="{{ route('edit.client', $user->id) }}">
+                            <?php elseif($user->role =='client'): ?>
+                            <a href="<?php echo e(route('edit.client', $user->id)); ?>">
                               <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
-                            @elseif ($user->role == 'proprietaire')
-                            <a href="{{ route('edit.proprietaire', $user->id) }}">
+                            <?php elseif($user->role == 'proprietaire'): ?>
+                            <a href="<?php echo e(route('edit.proprietaire', $user->id)); ?>">
                               <button class="btn btn-inverse-success">
                                 <i class="mdi mdi-pencil"></i>
                               </button>
                             </a>
-                            @endif
+                            <?php endif; ?>
                           </td>
                           <td>
                             <a href="">
@@ -138,7 +138,7 @@
                             </a>
                           </td>
                           <td>
-                            <a href="{{ route('user.bloquer', $user) }}">
+                            <a href="<?php echo e(route('user.bloquer', $user)); ?>">
                               <button class="btn btn-inverse-secondary">
                                 Bloquer
                               </button>
@@ -146,7 +146,7 @@
                           </td>
 
                           <td>
-                            <a href="{{ route('user.debloquer', $user) }}">
+                            <a href="<?php echo e(route('user.debloquer', $user)); ?>">
                               <button class="btn btn-inverse-warning">
                                 Débloquer
                               </button>
@@ -154,12 +154,12 @@
                           </td>
                         </tr>
 
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>
                     </table>
                   </div>
                 </div>
-                {{-- {{ $users->links() }}--}}
+                
               </div>
             </div>
 
@@ -189,7 +189,8 @@
 
     <!-- page-body-wrapper ends -->
   </div>
-  @include("admin.pages.js")
+  <?php echo $__env->make("admin.pages.js", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
+<?php /**PATH C:\Users\Claude\Desktop\Folders\Aicha_DSI\DSIBack_end\resources\views/user/index.blade.php ENDPATH**/ ?>

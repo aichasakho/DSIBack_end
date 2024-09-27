@@ -35,6 +35,9 @@ Route::middleware(['auth.admin'])->group(function(){
     Route::resource('appartement', AppartementController::class);
     Route::resource('parcelle', ParcelleController::class);
     Route::resource('user',UserController::class);
+
+    Route::get('user/{user}/bloquer', [UserController::class, 'bloquer'])->name('user.bloquer');
+    Route::get('user/{user}/debloquer', [UserController::class, 'debloquer'])->name('user.debloquer');
 //Agent
   Route::get('admin-add-agent/',[UserController::class,'addAgent'])
     ->name('add.agent');
