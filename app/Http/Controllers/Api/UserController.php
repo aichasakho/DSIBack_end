@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use App\Models\Contrat;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -128,14 +129,14 @@ class UserController extends Controller
       ]);
     }
 
-    
+
     if (!$user->statut) {
       throw ValidationException::withMessages([
         'email' => ['Votre compte est inactif. Si Vous venez de vous inscrire veuillez
         attendre votre compte est en cours d\'activation.'],
       ]);
     }
-      
+
     $token = $user->createToken('MyApp')->plainTextToken;
 
     return response()->json(['user' => $user, 'token' => $token], 200);
